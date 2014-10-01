@@ -1,0 +1,664 @@
+@preamble{ "\newcommand{\noopsort}[1]{} "
+	# "\newcommand{\printfirst}[2]{#1} "
+	# "\newcommand{\singleletter}[1]{#1} "
+	# "\newcommand{\switchargs}[2]{#2#1} " }
+
+@ARTICLE{article-minimal,
+   author = {L[eslie] A. Aamport},
+   title = {The Gnats and Gnus Document Preparation System},
+   journal = {\mbox{G-Animal's} Journal},
+   year = 1986,
+}
+
+@ARTICLE{article-full,
+   author = {L[eslie] A. Aamport},
+   title = {The Gnats and Gnus Document Preparation System},
+   journal = {\mbox{G-Animal's} Journal},
+   year = 1986,
+   volume = 41,
+   number = 7,
+   pages = "73+",
+   month = jul,
+   note = "This is a full ARTICLE entry",
+}
+
+The KEY field is here to override the KEY field in the journal being
+cross referenced (so is the NOTE field, in addition to its imparting
+information).
+
+@ARTICLE{article-crossref,
+   crossref = {WHOLE-JOURNAL},
+   key = "",
+   author = {L[eslie] A. Aamport},
+   title = {The Gnats and Gnus Document Preparation System},
+   pages = "73+",
+   note = "This is a cross-referencing ARTICLE entry",
+}
+
+@ARTICLE{whole-journal,
+   key = "GAJ",
+   journal = {\mbox{G-Animal's} Journal},
+   year = 1986,
+   volume = 41,
+   number = 7,
+   month = jul,
+   note = {The entire issue is devoted to gnats and gnus
+		(this entry is a cross-referenced ARTICLE (journal))},
+}
+
+@INBOOK{inbook-minimal,
+   author = "Donald E. Knuth",
+   title = "Fundamental Algorithms",
+   publisher = "Addison-Wesley",
+   year = "{\noopsort{1973b}}1973",
+   chapter = "1.2",
+}
+
+@INBOOK{inbook-full,
+   author = "Donald E. Knuth",
+   title = "Fundamental Algorithms",
+   volume = 1,
+   series = "The Art of Computer Programming",
+   publisher = "Addison-Wesley",
+   address = "Reading, Massachusetts",
+   edition = "Second",
+   month = "10~" # jan,
+   year = "{\noopsort{1973b}}1973",
+   type = "Section",
+   chapter = "1.2",
+   pages = "10--119",
+   note = "This is a full INBOOK entry",
+}
+
+@INBOOK{inbook-crossref,
+   crossref = "whole-set",
+   title = "Fundamental Algorithms",
+   volume = 1,
+   series = "The Art of Computer Programming",
+   edition = "Second",
+   year = "{\noopsort{1973b}}1973",
+   type = "Section",
+   chapter = "1.2",
+   note = "This is a cross-referencing INBOOK entry",
+}
+
+@BOOK{book-minimal,
+   author = "Donald E. Knuth",
+   title = "Seminumerical Algorithms",
+   publisher = "Addison-Wesley",
+   year = "{\noopsort{1973c}}1981",
+}
+
+@BOOK{book-full,
+   author = "Donald E. Knuth",
+   title = "Seminumerical Algorithms",
+   volume = 2,
+   series = "The Art of Computer Programming",
+   publisher = "Addison-Wesley",
+   address = "Reading, Massachusetts",
+   edition = "Second",
+   month = "10~" # jan,
+   year = "{\noopsort{1973c}}1981",
+   note = "This is a full BOOK entry",
+}
+
+@BOOK{book-crossref,
+   crossref = "whole-set",
+   title = "Seminumerical Algorithms",
+   volume = 2,
+   series = "The Art of Computer Programming",
+   edition = "Second",
+   year = "{\noopsort{1973c}}1981",
+   note = "This is a cross-referencing BOOK entry",
+}
+
+@BOOK{whole-set,
+   author = "Donald E. Knuth",
+   publisher = "Addison-Wesley",
+   title = "The Art of Computer Programming",
+   series = "Four volumes",
+   year = "{\noopsort{1973a}}{\switchargs{--90}{1968}}",
+   note = "Seven volumes planned (this is a cross-referenced set of BOOKs)",
+}
+
+@BOOKLET{booklet-minimal,
+   key = "Kn{\printfirst{v}{1987}}",
+   title = "The Programming of Computer Art",
+}
+
+@BOOKLET{booklet-full,
+   author = "Jill C. Knvth",
+   title = "The Programming of Computer Art",
+   howpublished = "Vernier Art Center",
+   address = "Stanford, California",
+   month = feb,
+   year = 1988,
+   note = "This is a full BOOKLET entry",
+}
+
+@INCOLLECTION{incollection-minimal,
+   author = "Daniel D. Lincoll",
+   title = "Semigroups of Recurrences",
+   booktitle = "High Speed Computer and Algorithm Organization",
+   publisher = "Academic Press",
+   year = 1977,
+}
+
+@INCOLLECTION{incollection-full,
+   author = "Daniel D. Lincoll",
+   title = "Semigroups of Recurrences",
+   editor = "David J. Lipcoll and D. H. Lawrie and A. H. Sameh",
+   booktitle = "High Speed Computer and Algorithm Organization",
+   number = 23,
+   series = "Fast Computers",
+   chapter = 3,
+   type = "Part",
+   pages = "179--183",
+   publisher = "Academic Press",
+   address = "New York",
+   edition = "Third",
+   month = sep,
+   year = 1977,
+   note = "This is a full INCOLLECTION entry",
+}
+
+@INCOLLECTION{incollection-crossref,
+   crossref = "whole-collection",
+   author = "Daniel D. Lincoll",
+   title = "Semigroups of Recurrences",
+   pages = "179--183",
+   note = "This is a cross-referencing INCOLLECTION entry",
+}
+
+@BOOK{whole-collection,
+   editor = "David J. Lipcoll and D. H. Lawrie and A. H. Sameh",
+   title = "High Speed Computer and Algorithm Organization",
+   booktitle = "High Speed Computer and Algorithm Organization",
+   number = 23,
+   series = "Fast Computers",
+   publisher = "Academic Press",
+   address = "New York",
+   edition = "Third",
+   month = sep,
+   year = 1977,
+   note = "This is a cross-referenced BOOK (collection) entry",
+}
+
+@MANUAL{manual-minimal,
+   key = "Manmaker",
+   title = "The Definitive Computer Manual",
+}
+
+@MANUAL{manual-full,
+   author = "Larry Manmaker",
+   title = "The Definitive Computer Manual",
+   organization = "Chips-R-Us",
+   address = "Silicon Valley",
+   edition = "Silver",
+   month = apr # "-" # may,
+   year = 1986,
+   note = "This is a full MANUAL entry",
+}
+
+@MASTERSTHESIS{mastersthesis-minimal,
+   author = "{\'{E}}douard Masterly",
+   title = "Mastering Thesis Writing",
+   school = "Stanford University",
+   year = 1988,
+}
+
+@MASTERSTHESIS{mastersthesis-full,
+   author = "{\'{E}}douard Masterly",
+   title = "Mastering Thesis Writing",
+   school = "Stanford University",
+   type = "Master's project",
+   address = "English Department",
+   month = jun # "-" # aug,
+   year = 1988,
+   note = "This is a full MASTERSTHESIS entry",
+}
+
+@MISC{misc-minimal,
+   key = "Missilany",
+   note = "This is a minimal MISC entry",
+}
+
+@MISC{misc-full,
+   author = "Joe-Bob Missilany",
+   title = "Handing out random pamphlets in airports",
+   howpublished = "Handed out at O'Hare",
+   month = oct,
+   year = 1984,
+   note = "This is a full MISC entry",
+}
+
+@STRING{STOC-key = "OX{\singleletter{stoc}}"}
+
+@STRING{ACM = "The OX Association for Computing Machinery"}
+
+@STRING{STOC = " Symposium on the Theory of Computing"}
+
+@INPROCEEDINGS{inproceedings-minimal,
+   author = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+   title = "On Notions of Information Transfer in {VLSI} Circuits",
+   booktitle = "Proc. Fifteenth Annual ACM" # STOC,
+   year = 1983,
+}
+
+@INPROCEEDINGS{inproceedings-full,
+   author = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+   title = "On Notions of Information Transfer in {VLSI} Circuits",
+   editor = "Wizard V. Oz and Mihalis Yannakakis",
+   booktitle = "Proc. Fifteenth Annual ACM" # STOC,
+   number = 17,
+   series = "All ACM Conferences",
+   pages = "133--139",
+   month = mar,
+   year = 1983,
+   address = "Boston",
+   organization = ACM,
+   publisher = "Academic Press",
+   note = "This is a full INPROCEDINGS entry",
+}
+
+@INPROCEEDINGS{inproceedings-crossref,
+   crossref = "whole-proceedings",
+   author = "Alfred V. Oaho and Jeffrey D. Ullman and Mihalis Yannakakis",
+   title = "On Notions of Information Transfer in {VLSI} Circuits",
+   organization = "",
+   pages = "133--139",
+   note = "This is a cross-referencing INPROCEEDINGS entry",
+}
+
+@PROCEEDINGS{proceedings-minimal,
+   key = STOC-key,
+   title = "Proc. Fifteenth Annual" # STOC,
+   year = 1983,
+}
+
+@PROCEEDINGS{proceedings-full,
+   editor = "Wizard V. Oz and Mihalis Yannakakis",
+   title = "Proc. Fifteenth Annual" # STOC,
+   number = 17,
+   series = "All ACM Conferences",
+   month = mar,
+   year = 1983,
+   address = "Boston",
+   organization = ACM,
+   publisher = "Academic Press",
+   note = "This is a full PROCEEDINGS entry",
+}
+
+@PROCEEDINGS{whole-proceedings,
+   key = STOC-key,
+   organization = ACM,
+   title = "Proc. Fifteenth Annual" # STOC,
+   address = "Boston",
+   year = 1983,
+   booktitle = "Proc. Fifteenth Annual ACM" # STOC,
+   note = "This is a cross-referenced PROCEEDINGS",
+}
+
+@PHDTHESIS{phdthesis-minimal,
+   author = "F. Phidias Phony-Baloney",
+   title = "Fighting Fire with Fire: Festooning {F}rench Phrases",
+   school = "Fanstord University",
+   year = 1988,
+}
+
+@PHDTHESIS{phdthesis-full,
+   author = "F. Phidias Phony-Baloney",
+   title = "Fighting Fire with Fire: Festooning {F}rench Phrases",
+   school = "Fanstord University",
+   type = "{PhD} Dissertation",
+   address = "Department of French",
+   month = jun # "-" # aug,
+   year = 1988,
+   note = "This is a full PHDTHESIS entry",
+}
+
+@TECHREPORT{techreport-minimal,
+   author = "Tom Terrific",
+   title = "An {$O(n \log n / \! \log\log n)$} Sorting Algorithm",
+   institution = "Fanstord University",
+   year = 1988,
+}
+
+@TECHREPORT{techreport-full,
+   author = "Tom T{\'{e}}rrific",
+   title = "An {$O(n \log n / \! \log\log n)$} Sorting Algorithm",
+   institution = "Fanstord University",
+   type = "Wishful Research Result",
+   number = "7",
+   address = "Computer Science Department, Fanstord, California",
+   month = oct,
+   year = 1988,
+   note = "This is a full TECHREPORT entry",
+}
+
+@UNPUBLISHED{unpublished-minimal,
+   author = "Ulrich {\"{U}}nderwood and Ned {\~N}et and Paul {\={P}}ot",
+   title = "Lower Bounds for Wishful Research Results",
+   note = "Talk at Fanstord University (this is a minimal UNPUBLISHED entry)",
+}
+
+@UNPUBLISHED{unpublished-full,
+   author = "Ulrich {\"{U}}nderwood and Ned {\~N}et and Paul {\={P}}ot",
+   title = "Lower Bounds for Wishful Research Results",
+   month = nov # ", " # dec,
+   year = 1988,
+   note = "Talk at Fanstord University (this is a full UNPUBLISHED entry)",
+}
+
+@MISC{random-note-crossref,
+   key = {Volume-2},
+   note = "Volume~2 is listed under Knuth \cite{book-full}"
+}
+
+@book{epipolar_geometry,
+  title={Epipolar geometry in stereo, motion and object recognition: a unified approach},
+  author={Xu, Gang and Zhang, Zhengyou},
+  volume={6},
+  year={1996},
+  publisher={Springer}
+}
+
+@article{stereo_tof_fusion_proba,
+  title={A probabilistic approach to tof and stereo data fusion},
+  author={Dal Mutto, Carlo and Zanuttigh, Pietro and Cortelazzo, Guido M},
+  journal={3DPVT, Paris, France},
+  volume={2},
+  year={2010}
+}
+
+@inproceedings{stereo_tof_fusion_accuracy,
+  title={Fusion of time-of-flight depth and stereo for high accuracy depth maps},
+  author={Zhu, Jiejie and Wang, Liang and Yang, Ruigang and Davis, James},
+  booktitle={Computer Vision and Pattern Recognition, 2008. CVPR 2008. IEEE Conference on},
+  pages={1--8},
+  year={2008},
+  organization={IEEE}
+}
+
+@incollection{stereo_algorithm_vertigo,
+  title={Efficient large-scale stereo matching},
+  author={Geiger, Andreas and Roser, Martin and Urtasun, Raquel},
+  booktitle={Computer Vision--ACCV 2010},
+  pages={25--38},
+  year={2011},
+  publisher={Springer}
+}
+
+@article{stereo_tof_fusion,
+  title={Fusion of stereo vision and time-of-flight imaging for improved 3d estimation},
+  author={Gudmundsson, Sigurjon Arni and Aanaes, Henrik and Larsen, Rasmus},
+  journal={International Journal of Intelligent Systems Technologies and Applications},
+  volume={5},
+  number={3},
+  pages={425--433},
+  year={2008},
+  publisher={Inderscience}
+}
+
+@article{tof_calibration,
+  title={Time-of-flight sensor calibration for accurate range sensing},
+  author={Lindner, Marvin and Schiller, Ingo and Kolb, Andreas and Koch, Reinhard},
+  journal={Computer Vision and Image Understanding},
+  volume={114},
+  number={12},
+  pages={1318--1328},
+  year={2010},
+  publisher={Elsevier}
+}
+
+@article{tof_calibration_1,
+  title={Calibration of a PMD-camera using a planar calibration pattern together with a multi-camera setup},
+  author={Schiller, Ingo and Beder, Christian and Koch, Reinhard},
+  journal={The international archives of the photogrammetry, remote sensing and spatial information sciences},
+  volume={37},
+  pages={297--302},
+  year={2008}
+}
+
+@inproceedings{tof_calibration_2,
+  title={Calibration of the intensity-related distance error of the PMD ToF-camera},
+  author={Lindner, Marvin and Kolb, Andreas},
+  booktitle={Optics East 2007},
+  pages={67640W--67640W},
+  year={2007},
+  organization={International Society for Optics and Photonics}
+}
+
+@article{stereo_methods_comparaison,
+  title={A taxonomy and evaluation of dense two-frame stereo correspondence algorithms},
+  author={Scharstein, Daniel and Szeliski, Richard},
+  journal={International journal of computer vision},
+  volume={47},
+  number={1-3},
+  pages={7--42},
+  year={2002},
+  publisher={Springer}
+}
+
+@article{camera_calibration,
+    author = {Brown, D. C.},
+    citeulike-article-id = {8907126},
+    journal = {Photometric Engineering},
+    number = {3},
+    pages = {444--462},
+    posted-at = {2011-03-01 16:39:19},
+    priority = {2},
+    title = {{Decentering Distortion of Lenses}},
+    volume = {32},
+    year = {1966}
+}
+
+@book{opencv,
+  title={Learning OpenCV: Computer vision with the OpenCV library},
+  author={Bradski, Gary and Kaehler, Adrian},
+  year={2008},
+  publisher={" O'Reilly Media, Inc."}
+}
+
+@article{vertigo_phd,
+  title={Computer vision-based localization and mapping of an unknown, uncooperative and spinning target for spacecraft proximity operations},
+  author={Tweddle, Brent Edward},
+  journal={PhD, Massachusetts Institute of Technology, Cambridge, MA},
+  year={2013}
+}
+
+@article{instrisic_calib,
+  title={A flexible new technique for camera calibration},
+  author={Zhang, Zhengyou},
+  journal={Pattern Analysis and Machine Intelligence, IEEE Transactions on},
+  volume={22},
+  number={11},
+  pages={1330--1334},
+  year={2000},
+  publisher={IEEE}
+}
+
+@inproceedings{intrisic_calib_1,
+  title={A four-step camera calibration procedure with implicit image correction},
+  author={Heikkila, Janne and Silv{\'e}n, Olli},
+  booktitle={Computer Vision and Pattern Recognition, 1997. Proceedings., 1997 IEEE Computer Society Conference on},
+  pages={1106--1112},
+  year={1997},
+  organization={IEEE}
+}
+
+@article{muggler_phd,
+  title={Visual Mapping of Unknown Space Targets for Relative Navigation and Inspection},
+  author={Elias Müggler},
+  journal={Master Thesis, Mechanical Engineering, ETH Zurich, Switzerland},
+  year={2012}
+}
+
+@article{intrinsic_calib,
+  title={A flexible new technique for camera calibration},
+  author={Zhang, Zhengyou},
+  journal={Pattern Analysis and Machine Intelligence, IEEE Transactions on},
+  volume={22},
+  number={11},
+  pages={1330--1334},
+  year={2000},
+  publisher={IEEE}
+}
+
+@inproceedings{intrinsic_calib_1,
+  title={A four-step camera calibration procedure with implicit image correction},
+  author={Heikkila, Janne and Silv{\'e}n, Olli},
+  booktitle={Computer Vision and Pattern Recognition, 1997. Proceedings., 1997 IEEE Computer Society Conference on},
+  pages={1106--1112},
+  year={1997},
+  organization={IEEE}
+}
+
+@inproceedings{stereo_tof_fusion_realtime,
+  title={Fusion of stereo-camera and pmd-camera data for real-time suited precise 3d environment reconstruction},
+  author={Kuhnert, Klaus-Dieter and Stommel, Martin},
+  booktitle={Intelligent Robots and Systems, 2006 IEEE/RSJ International Conference on},
+  pages={4780--4785},
+  year={2006},
+  organization={IEEE}
+}
+
+@incollection{stereo_tof_fusion_patchlet,
+  title={A combined approach for estimating patchlets from PMD depth images and stereo intensity images},
+  author={Beder, Christian and Bartczak, Bogumil and Koch, Reinhard},
+  booktitle={Pattern Recognition},
+  pages={11--20},
+  year={2007},
+  publisher={Springer}
+}
+
+@article{stereo_algorithm_KUL,
+  title={A hierarchical symmetric stereo algorithm using dynamic programming},
+  author={Van Meerbergen, Geert and Vergauwen, Maarten and Pollefeys, Marc and Van Gool, Luc},
+  journal={International Journal of Computer Vision},
+  volume={47},
+  number={1-3},
+  pages={275--285},
+  year={2002},
+  publisher={Springer}
+}
+
+@inproceedings{stereo_tof_fusion_3D_reconstruction,
+  title={Multi-view image and tof sensor fusion for dense 3d reconstruction},
+  author={Kim, Young Min and Theobalt, Christian and Diebel, James and Kosecka, Jana and Miscusik, Branislav and Thrun, Sebastian},
+  booktitle={Computer Vision Workshops (ICCV Workshops), 2009 IEEE 12th International Conference on},
+  pages={1542--1549},
+  year={2009},
+  organization={IEEE}
+}
+
+@inproceedings{stereo_fast_comparaison,
+  title={A comparative study of fast dense stereo vision algorithms},
+  author={Sunyoto, Harris and Van der Mark, Wannes and Gavrila, Dariu M},
+  booktitle={Intelligent Vehicles Symposium, 2004 IEEE},
+  pages={319--324},
+  year={2004},
+  organization={IEEE}
+}
+
+@article{stereo_algorithm_fast,
+  title={Fast stereo matching using rectangular subregioning and 3D maximum-surface techniques},
+  author={Sun, Changming},
+  journal={International Journal of Computer Vision},
+  volume={47},
+  number={1-3},
+  pages={99--117},
+  year={2002},
+  publisher={Springer}
+}
+
+@inproceedings{realtime_ICP_2,
+  title={Real-time visual odometry from dense RGB-D images},
+  author={Steinbrucker, F and Sturm, J{\"u}rgen and Cremers, Daniel},
+  booktitle={Computer Vision Workshops (ICCV Workshops), 2011 IEEE International Conference on},
+  pages={719--722},
+  year={2011},
+  organization={IEEE}
+}
+
+@article{ICP,
+  title={Point Cloud Library},
+  author={Aldoma, Aitor and Marton, Zoltan-Csaba and Tombari, Federico and Wohlkinger, Walter and Potthast, Christian and Zeisl, Bernhard and Rusu, Radu Bogdan and Gedikli, Suat and Vincze, Markus},
+  journal={IEEE Robotics \& Automation Magazine},
+  volume={1070},
+  number={9932/12},
+  year={2012}
+}
+
+@inproceedings{realtime_ICP,
+  title={Realtime visual and point cloud slam},
+  author={Fioraio, Nicola and Konolige, Kurt},
+  booktitle={Proc. of the RGB-D workshop on advanced reasoning with depth cameras at robotics: Science and Systems Conf.(RSS)},
+  volume={27},
+  year={2011}
+}
+
+@article{slam_6d_rgbd,
+  title={Graph-based 6D SLAM for RGB-D Sensors and Hybrid Vision and Depth Camera Localization},
+  author={Diogo Rolo},
+  journal={Instituto Superior Tecnico, TULisbon, Portugal},
+  year={2013}
+}
+
+@inproceedings{stero_fast_comparaison,
+  title={A comparative study of fast dense stereo vision algorithms},
+  author={Sunyoto, Harris and Van der Mark, Wannes and Gavrila, Dariu M},
+  booktitle={Intelligent Vehicles Symposium, 2004 IEEE},
+  pages={319--324},
+  year={2004},
+  organization={IEEE}
+}
+
+@article{camera_distortion,
+  title={Decentering Distortion of Lenses},
+  author={D. C. Brown},
+  journal={XXXII(3):444-462},
+  year={1966}
+}
+
+@book{stereo_model,
+  title={Manuel de photogrammetrie: principes et procedes fondamentaux},
+  author={Kraus, K. and Waldhausl, P.},
+  year={1998},
+  publisher={Hermes}
+}
+
+@book{multiple_view,
+  title={Multiple view geometry in computer vision},
+  author={Hartley, Richard and Zisserman, Andrew},
+  year={2003},
+  publisher={Cambridge university press}
+}
+
+@article{triangulation,
+  title={Triangulation},
+  author={Hartley, Richard I and Sturm, Peter},
+  journal={Computer vision and image understanding},
+  volume={68},
+  number={2},
+  pages={146--157},
+  year={1997},
+  publisher={Elsevier}
+}
+
+@inproceedings{TOF_principle,
+  title={A time-of-flight depth sensor-system description, issues and solutions},
+  author={Gokturk, S Burak and Yalcin, Hakan and Bamji, Cyrus},
+  booktitle={Computer Vision and Pattern Recognition Workshop, 2004. CVPRW'04. Conference on},
+  pages={35--35},
+  year={2004},
+  organization={IEEE}
+}
+
+@MANUAL{SR4k_manual,
+   title = "SR4000 Data Sheet",
+   organization = "MESA Imaging",
+   month = August,
+   year = 2011,
+   note = "Rev. 5.1",
+}

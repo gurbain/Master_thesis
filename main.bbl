@@ -1,0 +1,38 @@
+\newcommand{\noopsort}[1]{} \newcommand{\printfirst}[2]{#1}
+  \newcommand{\singleletter}[1]{#1} \newcommand{\switchargs}[2]{#2#1}
+\begin{thebibliography}{1}
+
+\bibitem{camera_distortion}
+D.~C. Brown.
+\newblock Decentering distortion of lenses.
+\newblock {\em XXXII(3):444-462}, 1966.
+
+\bibitem{stereo_tof_fusion_proba}
+Carlo Dal~Mutto, Pietro Zanuttigh, and Guido~M Cortelazzo.
+\newblock A probabilistic approach to tof and stereo data fusion.
+\newblock {\em 3DPVT, Paris, France}, 2, 2010.
+
+\bibitem{multiple_view}
+Richard Hartley and Andrew Zisserman.
+\newblock {\em Multiple view geometry in computer vision}.
+\newblock Cambridge university press, 2003.
+
+\bibitem{triangulation}
+Richard~I Hartley and Peter Sturm.
+\newblock Triangulation.
+\newblock {\em Computer vision and image understanding}, 68(2):146--157, 1997.
+
+\bibitem{muggler_phd}
+Elias Müggler.
+\newblock Visual mapping of unknown space targets for relative navigation and
+  inspection.
+\newblock {\em Master Thesis, Mechanical Engineering, ETH Zurich, Switzerland},
+  2012.
+
+\bibitem{epipolar_geometry}
+Gang Xu and Zhengyou Zhang.
+\newblock {\em Epipolar geometry in stereo, motion and object recognition: a
+  unified approach}, volume~6.
+\newblock Springer, 1996.
+
+\end{thebibliography}
