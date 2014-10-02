@@ -11,44 +11,58 @@ A level-1 auxiliary file: chap5.aux
 A level-1 auxiliary file: biblio.aux
 The style file: plain.bst
 Database file #1: main.bib
-You've used 6 entries,
+Warning--string name "august" is undefined
+--line 661 of file main.bib
+I was expecting a `,' or a `}'---line 670 of file main.bib
+ :   
+ :   year={2012},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Too many commas in name 1 of "Miles Hansard, Seungkyu Lee, Ouk Choi, Radu Horaud" for entry TOF
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Miles Hansard, Seungkyu Lee, Ouk Choi, Radu Horaud" for entry TOF
+while executing---line 1090 of file plain.bst
+Warning--empty publisher in TOF
+Warning--there's a month but no year in TOF
+You've used 23 entries,
             2118 wiz_defined-function locations,
-            545 strings with 5094 characters,
-and the built_in function-call counts, 1553 in all, are:
-= -- 146
-> -- 71
-< -- 1
-+ -- 29
-- -- 22
-* -- 89
-:= -- 283
-add.period$ -- 18
-call.type$ -- 6
-change.case$ -- 27
+            651 strings with 8577 characters,
+and the built_in function-call counts, 8119 in all, are:
+= -- 834
+> -- 326
+< -- 8
++ -- 135
+- -- 106
+* -- 519
+:= -- 1289
+add.period$ -- 76
+call.type$ -- 23
+change.case$ -- 118
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 65
-empty$ -- 123
-format.name$ -- 22
-if$ -- 313
+cite$ -- 25
+duplicate$ -- 339
+empty$ -- 659
+format.name$ -- 106
+if$ -- 1756
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 8
-newline$ -- 34
-num.names$ -- 12
-pop$ -- 32
+int.to.str$ -- 23
+missing$ -- 26
+newline$ -- 119
+num.names$ -- 44
+pop$ -- 143
 preamble$ -- 2
-purify$ -- 23
+purify$ -- 100
 quote$ -- 0
-skip$ -- 44
+skip$ -- 244
 stack$ -- 0
-substring$ -- 56
-swap$ -- 7
-text.length$ -- 1
+substring$ -- 549
+swap$ -- 97
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
-warning$ -- 0
-while$ -- 14
-width$ -- 7
-write$ -- 66
+type$ -- 84
+warning$ -- 2
+while$ -- 79
+width$ -- 25
+write$ -- 255
+(There were 3 error messages)
