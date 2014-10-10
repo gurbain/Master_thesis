@@ -13,12 +13,144 @@
 
 \chapter{Introduction}
 
+This document is the result of five months internship at the Massachusetts Institute of Technology Space System Laboratory (MIT SSL) as part of the final project of a double Master degree in Aerospace Engineering, Space Systems and Telecommunications major, at Institut Sup\'erieur de l'A\'eronautique et de l'Espace (ISAE), formation SUPAERO and Electrical Engineering, Telecommunications and Multimedia major at Facult\'e Polytechnique of the University of Mons (UMONS). The first chapter introduces the goal and the context of the project to give the reader a global overview of the state-of-art, the SSL experience and facilities as well as the new equipment this project focuses on. The second chapter is dedicated to the theoretical aspect and aims at summarizing the required mathematical background and development describing fully and unambiguously every processes. A third chapter analyzes concretely the implementation of the same mechanism from a programmer point of view. Finally, the results of two different experiments set will be detailed in the fourth chapter before to conclude and bring up future perspectives.
+
 \section{Context}
+In many areas of robotics, vision is becoming more and more common in applications such as localization, automatic map construction, autonomous navigation, path following, inspection, monitoring or risky situation detection \cite{visual_navigation}. However, the characteristics of the relatively cheap sensors currently on the market in the fields of robotics or unmanned vehicles makes computer vision a challenging domain for in-space navigation. With the increasing performances of embedded computers and the development of faster algorithms in the last few years, multi-sensors data fusion is considered as an opportunity to take better advantage of different sensors characteristics and stretch the limits. This project aims at implementing a multi-sensor data fusion algorithm on the in-space SPHERES testbed, as part of the INSPECT project. In this perspective, the two stereoscopic cameras of VERTIGO and a new Time-of-Flight (TOF) camera, also called Optical Range Finder (ORF), have been fixed to the HALO hardware of the SPHERES satellites. In the future, a thermographic camera will be added to the assembly to increase the data diversity and lead to better results in very dark environments such as spacecrafts in the shadow.
+
 \subsection{SPHERES}
+SPHERES is a facility for demonstrating advanced satellite formation flight, docking, and autonomy algorithms aboard the International Space Station (ISS). Began in 1999, SPHERES was one of the first educational programs that launched student-designed hardware to the ISS in 2006. On the ISS, there are three SPHERES nano-satellites with fully functional propulsion, guidance, communications, and power systems. These enable the satellites to maneuver, communicate with each other and a laptop control station, and identify their relative positions.
+\begin{figure}[!htt]
+	\begin{center}
+		\includegraphics[width=8cm]{img/spheres.png}
+		\caption{One of the three SPHERES nano-satellite and a brief description of its interfaces}
+		\label{fig:spheres}
+	\end{center}
+\end{figure}
+
+
+\subsection{VERTIGO}
+VERTIGO is an extension of the SPHERES satellite for the development of computer vision navigation and mapping algorithms. Launched to station in 2012, the VERTIGO Goggles add to the SPHERES satellites a set of stereoscopic cameras and a 1.2 GHz Linux computer that sense the depth of different features on the target object in much the same way as human eyes. Software algorithms running on the compact single-board computer are able to create a detailed three-dimensional map of the unknown, uncooperative and possibly spinning target and estimate its dynamics. The inspector satellite can use this knowledge to plan trajectories around the target achieving autonomous vision-based relative spacecraft navigation.
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{7cm}
+  \centering
+  \includegraphics[width=7cm]{img/vertigo3.jpg}
+\end{subfigure}%
+\begin{subfigure}{7cm}
+  \centering
+  \includegraphics[width=7cm]{img/vertigo2.jpg}
+\end{subfigure}
+\caption{On the left, the VERTIGO stack and goggles with a few explanations. On the right, a test session in the ISS with two SPHERES equipped with the VERTIGO hardware}
+\label{fig:vertigo}
+\end{center}
+\end{figure}
+
 \subsection{HALO}
+Halo is a ring-shaped structure that is fastened around a SPHERES satellite and electrically connected to the VERTIGO computer. The structure is made out of several pieces of 3D-printed plastic and provides 22W of electrical power, 2 USB ports and one 1 Gb/s data connection to each one of the 6 expansion ports on the outer face of the ring. Using a standardized interface and connector, a wide variety of robotic peripherals can be connected to the satellite, increasing the capability and flexibility of SPHERES, and allowing for a wider range of experiments to be conducted. An ORF, a thermocamera and Control Moment Gyros have been tested as part of the INSPECT program to augment the capabilities of an inspector satellite.
+\begin{figure}[!htt]
+	\begin{center}
+		\includegraphics[width=7cm]{img/halo.png}
+		\caption{The HALO hardware plugged around a SPHERES nano-satellite}
+		\label{fig:hal}
+	\end{center}
+\end{figure}
+
+\newpage
+
 \subsection{INSPECT}
+The NASA Human Exploration and Operations Mission Directorate (HEOMD) is invested in researching technologies that could reduce risks associated with astronaut spacewalks. One of these technologies envisioned by the directorate is an autonomous system capable of inspecting the exterior of space hardware, a common reason for sending an astronaut outside of the International Space Station (ISS). The INSPECT system, an Integrated Navigation Sensor Platform for Extravehicular Control and Testing, has been developed as a first step in the progression towards developing a system capable of operating outside of the ISS and serving the HEOMD's needs. The sensors on INSPECT were selected to fulfill the mission-level requirements to reduce risk by testing capability inside of the ISS prior to moving into the vacuum of space.
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{7cm}
+  \centering
+  \includegraphics[width=7cm]{img/inspect.png}
+\end{subfigure}%
+\begin{subfigure}{7cm}
+  \centering
+  \includegraphics[width=7cm]{img/inspect2.png}
+\end{subfigure}
+\caption{On the left, a CAD model of the HALO proto-flight equipped with the four cameras and CMGs of the INSPECT project. On the right, a RGA parabolic flight test session in July 2014 running the acquisition software developed during this internship}
+\label{fig:inspect}
+\end{center}
+\end{figure}
+
+\subsection{Testing Environments}
+SPHERES takes advantage of three different environment to test new control and sensing algorithms as well as new pieces of hardware. In the \textbf{ground laboratory}, three SPHERES robots can move freely on an air-cushion table around three degrees of freedom (DoF). Besides, \textbf{parabolic flights} provided by NASA allow short tests session in six DoF. Finally, in \textbf{the ISS}, groups of SPHERES tests are run by a crew member in test sessions which occur approximately once every three months.
 
 \section{Objectives}
-3 Sensors. Architecture. 2 sections: calibration and fusion.
+The goal of this work is to create a fusion algorithm taking advantage of VERTIGO stereo cameras and the ORF camera to provide a 3D cloud with a better accuracy and completeness than the one provided by each sensors separately and to demonstrate the feasibility of this algorithm on the ground and during a Reduced Gravity Aircraft (RGA) parabolic flight campaign.
+
+\subsection{Sensors}
+The characteristics of the sensors are described in table \ref{table:sensors}.
+\begin{table}[H]
+\begin{center}
+\footnotesize
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & \textbf{Stereo cameras} & \textbf{ORF} & \textbf{Thermocam}\\
+\hline
+Brand & IDS-Imaging & MESA-Imaging & FLIR\\
+\hline
+Model & 2x uEye LE 1225-M-HQ & SwissRange 4000 & A5\\
+\hline
+Frequency Domain & $717 nm$ dominant (visible) & $850 nm$ (far IR) & $7.5-13 \mu m$ (near IR) \\
+\hline
+Resolution & 752x480 pixels & 176x144 pixels & 80x64 pixels\\
+\hline
+Pixel size & $6 \mu m$ & $40 \mu m$& $50 \mu m$\\
+\hline
+FPS & 10 FPS (typical) to 87 FPS (max) & 10 to 30 FPS (typical) & 60 FPS (typical)\\
+\hline
+Range & N/A & 0.1m to 7m & N/A\\
+\hline
+Horizontal FOV & 35 degrees & 69 degrees & 44 degrees\\
+\hline
+Vertical FOV & 35 degrees & 55 degrees & 36 degrees\\
+Focal length &  & $10 mm$ (typical) & $5 mm$ (fixed)\\
+\hline
+Output Data & 10 bits monochrome & 14 bits depth, 16 bits visual & 8 bits monochrome\\
+ & &  16 bits confidence & \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Brief summary of the sensors characteristics}\label{table:sensors}
+\end{table}
+
+\subsection{Architecture}
+Based on the sensors characteristics that have been mentioned and the VERTIGO software structure \cite{muggler_phd}, a new architecture is proposed in figure \ref{fig:arch}. This project mainly focuses on the first block of this architecture, i.e. the acquisition of camera images, the fusion and the calibration.
+
+
+% Define block styles
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=7em, text centered, rounded corners, minimum height=8em]
+\tikzstyle{cloud} = [ellipse, draw,fill=red!20, text width=3.5em, text centered]
+\tikzstyle{storage} = [draw, cylinder, fill=orange!20, shape border rotate=90, text width=3em, text centered, minimum height=3em, shape aspect=0.2]
+\tikzstyle{line} = [draw, ->]
+
+\begin{figure}[H]
+\scriptsize
+\begin{tikzpicture}[node distance = 4cm, auto]
+	% Place nodes
+	\node [block] (fusion) {Real-Time Fusion Algorithm};
+	\node [cloud, yshift=1.5cm, left of=fusion] (tof) {ToF Camera};
+	\node [cloud, yshift=-1.5cm, left of=fusion] (stereo) {Stereo Cameras};
+	\node [block, below of=fusion, minimum height=2em, node distance=3cm] (calib) {Calibration Algorithm};
+	\node [storage, above of=fusion, node distance=3cm] (store1) {Storage};
+	\node [block, right of=fusion] (slam) {Simulataneous Localization and Mapping};
+	\node [storage, above of=slam, node distance=3cm] (store2) {Storage};
+	\node [block, right of=slam] (state) {State Estimator};
+	\node [coordinate, right of=state, node distance=3cm] (out) {};
+	% Draw edges
+	\path [line] (tof) -- node[above, align=right] {$\{D_T, A_T,$\\ $C_T\}$} (fusion);
+	\path [line] (stereo) -- node[above, align=center] {$\{I_R, I_L\}$} (fusion);
+	\path [line] (calib) -- node[right, align=center] {Calibration parameters} (fusion);
+	\path [line] (fusion) -- node[above, align=center] {3D frames} (slam);
+	\path [line] (fusion) -- node[right, align=center]{3D frames} (store1);
+	\path [line] (slam) -- node[right, align=center] {Environment map} (store2);
+	\path [line] (slam) -- node[above, align=center] {Localization} (state);
+	\draw [->] (state) -- node [above] {To Control Loop} (out);
+\end{tikzpicture}
+\caption{One architecture proposed for the algorithm and based on the VERTIGO project}\label{fig:arch}
+\end{figure}
 
 

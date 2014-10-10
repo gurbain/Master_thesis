@@ -13,56 +13,49 @@ The style file: plain.bst
 Database file #1: main.bib
 Warning--string name "august" is undefined
 --line 661 of file main.bib
-I was expecting a `,' or a `}'---line 670 of file main.bib
- :   
- :   year={2012},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Too many commas in name 1 of "Miles Hansard, Seungkyu Lee, Ouk Choi, Radu Horaud" for entry TOF
 while executing---line 1049 of file plain.bst
 Too many commas in name 1 of "Miles Hansard, Seungkyu Lee, Ouk Choi, Radu Horaud" for entry TOF
 while executing---line 1090 of file plain.bst
-Warning--empty publisher in TOF
-Warning--there's a month but no year in TOF
-You've used 23 entries,
+You've used 33 entries,
             2118 wiz_defined-function locations,
-            651 strings with 8577 characters,
-and the built_in function-call counts, 8119 in all, are:
-= -- 834
-> -- 326
-< -- 8
-+ -- 135
-- -- 106
-* -- 519
-:= -- 1289
-add.period$ -- 76
-call.type$ -- 23
-change.case$ -- 118
+            706 strings with 10364 characters,
+and the built_in function-call counts, 12134 in all, are:
+= -- 1259
+> -- 484
+< -- 12
++ -- 197
+- -- 158
+* -- 791
+:= -- 1906
+add.period$ -- 110
+call.type$ -- 33
+change.case$ -- 173
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 339
-empty$ -- 659
-format.name$ -- 106
-if$ -- 1756
+cite$ -- 33
+duplicate$ -- 502
+empty$ -- 985
+format.name$ -- 158
+if$ -- 2638
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 26
-newline$ -- 119
-num.names$ -- 44
-pop$ -- 143
+int.to.str$ -- 33
+missing$ -- 37
+newline$ -- 169
+num.names$ -- 64
+pop$ -- 203
 preamble$ -- 2
-purify$ -- 100
+purify$ -- 146
 quote$ -- 0
-skip$ -- 244
+skip$ -- 366
 stack$ -- 0
-substring$ -- 549
-swap$ -- 97
-text.length$ -- 8
+substring$ -- 865
+swap$ -- 151
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
-warning$ -- 2
-while$ -- 79
-width$ -- 25
-write$ -- 255
-(There were 3 error messages)
+type$ -- 122
+warning$ -- 0
+while$ -- 121
+width$ -- 35
+write$ -- 369
+(There were 2 error messages)

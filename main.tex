@@ -32,12 +32,16 @@
 \usepackage{cmap}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{algorithm,algpseudocode,amsmath,amssymb,amsfonts,amsthm,array,bm,caption,cases,color,fancybox,fancyhdr,float,fontenc,geometry,graphicx,lipsum,pdfpages,subcaption,tikz,times,thmbox,xcolor}
+\usepackage{algorithm,algpseudocode,amsmath,amssymb,amsfonts,amsthm,array,bm,caption,cases,color,fancybox,fancyhdr,float,fontenc,geometry,graphicx,lipsum,pdfpages,pstricks,subcaption,scalefnt,tikz,times,thmbox,xcolor}
+\usepackage[nonumberlist]{glossaries}
 \pagestyle{plain}
+
 
 %% This bit allows you to either specify only the files which you wish to
 %% process, or `all' to process all files which you \include.
 %% Krishna Sethuraman (1990).
+\usetikzlibrary{shapes,arrows}
+
 \makeatletter
 \renewcommand*\env@matrix[1][\arraystretch]{%
   \edef\arraystretch{#1}%
@@ -51,6 +55,8 @@
     \setlength{\itemsep}{0pt}%
     \setlength{\parskip}{0pt}}%
   {\end{itemize}}
+
+\makeglossaries
 
 
 \begin{document}

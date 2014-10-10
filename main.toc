@@ -1,66 +1,74 @@
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{15}
-\contentsline {section}{\numberline {1.1}Context}{15}
-\contentsline {subsection}{\numberline {1.1.1}SPHERES}{15}
-\contentsline {subsection}{\numberline {1.1.2}HALO}{15}
-\contentsline {subsection}{\numberline {1.1.3}INSPECT}{15}
-\contentsline {section}{\numberline {1.2}Objectives}{15}
-\contentsline {chapter}{\numberline {2}Theoretical Approach}{17}
-\contentsline {section}{\numberline {2.1}Background}{18}
-\contentsline {subsection}{\numberline {2.1.1}Mathematical Notations}{18}
-\contentsline {paragraph}{Coordinates Systems:}{18}
-\contentsline {paragraph}{Transformations Matrices:}{18}
-\contentsline {subsection}{\numberline {2.1.2}Pinhole Camera Model}{18}
-\contentsline {subsection}{\numberline {2.1.3}Stereoscopic Cameras Model}{21}
-\contentsline {subsubsection}{Projection}{21}
-\contentsline {subsubsection}{Triangulation}{23}
-\contentsline {paragraph}{Simplify the problem}{24}
-\contentsline {paragraph}{Minimize errors}{24}
-\contentsline {subsection}{\numberline {2.1.4}Optical Range Finder Model}{24}
-\contentsline {section}{\numberline {2.2}Calibration Algorithm}{26}
-\contentsline {subsection}{\numberline {2.2.1}Literature Overview}{26}
-\contentsline {subsubsection}{ORF calibration}{27}
-\contentsline {subsubsection}{Stereoscopic cameras calibration}{28}
-\contentsline {subsubsection}{ORF-stereo system calibration}{28}
-\contentsline {subsection}{\numberline {2.2.2}Optical Range Finder Calibration}{28}
-\contentsline {subsection}{\numberline {2.2.3}Stereoscopic Cameras Calibration}{30}
-\contentsline {subsection}{\numberline {2.2.4}Multi-Sensors Calibration}{30}
-\contentsline {subsubsection}{Checkerboard Points Detection}{30}
-\contentsline {subsubsection}{Stereoscopic Triangulation}{30}
-\contentsline {subsubsection}{Optical Range Finder Pinhole Inversion}{30}
-\contentsline {subsubsection}{Pose Estimation}{30}
-\contentsline {section}{\numberline {2.3}Fusion Algorithm}{30}
-\contentsline {subsection}{\numberline {2.3.1}Literature Overview}{30}
-\contentsline {subsection}{\numberline {2.3.2}Overview}{32}
-\contentsline {subsection}{\numberline {2.3.3}Architecture}{32}
-\contentsline {subsection}{\numberline {2.3.4}Determination of the Points Framed by all Cameras}{32}
-\contentsline {subsection}{\numberline {2.3.5}Optical Range Finder Noise Model}{32}
-\contentsline {subsection}{\numberline {2.3.6}Probabilistic Space Discretization}{32}
-\contentsline {subsection}{\numberline {2.3.7}Optical Range Finder Probabilistic Model}{32}
-\contentsline {subsection}{\numberline {2.3.8}Stereoscopic Cameras Model}{32}
-\contentsline {subsection}{\numberline {2.3.9}Joint Probability Computation}{32}
-\contentsline {subsection}{\numberline {2.3.10}Depth Estimation Selection}{32}
-\contentsline {subsection}{\numberline {2.3.11}3D Coordinates Computation}{32}
-\contentsline {subsection}{\numberline {2.3.12}Point Cloud Creation}{32}
-\contentsline {chapter}{\numberline {3}Implementation}{33}
-\contentsline {section}{\numberline {3.1}Language and Libraries}{34}
-\contentsline {section}{\numberline {3.2}Software Architecture}{34}
-\contentsline {section}{\numberline {3.3}Cameras data acquisition}{34}
-\contentsline {subsection}{\numberline {3.3.1}Optical Range Finder}{34}
-\contentsline {subsection}{\numberline {3.3.2}Thermographic Camera}{34}
-\contentsline {subsection}{\numberline {3.3.3}Optical Cameras}{34}
-\contentsline {section}{\numberline {3.4}Cameras Calibration}{34}
-\contentsline {subsection}{\numberline {3.4.1}Optical Range Finder Calibration}{34}
-\contentsline {subsection}{\numberline {3.4.2}Stereoscopic Cameras Calibration}{34}
-\contentsline {subsection}{\numberline {3.4.3}Multi-Sensors Calibration}{34}
-\contentsline {section}{\numberline {3.5}Sensor Fusion}{34}
-\contentsline {section}{\numberline {3.6}Miscellaneous Implementation}{34}
-\contentsline {subsection}{\numberline {3.6.1}Time Stamps}{34}
-\contentsline {chapter}{\numberline {4}Results}{35}
-\contentsline {section}{\numberline {4.1}Sensors Acquisition}{35}
-\contentsline {section}{\numberline {4.2}Sensors Calibration}{35}
-\contentsline {section}{\numberline {4.3}Sensors Fusion}{35}
-\contentsline {subsection}{\numberline {4.3.1}Ground Results}{35}
-\contentsline {subsection}{\numberline {4.3.2}Parabolic Flight Results}{36}
-\contentsline {section}{\numberline {4.4}Future Work}{36}
-\contentsline {chapter}{\numberline {5}Conclusions}{37}
+\contentsline {section}{\numberline {1.1}Context}{16}
+\contentsline {subsection}{\numberline {1.1.1}SPHERES}{16}
+\contentsline {subsection}{\numberline {1.1.2}VERTIGO}{17}
+\contentsline {subsection}{\numberline {1.1.3}HALO}{18}
+\contentsline {subsection}{\numberline {1.1.4}INSPECT}{19}
+\contentsline {subsection}{\numberline {1.1.5}Testing Environments}{20}
+\contentsline {section}{\numberline {1.2}Objectives}{20}
+\contentsline {subsection}{\numberline {1.2.1}Sensors}{21}
+\contentsline {subsection}{\numberline {1.2.2}Architecture}{21}
+\contentsline {chapter}{\numberline {2}Theoretical Approach}{23}
+\contentsline {section}{\numberline {2.1}Camera Model Elaboration}{24}
+\contentsline {subsection}{\numberline {2.1.1}Mathematical Notations}{24}
+\contentsline {paragraph}{Coordinates Systems:}{24}
+\contentsline {paragraph}{Transformations Matrices:}{24}
+\contentsline {subsection}{\numberline {2.1.2}Pinhole Camera Model}{24}
+\contentsline {subsection}{\numberline {2.1.3}Stereoscopic Cameras Model}{27}
+\contentsline {subsubsection}{Projection}{27}
+\contentsline {subsubsection}{Triangulation}{29}
+\contentsline {paragraph}{Simplify the problem}{30}
+\contentsline {paragraph}{Minimize errors}{30}
+\contentsline {subsection}{\numberline {2.1.4}Optical Range Finder Model}{30}
+\contentsline {section}{\numberline {2.2}Calibration Algorithm}{32}
+\contentsline {subsection}{\numberline {2.2.1}Literature Overview}{32}
+\contentsline {subsubsection}{\gls {ORF} calibration}{33}
+\contentsline {subsubsection}{Stereoscopic cameras calibration}{34}
+\contentsline {subsubsection}{\gls {ORF}-stereo system calibration}{34}
+\contentsline {subsection}{\numberline {2.2.2}Optical Range Finder Calibration}{34}
+\contentsline {subsection}{\numberline {2.2.3}Stereoscopic Cameras Calibration}{36}
+\contentsline {subsection}{\numberline {2.2.4}Multi-Sensors Calibration}{37}
+\contentsline {subsubsection}{Checkerboard Corners Detection}{38}
+\contentsline {subsubsection}{Stereoscopic Triangulation}{39}
+\contentsline {subsubsection}{Optical Range Finder Pinhole Inversion}{40}
+\contentsline {subsubsection}{Pose Estimation}{41}
+\contentsline {subsubsection}{Extrinsic parameters computation}{43}
+\contentsline {section}{\numberline {2.3}Fusion Algorithm}{43}
+\contentsline {subsection}{\numberline {2.3.1}Literature Overview}{43}
+\contentsline {subsection}{\numberline {2.3.2}Overview}{44}
+\contentsline {subsubsection}{Sensors}{44}
+\contentsline {paragraph}{\gls {ORF}}{44}
+\contentsline {subsubsection}{Fusion}{45}
+\contentsline {subsection}{\numberline {2.3.3}Architecture}{47}
+\contentsline {subsubsection}{Determination of the Points Framed by all Cameras}{48}
+\contentsline {subsubsection}{Optical Range Finder Noise Model}{48}
+\contentsline {subsubsection}{Probabilistic Space Discretization}{49}
+\contentsline {subsubsection}{Optical Range Finder Probabilistic Model}{50}
+\contentsline {subsubsection}{Stereoscopic Cameras Probabilistic Model}{50}
+\contentsline {subsubsection}{Joint Probability Computation}{51}
+\contentsline {subsubsection}{Depth Estimation Selection}{51}
+\contentsline {subsubsection}{3D Coordinates Computation}{51}
+\contentsline {subsubsection}{Point Cloud Creation}{51}
+\contentsline {chapter}{\numberline {3}Implementation}{53}
+\contentsline {section}{\numberline {3.1}Language and Libraries}{54}
+\contentsline {section}{\numberline {3.2}Software Architecture}{54}
+\contentsline {section}{\numberline {3.3}Cameras data acquisition}{54}
+\contentsline {subsection}{\numberline {3.3.1}Optical Range Finder}{54}
+\contentsline {subsection}{\numberline {3.3.2}Thermographic Camera}{54}
+\contentsline {subsection}{\numberline {3.3.3}Optical Cameras}{54}
+\contentsline {section}{\numberline {3.4}Cameras Calibration}{54}
+\contentsline {subsection}{\numberline {3.4.1}Optical Range Finder Calibration}{54}
+\contentsline {subsection}{\numberline {3.4.2}Stereoscopic Cameras Calibration}{54}
+\contentsline {subsection}{\numberline {3.4.3}Multi-Sensors Calibration}{54}
+\contentsline {section}{\numberline {3.5}Sensor Fusion}{54}
+\contentsline {section}{\numberline {3.6}Miscellaneous Implementation}{54}
+\contentsline {subsection}{\numberline {3.6.1}Time Stamps}{54}
+\contentsline {chapter}{\numberline {4}Results}{55}
+\contentsline {section}{\numberline {4.1}Sensors Acquisition}{55}
+\contentsline {section}{\numberline {4.2}Sensors Calibration}{55}
+\contentsline {section}{\numberline {4.3}Sensors Fusion}{55}
+\contentsline {subsection}{\numberline {4.3.1}Ground Results}{55}
+\contentsline {subsection}{\numberline {4.3.2}Parabolic Flight Results}{56}
+\contentsline {section}{\numberline {4.4}Future Work}{56}
+\contentsline {chapter}{\numberline {5}Conclusions}{57}

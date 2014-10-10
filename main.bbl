@@ -8,25 +8,56 @@ Christian Beder, Bogumil Bartczak, and Reinhard Koch.
   and stereo intensity images.
 \newblock In {\em Pattern Recognition}, pages 11--20. Springer, 2007.
 
+\bibitem{visual_navigation}
+Francisco Bonin-Font, Alberto Ortiz, and Gabriel Oliver.
+\newblock Visual navigation for mobile robots: A survey.
+\newblock {\em Journal of intelligent and robotic systems}, 53(3):263--296,
+  2008.
+
 \bibitem{opencv}
 Gary Bradski and Adrian Kaehler.
 \newblock {\em Learning OpenCV: Computer vision with the OpenCV library}.
 \newblock " O'Reilly Media, Inc.", 2008.
-
-\bibitem{camera_calibration}
-D.~C. Brown.
-\newblock {Decentering Distortion of Lenses}.
-\newblock {\em Photometric Engineering}, 32(3):444--462, 1966.
 
 \bibitem{camera_distortion}
 D.~C. Brown.
 \newblock Decentering distortion of lenses.
 \newblock {\em XXXII(3):444-462}, 1966.
 
+\bibitem{camera_calibration}
+D.~C. Brown.
+\newblock {Decentering Distortion of Lenses}.
+\newblock {\em Photometric Engineering}, 32(3):444--462, 1966.
+
+\bibitem{orf_scattering}
+Nicola Brusco, Pietro Zanuttigh, David Taubman, and Guido~Maria Cortelazzo.
+\newblock Distortion-sensitive synthesis of texture and geometry in interactive
+  3d visualization.
+\newblock In {\em 3D Data Processing, Visualization, and Transmission, Third
+  International Symposium on}, pages 256--263. IEEE, 2006.
+
 \bibitem{stereo_tof_fusion_proba}
 Carlo Dal~Mutto, Pietro Zanuttigh, and Guido~M Cortelazzo.
 \newblock A probabilistic approach to tof and stereo data fusion.
 \newblock {\em 3DPVT, Paris, France}, 2, 2010.
+
+\bibitem{ransac}
+Martin~A Fischler and Robert~C Bolles.
+\newblock Random sample consensus: a paradigm for model fitting with
+  applications to image analysis and automated cartography.
+\newblock {\em Communications of the ACM}, 24(6):381--395, 1981.
+
+\bibitem{stereo_windowing}
+Andrea Fusiello, Vito Roberto, and Emanuele Trucco.
+\newblock Symmetric stereo with multiple windowing.
+\newblock {\em International Journal of Pattern Recognition and Artificial
+  Intelligence}, 14(08):1053--1066, 2000.
+
+\bibitem{stereo_resolution}
+David Gallup, J-M Frahm, Philippos Mordohai, and Marc Pollefeys.
+\newblock Variable baseline/resolution stereo.
+\newblock In {\em Computer Vision and Pattern Recognition, 2008. CVPR 2008.
+  IEEE Conference on}, pages 1--8. IEEE, 2008.
 
 \bibitem{TOF_principle}
 S~Burak Gokturk, Hakan Yalcin, and Cyrus Bamji.
@@ -59,6 +90,17 @@ Janne Heikkila and Olli Silv{\'e}n.
 \newblock In {\em Computer Vision and Pattern Recognition, 1997. Proceedings.,
   1997 IEEE Computer Society Conference on}, pages 1106--1112. IEEE, 1997.
 
+\bibitem{absolute_orientation}
+Berthold~KP Horn.
+\newblock Closed-form solution of absolute orientation using unit quaternions.
+\newblock {\em JOSA A}, 4(4):629--642, 1987.
+
+\bibitem{orf_calib}
+Timo Kahlmann and Hilmar Ingensand.
+\newblock Calibration and development for increased accuracy of 3d range
+  imaging cameras.
+\newblock {\em Journal of Applied Geodesy}, 2(1):1--11, 2008.
+
 \bibitem{stereo_tof_fusion_3D_reconstruction}
 Young~Min Kim, Christian Theobalt, James Diebel, Jana Kosecka, Branislav
   Miscusik, and Sebastian Thrun.
@@ -72,6 +114,13 @@ Klaus-Dieter Kuhnert and Martin Stommel.
   precise 3d environment reconstruction.
 \newblock In {\em Intelligent Robots and Systems, 2006 IEEE/RSJ International
   Conference on}, pages 4780--4785. IEEE, 2006.
+
+\bibitem{stereo_resolution_2}
+Mikko Kyt{\"o}, Mikko Nuutinen, and Pirkko Oittinen.
+\newblock Method for measuring stereo camera depth accuracy based on
+  stereoscopic vision.
+\newblock In {\em IS\&T/SPIE Electronic Imaging}, pages 78640I--78640I.
+  International Society for Optics and Photonics, 2011.
 
 \bibitem{tof_calibration_2}
 Marvin Lindner and Andreas Kolb.
@@ -94,7 +143,12 @@ MESA Imaging.
 \bibitem{TOF}
 Ouk Choi Radu~Horaud Miles~Hansard, Seungkyu~Lee.
 \newblock {\em Time-of-Flight Cameras: Principles, Methods and Applications}.
-\newblock November.
+\newblock Springer, 2012.
+
+\bibitem{multi_sensors_fusion}
+Harvey~B Mitchell.
+\newblock {\em Multi-sensor data fusion}.
+\newblock Springer, 2007.
 
 \bibitem{muggler_phd}
 Elias Müggler.
@@ -102,6 +156,12 @@ Elias Müggler.
   inspection.
 \newblock {\em Master Thesis, Mechanical Engineering, ETH Zurich, Switzerland},
   2012.
+
+\bibitem{find_checkerboard}
+Martin Rufli, Davide Scaramuzza, and Roland Siegwart.
+\newblock Automatic detection of checkerboards on blurred and distorted images.
+\newblock In {\em Intelligent Robots and Systems, 2008. IROS 2008. IEEE/RSJ
+  International Conference on}, pages 3121--3126. IEEE, 2008.
 
 \bibitem{tof_calibration_1}
 Ingo Schiller, Christian Beder, and Reinhard Koch.
