@@ -14,7 +14,7 @@
 \chapter{Theoretical Approach}
 
 In this chapter, we will try to give the reader all the theoretical tools to understand the algorithm development carried out in this project. The first section aims at reminding background models and theories but we will assume the reader to have basics in mechanics of the rigid body, optics, image processing, numerical analysis and computer sciences.
-Section two focuses on calibration algorithm. It reviews solutions found in the literature to calibrate separately stereoscopic cameras and \gls{TOF} camera but also describes the implementation and adaptation of a new algorithm proposed in \cite{stereo_tof_fusion_proba} to calibrate the whole \gls{TOF} and stereo cameras system while taking advantage of each sensors characteristics.
+Section two focuses on calibration algorithm. It reviews solutions found in the literature to calibrate separately stereoscopic cameras and \gls{ToF} camera but also describes the implementation and adaptation of a new algorithm proposed in \cite{stereo_tof_fusion_proba} to calibrate the whole \gls{ToF} and stereo cameras system while taking advantage of each sensors characteristics.
 Finally, the last section analyzes the core implementation of the fusion algorithm tested in this project, try to set out arguments to the choices that have been made and describes each parts in details.
 
 \section{Camera Model Elaboration}
@@ -24,8 +24,40 @@ Before going into further details into the algorithms breakdown, it may be neces
 Several coordinates systems are used in this work leading themselves to many different transformations between each others. To give the reader a better overview, this paragraph summarizes the mathematical notations employed in this document.
 
 \paragraph{Coordinates Systems:}
+\begin{itemize*}
+\item $\mathbf{T}$: Coordinate system of the \gls{ToF}) camera (or \gls{ORF}). In the 3D system, the origin is situated in the pinhole, the  $Z$ axis points forward, $Y$ axis points down and $X$ points right. In the 2D coordinate system, the origin is situated in the top left corner of the image plane,$U$ points to the right and $V$ points down.
+\item $\mathbf{R}$: 3D coordinate system of the right camera of the stereo rig. In the 3D system, the origin is situated in the pinhole, the  $Z$ axis points forward, $Y$ axis points down and $X$ points right. In the 2D coordinate system, the origin is situated in the top left corner of the image plane,$U$ points to the right and $V$ points down.
+\item $\mathbf{L}$: 3D coordinate system of the left camera of the stereo rig. In the 3D system, the origin is situated in the pinhole, the  $Z$ axis points forward, $Y$ axis points down and $X$ points right. In the 2D coordinate system, the origin is situated in the top left corner of the image plane,$U$ points to the right and $V$ points down.
+\end{itemize*}
 
 \paragraph{Transformations Matrices:}
+To represent both affine (translation and rotation) and projective transformation  from one coordinate system to another, we use $4x4$ transformation matrices. For instance, in the case of an affine transformation of a point $P$ from $R$ to $L$ coordinate system, we write:
+\begin{equation}
+\begin{pmatrix}[0.8]
+x_L\\
+y_L\\
+z_L\\
+1
+\end{pmatrix} = M_{LR} * \begin{pmatrix}[0.8]
+x_R\\
+y_R\\
+z_R\\
+1
+\end{pmatrix}
+\end{equation}
+Where:
+\begin{equation}
+M_{LR} = \begin{pmatrix}[0.8]
+r_{XX} & r_{XY} & r_{XZ} & t_X\\
+r_{YX} & r_{YY} & r_{YZ} & t_Y\\
+r_{ZX} & r_{ZY} & r_{ZZ} & t_Z
+\end{pmatrix}
+\end{equation}
+Which allows to multiply matrices directly between each other:
+\begin{equation}
+M_{TR} = M_{TL} * M_{LR}
+\end{equation}
+
 
 \subsection{Pinhole Camera Model}
 \label{sec:mono_camera}
@@ -183,11 +215,11 @@ P_R = \begin{pmatrix}
 
 \paragraph{Minimize errors}: The other solution is to keep an elaborate model where left and right cameras can be misaligned but try to minimize the sum of euclidean errors when we are triangulating many points. Various algorithm concerning the subject have been analyzed in \cite{multiple_view} or \cite{triangulation}.
 
-The two kinds of \textit{triangulation} and \textit{projection} methods have been implemented in the stereo cameras software but this thesis mostly focus on the first one for it is easier to implement and give sufficient results with VERTIGO \cite{muggler_phd}.
+The two kinds of \textit{triangulation} and \textit{projection} methods have been implemented in the stereo cameras software but this thesis mostly focus on the first one for it is easier to implement and give sufficient results with \gls{VERTIGO} \cite{muggler_phd}.
 
 \subsection{Optical Range Finder Model}
 \label{sec:ORF_model}
-A Time-Of-Flight camera (\gls{TOF}), also called Optical Range Finder (\gls{ORF}) in this document, is a class of LIDAR that can measure an entire 3D scene in real-time (more than 25 FPS) \cite{TOF_principle}\cite{TOF}. As shown in figure \ref{fig:cam_orf} modulated light bursts illuminating the scene is produced by an IR emitter on the camera, the light is scattered by objects in the scene and a fast CMOS sensor synchronized with the emitter sample the received pulse and retrieve its phase. For each pixel, a distance camera-object can be compute as:
+A Time-Of-Flight camera (\gls{ToF}), also called Optical Range Finder (\gls{ORF}) in this document, is a class of LIDAR that can measure an entire 3D scene in real-time (more than 25 FPS) \cite{TOF_principle}\cite{TOF}. As shown in figure \ref{fig:cam_orf} modulated light bursts illuminating the scene is produced by an IR emitter on the camera, the light is scattered by objects in the scene and a fast CMOS sensor synchronized with the emitter sample the received pulse and retrieve its phase. For each pixel, a distance camera-object can be compute as:
 \begin{equation}
 d = \dfrac{c}{2}.\dfrac{\Delta\phi}{2 \pi f}
 \end{equation}
@@ -235,7 +267,7 @@ The calibration is a process that aims at finding the most accurate \textit{inst
 Calibrating the \gls{ORF} can be seen as a single camera calibration as it involves only the estimation of the \textit{intrinsic matrix}. Different methods has been proposed in \cite{tof_calibration} or \cite{tof_calibration_2}. Due to its success, the Brown method presented in \cite{intrinsic_calib} and \cite{intrinsic_calib_1} will be considered. 
 Apart from the \textit{intrinsic} calibration, we shall however notice that \cite{stereo_tof_fusion_proba} and \cite{tof_calibration_1} explain that we shall correct the systematic depth measurement error and this can be realized with a polynomial correction functional approach.
 \subsubsection{Stereoscopic cameras calibration}
-This category is relatively old, which is an advantage since we can find numerous efficient ways to realize them in literature. For example, in the VERTIGO project, the Brown method \cite{camera_distortion} has been tested through the \textit{OpenCV} libraries \cite{opencv} leading to satisfying results \cite{vertigo_phd}.
+This category is relatively old, which is an advantage since we can find numerous efficient ways to realize them in literature. For example, in the \gls{VERTIGO} project, the Brown method \cite{camera_distortion} has been tested through the \textit{OpenCV} libraries \cite{opencv} leading to satisfying results \cite{vertigo_phd}.
 \subsubsection{\gls{ORF}-stereo system calibration}
 This last category aims at finding \textit{extrinsic matrices} between the \gls{ORF} camera and the stereo cameras assembly. Since the problem is quite recent, different algorithms have been proposed these last few years in \cite{stereo_tof_fusion_proba}, \cite{stereo_tof_fusion_accuracy}, \cite{tof_calibration_1}. In this paper, we will focus on the algorithm presented in \cite{stereo_tof_fusion_proba} because besides the \gls{ORF} \textit{visual image} whose space resolution is very low, the process also takes profit of the \textit{depth map} to increase the accuracy.
 
@@ -357,13 +389,13 @@ In this third and last part of calibration, we focused on the estimation of the 
 \end{figure}
 
 \subsubsection{Checkerboard Corners Detection}
-Let us consider a system composed by two traditional cameras $L$ and $R$ and an \gls{ORF} (or \gls{TOF}) camera $T$ (figure \ref{fig:3cam}). To keep this method universal, no hypothesis are made on the geometry between those camera . $L$ and $R$ cameras produce respectively an image matrix $I_L$ and $I_R$ whose resolution is good and $T$ produce a depth matrix $D_T$, a visual image matrix $I_T$ and a confidence matrix $C_T$.
+Let us consider a system composed by two traditional cameras $L$ and $R$ and an \gls{ORF} (or \gls{ToF}) camera $T$ (figure \ref{fig:3cam}). To keep this method universal, no hypothesis are made on the geometry between those camera . $L$ and $R$ cameras produce respectively an image matrix $I_L$ and $I_R$ whose resolution is good and $T$ produce a depth matrix $D_T$, a visual image matrix $I_T$ and a confidence matrix $C_T$.
 
 % figure 3cam
 \begin{figure}[!htt]
 	\begin{center}
-		\includegraphics[width=12cm]{img/cam_3.png}
-		\caption{A point P of the real world is framed by the three cameras: ORF, left camera and right camera}
+		\includegraphics[width=14cm]{img/cam_3.png}
+		\caption{A point P of the real world is framed by three cameras: the \gls{ORF}, left camera and right camera}
 		\label{fig:3cam}
 	\end{center}
 \end{figure}
@@ -385,7 +417,7 @@ v
 \end{equation}
 
 \subsubsection{Stereoscopic Triangulation}
-Once we have the set of points in the projection images of each camera, we use the stereoscopic camera as well as their calibration matrices previously computed to triangulate them into the real world. In this project, given the relatively good alignment of VERTIGO cameras, a simplified triangulation is used but we could have used the full one:
+Once we have the set of points in the projection images of each camera, we use the stereoscopic camera as well as their calibration matrices previously computed to triangulate them into the real world. In this project, given the relatively good alignment of \gls{VERTIGO} cameras, a simplified triangulation is used but we could have used the full one:
 \begin{equation}
 \begin{cases}
 \begin{pmatrix}[0.8]
@@ -437,9 +469,18 @@ y_L = \dfrac{(v_L - c_V) z}{f}
 Similarly to the triangulation of the stereo assembly, we proceed to a re-projection of points $p_T^i$ in 3D. Instead of the stereo triangulation method, a depth can be directly read in the $D_T$ depth matrix for each of the points $i$. This lead to the simple euclidean geometry problem presented in figure \ref{fig:orf_depth} where we have:
 \begin{itemize*}
 \item Three inputs: $u_T^i, v_T^i, d_T^i$
-\item Three outputs: $x_T, y_T, z_T$
+\item Three outputs: $x_T^i, y_T^i, z_T^i$
 \end{itemize*}
-% figure ORF traingulation
+
+% figure orf_depth
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=12cm]{img/orf_depth.png}
+		\caption{To compute the $(x_T,y_T,z_T)$ coordinates of the point $P$ given $(u_T,v_T)$ and $d_T$, we use the Pythagorean and Thales theorems}
+		\label{fig:orf_depth}
+	\end{center}
+\end{figure}
+
 In figure \ref{fig:orf_depth}, for each point $p_T^i$:
 \begin{align}
 x_T & =\dfrac{(u_T - c_U)}{z_T} f \tag{Pinhole model}\\
@@ -501,13 +542,13 @@ In the end, we get the transformation matrix $M_{LT}$ and with the stereo extrin
 M_{TL} = M_{LT}^{-1} \hspace{30pt} M_{RL} = M_{LR}^{-1} \hspace{30pt} M_{RT} = M_{RL} * M_{LT} \hspace{30pt} M_{TR} = M_{RT}^{-1}
 \end{equation}
 
-
+\newpage
 \section{Fusion Algorithm}
 \subsection{Literature Overview}
-The goal of the fusion algorithm is to compute a 3D map of the environment, taking advantage of each sensor features in order to improve the global accuracy. Many articles have studied the realization of stereo and ToF cameras fusion algorithm using various alternate methods. In order to understand more clearly, we can divide them into two categories:
+The goal of the fusion algorithm is to compute a 3D map of the environment, taking advantage of each sensor features in order to improve the global accuracy. Many articles have studied the realization of stereo and \gls{ToF} cameras fusion algorithm using various alternate methods. In order to understand more clearly, we can divide them into two categories:
 \begin{itemize*}
-\item In the first category, the stereo algorithm is performed alone without including the ToF informations. As an output of this algorithm, we obtain a 3D map which can be compared to the ToF 3D map to give a refined solution. This analyze is proposed in \cite{stereo_tof_fusion_realtime} where a final 3D map is deduced from the ToF 3D map and the stereo 3D map by \textit{Winner takes it all} or \textit{Simulated annealing} strategies. According to their results, it gives real-time performances with a computation time lower than one second which is a true asset. In \cite{stereo_tof_fusion_patchlet}, 3D maps are fused along many patchlets areas using a \textit{Gauss-Markov Model}.
-\item The second category implies incorporating the 3D information of the ToF sensor directly in the stereo algorithm. Those methods seem to give good results but no information about the processing time is given. In \cite{stereo_tof_fusion_proba}, a full probability model is computed and an estimation maximizing the joint probability is then selected. The same kind of approach is used in \cite{stereo_tof_fusion_accuracy}. In \cite{stereo_tof_fusion}, the ToF data are exploited in the initialization phase of a \textit{Dynamic Programming (DP)} algorithm developed in \cite{stereo_algorithm_KUL}. In another field of application, \cite{stereo_tof_fusion_3D_reconstruction} create a joint probability of the two sensors to fulfill a occupancy grid and reconstruct a 3D object from multiple views.
+\item In the first category, the stereo algorithm is performed alone without including the \gls{ToF} informations. As an output of this algorithm, we obtain a 3D map which can be compared to the \gls{ToF} 3D map to give a refined solution. This analyze is proposed in \cite{stereo_tof_fusion_realtime} where a final 3D map is deduced from the \gls{ToF} 3D map and the stereo 3D map by \textit{Winner takes it all} or \textit{Simulated annealing} strategies. According to their results, it gives real-time performances with a computation time lower than one second which is a true asset. In \cite{stereo_tof_fusion_patchlet}, 3D maps are fused along many patchlets areas using a \textit{Gauss-Markov Model}.
+\item The second category implies incorporating the 3D information of the \gls{ToF} sensor directly in the stereo algorithm. Those methods seem to give good results but no information about the processing time is given. In \cite{stereo_tof_fusion_proba}, a full probability model is computed and an estimation maximizing the joint probability is then selected. The same kind of approach is used in \cite{stereo_tof_fusion_accuracy}. In \cite{stereo_tof_fusion}, the \gls{ToF} data are exploited in the initialization phase of a \textit{Dynamic Programming (DP)} algorithm developed in \cite{stereo_algorithm_KUL}. In another field of application, \cite{stereo_tof_fusion_3D_reconstruction} create a joint probability of the two sensors to fulfill a occupancy grid and reconstruct a 3D object from multiple views.
 \end{itemize*}
 In this section, we will construct new algorithm based essentially on the work in \cite{stereo_tof_fusion_proba}.
 
@@ -517,24 +558,39 @@ In this section, we will construct new algorithm based essentially on the work i
 \subsubsection{Sensors}
 
 % figure sensors
-\begin{figure}[!htt] 
+\begin{figure}[H] 
 	\begin{center}
 		{\scalefont{0.5}
 		\input{graphic/sensors.tex}
 		}
 	\end{center}
-	\caption{The physical sensors of the INSPECT project are represented with their software in a \textit{common representation format} which enables a probabilistic fusion \cite{multi_sensors_fusion}}\label{fig:sensors}
+	\caption{The physical sensors of the \gls{INSPECT} project are represented with their software in a \textit{common representation format} which enables a probabilistic fusion \cite{multi_sensors_fusion}}\label{fig:sensors}
 \end{figure}
 
-If we adopt the representation and the notation in \cite{multi_sensors_fusion}, a \textit{sensor} $E$ is a system (hardware + software) characterized by its state, function, performances, output and energy type. In this case, we then consider two sensors, as represented in figure \ref{fig:sensors}, and whose characteristics are: 
-\paragraph{\gls{ORF}}
-\begin{itemize*}
-\item \textit{State}: 
-\item \textit{Function}:
-\item \textit{Performances}:
-\item \textit{Output}:
-\item \textit{Energy type}:
-\end{itemize*}
+If we adopt the representation and the notation in \cite{multi_sensors_fusion}, a \textit{sensor} $E$ is a system (hardware + software) characterized by its state, function, performances, output and energy type. In this case, we then consider two external sensors dedicated to navigation through 3D environment reconstruction whose output is a 3D point cloud combined with a monochromatic image (figure \ref{fig:sensors}). The performances are summarized in table \ref{table:perf}
+
+\begin{center}
+\begin{longtable}{|l|p{5.5cm}|p{5.5cm}|}
+\hline
+Performance & ORF & VERTIGO Sensors\\
+\hline
+Accuracy & Omnipresent noise & Good (if result)\\
+\hline
+Repeatability & Very good & Very good\\
+\hline
+Linearity & Non-linear with object speed and distance & Non-linear with object textures\\
+\hline
+Sensitivity & Sensible to luminous noise, saturation and movement & Sensible to the lack of texture in the environment\\
+\hline
+Resolution & Medium spatial resolution and good temporal resolution & Good spatial resolution and bad temporal resolution (computation)\\
+\hline
+Reliability & A result is guaranteed (but with variable quality) & Result not always guaranteed \\
+\hline
+Range & Very limited & Good\\
+\hline
+\caption{Performances of the two sensors according to the notation in \cite{multi_sensors_fusion}}\label{table:perf}
+\end{longtable}
+\end{center}
 
 For each sensor, we can also define a \textit{sensor observation} $O$:
 \begin{equation}
@@ -575,30 +631,20 @@ One major hypothesis in the fusion is that $\{I_T, D\}$ and $\{I_L, I_R, D\}$ ar
 \end{eqnarray}
 
 \end{itemize*}
-Finally, a fusion algorithm is characterized in term of representation, certainty, accuracy, completeness. They will be discussed again when the results are introduced in chapter \ref{sec:results} but we can already say:
+Finally, a fusion algorithm is characterized in term of representation, certainty, accuracy, completeness. They will be discussed again when the results are introduced in chapter \ref{chapter:results} but we can already say:
 \begin{itemize*}
 \item \textit{Representation}: This feature characterizing the abstraction level increase from the algorithm inputs (2D matrices) to the algorithm outputs (3D point clouds)
-\item \textit{Certainty}: The gain in measurement certainty illustrates the growth between $\mathit{P}[D|I_T]$ and $\mathit{P}[D|I_L, I_R]$ on one hand and $\mathit{P}[D|I_T, I_L, I_R]$ on the other hand. It will be discussed in chapter \ref{sec:results}
-\item \textit{Accuracy}: The gain in measurement accuracy before and after the fusion will be discussed in chapter \ref{sec:results}
+\item \textit{Certainty}: The gain in measurement certainty illustrates the growth between $\mathit{P}[D|I_T]$ and $\mathit{P}[D|I_L, I_R]$ on one hand and $\mathit{P}[D|I_T, I_L, I_R]$ on the other hand. It will be discussed in chapter \ref{chapter:results}
+\item \textit{Accuracy}: The gain in measurement accuracy before and after the fusion will be discussed in chapter \ref{chapter:results}
 \item \textit{Completeness}: The completeness will be affected by the limited \gls{FOV} of each cameras and the geometry between them. This feature is environment-dependent and will depend on the target size and distance and the application we want to perform
 \end{itemize*}
 
 \subsection{Architecture}
-All the concepts above leads to the architecture in figure \ref{fig:arch} that shows the big scheme of the fusion algorithm implemented in this thesis. However, there is a big difference compared to figure \ref{fig:sensors}. Indeed, we want to avoid \textit{feature matching} between stereo images which leads to bad results in poor textured environment. To avoid this problem, the fusion architecture in \cite{stereo_tof_fusion_proba} is exploited. The will be discussed in chapter \ref{chapter:results}.
+All the concepts above leads to the architecture in figure \ref{fig:fusion_arch} that shows the big scheme of the fusion algorithm implemented in this thesis. However, there is a big difference compared to figure \ref{fig:sensors}. Indeed, we want to avoid \textit{feature matching} between stereo images which leads to bad results in poor textured environment. To avoid this problem, the fusion architecture in \cite{stereo_tof_fusion_proba} is exploited. The will be discussed in chapter \ref{chapter:results}.
 
-% Figure arch
-% figure sensors
-\begin{figure}[!htt] 
-	\begin{center}
-		{\scalefont{0.5}
-		\input{graphic/arch.tex}
-		}
-	\end{center}
-	\caption{The global architecture of the fusion algorithm. Fusion is not performed straightforwardly to avoid feature matching in poor-textured environment}\label{fig:arch}
-\end{figure}
 
 \subsubsection{Determination of the Points Framed by all Cameras}
-In order to perform \textit{registration}, the determination of the domain framed by both devices must be accomplished as the first step of the algorithm. We then only keep point framed by the two cameras before proceeding to fusion. Figure \ref{fig:fusin_domain} shows the three deveices \gls{FOV} in the $XZ$ plane. The hatched zone corresponds to the domain where fusion will take place. As we consider the three cameras have the same $Y$ coordinate, the $Y$ domain is given by the minimal \gls{FOV}. Basic analytical calculations give:
+In order to perform \textit{registration}, the determination of the domain framed by both devices must be accomplished as the first step of the algorithm. We then only keep point framed by the two cameras before proceeding to fusion. Figure \ref{fig:geometry} shows the three deveices \gls{FOV} in the $XZ$ plane. The hatched zone corresponds to the domain where fusion will take place. As we consider the three cameras have the same $Y$ coordinate, the $Y$ domain is given by the minimal \gls{FOV}. Basic analytical calculations give:
 \begin{eqnarray}
 z_i & \in & \Big[min\Big(\frac{t_{TR}\,\mathsf{tan}(\rho)\,\mathsf{tan}(tau)}{\mathsf{tan}(\rho) + \mathsf{tan}(\tau)}, range_{min}\Big);\,range_{max}\Big]\\
 x_i & \in & \Big[\dfrac{-z_i-t_{TR}\mathsf{tan}(\rho)}{\mathsf{tan}(\rho)};\,\dfrac{z_i}{\mathsf{tan}(\rho)}\Big]\\
@@ -606,10 +652,17 @@ y_i & \in & \Big[max\Big(\dfrac{-z_i}{\mathsf{tan}(\rho)}, \dfrac{-z_i}{\mathsf{
 \end{eqnarray}
 
 % Figure geometry
+\begin{figure}[!htt]
+	\begin{center}
+		\includegraphics[width=10cm]{img/geometry.png}
+		\caption{The region framed by the three cameras depends on the \textit{baseline} between the camera as well as their Field-of-View}
+		\label{fig:geometry}
+	\end{center}
+\end{figure}
 
 
 \subsubsection{Optical Range Finder Noise Model}
-According to \cite{orf_calib} and \cite{stereo_tof_fusion_proba}, the error in the depth measurement $\hat{D}_T$ for each pixel captured by the ORF camera can be mainly described as the sum of the following components:
+According to \cite{orf_calib} and \cite{stereo_tof_fusion_proba}, the error in the depth measurement $\hat{D}_T$ for each pixel captured by the \gls{ORF} camera can be mainly described as the sum of the following components:
 \begin{itemize*}
 \item A \textit{thermal noise} with a Gaussian distribution
 \item A \textit{quantization error}
@@ -642,14 +695,29 @@ d^i \in [d_T^i - 3 \sigma_w;\,d_T^i + 3 \sigma_w]
 \end{equation}
 
 % figure orf_normal
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=12cm]{img/orf_normal.png}
+		\caption{The interval around the measured depth $d_T^i$ is divided in $j$ steps of length $\epsilon_D$}
+		\label{fig:orf_normal}
+	\end{center}
+\end{figure}
+
 
 As presented in figure \ref{fig:orf_normal}, this interval is then discretized around $\hat{D}_T$ with a step equal to the stereoscopic accuracy sub-sampled by a factor $k_int$ ($k_{int} = 4$ in this work). In \cite{stereo_resolution} and \cite{stereo_resolution_2}, this resolution is equal to:
 \begin{equation}
 \epsilon_D = \dfrac{D^2}{b\, f}\,\epsilon_p
 \end{equation}
-Where $D$ is the depth, $b$ is the \textit{baseline} between $L$ and $R$ cameras, $f$ is the focal length (assumed to be the same for $L$ and $R$) and $\epsilon_p$ is the distance between two pixels on the camera ($6 \mu m$ for VERTIGO) as shown in figure \ref{fig:cam_stereo_resolution}.
+Where $D$ is the depth, $b$ is the \textit{baseline} between $L$ and $R$ cameras, $f$ is the focal length (assumed to be the same for $L$ and $R$) and $\epsilon_p$ is the distance between two pixels on the camera ($6 \mu m$ for \gls{VERTIGO}) as shown in figure \ref{fig:cam_stereo_resolution}.
 
 % figure cam_stereo_resolution
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=6cm]{img/cam_stereo_resolution.png}
+		\caption{The theoretical depth error for stereo devices depends on the depth $D$, the baseline between cameras $b$, the pixel size $\epsilon_p$ and the focal length $f$}
+		\label{fig:cam_stereo_resolution}
+	\end{center}
+\end{figure}
 
 \subsubsection{Optical Range Finder Probabilistic Model}
 For each pixel of the depth map $d^i$ ($i=1..n$), we have constructed a sample of $j$ points $d^{i,j}$ ($j=1..m$) which are the candidates to represent the true depth $D$. As explained in section \ref{subsec:fusion:overview}, the next step to perform fusion is to determine $\mathit{P}[d^i = d^{i,j} |I_T]$ and $\mathit{P}[d^i = d^{i,j}|I_L, I_R]$.
@@ -659,15 +727,22 @@ As shown previously, we can directly write:
 \end{equation}
 
 \subsubsection{Stereoscopic Cameras Probabilistic Model}
-The computation of the probability $\mathit{P}[d^i = d^{i,j}|I_L, I_R]$ involves the re-projection of the 3D coordinates obtained for all $d^{i,j}$ from the ORF (figure \ref{fig:stereo_proba}). It's a way to avoid straightforward feature matching whose results depend on the texture level of the scene as explained previously.
+The computation of the probability $\mathit{P}[d^i = d^{i,j}|I_L, I_R]$ involves the re-projection of the 3D coordinates obtained for all $d^{i,j}$ from the \gls{ORF} (figure \ref{fig:stereo_proba}). It's a way to avoid straightforward feature matching whose results depend on the texture level of the scene as explained previously.
 
 % Figure stereo_proba
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=12cm]{img/cam_stereo_proba.png}
+		\caption{For each pixel, each $P_T^{i,j}$ is reprojected in $L$ and $R$ image planes. From those coordinates, a probability will be established to correct the depth measured by the \gls{ORF}}
+		\label{fig:stereo_proba}
+	\end{center}
+\end{figure}
 
 After this re-projection, the probability is computed as a exponential distribution which decreases according to a factor $c_{i,j}$ representing the degree of likeness between a point $P^{i,j}$ projected in $L$ and $R$:
 \begin{equation}
 \mathit{P}[d^i = d^{i,j}|I_L, I_R] = e^{\dfrac{-c_{i,j}}{\sigma_w^i}}
 \end{equation}
-In this way, when we project all the $j$ points discretized from the ORF Normal probability of pixel $i$, we can associate to them as presented in the theoretical example in figure \ref{fig:stereo_proba2}. As a pixel is very tiny, a small offset could incur a big mismatch between $L$ and $R$ projection, that's why we consider a rectangular window of size $(k,l)$ around this point and we compute $c_{i,j}$ as a truncated sum of the absolute difference (\textit{L1-norm}) between each point of the window \cite{stereo_windowing}:
+In this way, when we project all the $j$ points discretized from the \gls{ORF} Normal probability of pixel $i$, we can associate to them as presented in the theoretical example in figure \ref{fig:stereo_proba2}. As a pixel is very tiny, a small offset could incur a big mismatch between $L$ and $R$ projection, that's why we consider a rectangular window of size $(k,l)$ around this point and we compute $c_{i,j}$ as a truncated sum of the absolute difference (\textit{L1-norm}) between each point of the window \cite{stereo_windowing}:
 \begin{equation}
 c_{i,j} = \mathsf{min}\Big\{\sum_k \sum_l\, \big|I_L(u_{i,j} + k, v_{i,j} + l) - I_R(u_{i,j} + k, v_{i,j} + l)\big|\,,\,thresh\Big\}
 \end{equation}
@@ -690,3 +765,13 @@ From the variables $(u_T^i, v_T^i, \hat{d}_i)$, we recover $\hat{P}^i = (\hat{x}
 
 \subsubsection{Point Cloud Creation}
 As a last step, a point cloud $\hat{\mathbf{P}}$ is composed by the assembly of every pixel $\hat{P}^i$
+
+% Figure arch
+\begin{figure}[!htt] 
+	\begin{center}
+		{\scalefont{0.5}
+		\input{graphic/arch.tex}
+		}
+	\end{center}
+	\caption{The global architecture of the fusion algorithm. Fusion is not performed straightforwardly to avoid feature matching in poor-textured environment}\label{fig:fusion_arch}
+\end{figure}
