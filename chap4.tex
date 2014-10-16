@@ -303,15 +303,14 @@ Figure \ref{fig:manip_0_4_2} illustrates the importance of the noise due to auto
 \end{figure}
 
 \section{Stereo Acquisition}
-Idee pas developper completement ca deja ete fait \cite{vertigo_phd}, \cite{muggler_phd}, \cite{makowka_phd}.
-Expliquer stereo acquisition: feature detection and matching, aggregation, optimization. \cite{stereo_methods_comparaison}.
-D'ou texture dependent
-Image avec block matching stereo function provided in OpenCV libraries.
+In this section, we will discuss the efficiency of the VERTIGO sensors and algorithm. As a lot of work has already been done on the subject, for instance in \cite{vertigo_phd}, \cite{muggler_phd} and \cite{makowka_phd}, this project simply focused on the comparison with the \gls{ORF} camera and points out the complementarity of the two systems.
 
-However, la ou l'orf est mauvais, le stereo est bon. C'est le cas du mouvement. Si l'environement bouge rapidement par rappoirt a la camera, pas de problme.
+The reconstruction of a 3D points cloud from stereo sensors is performed through the elaboration of a disparity map, whose information is quite similar to the one of the \gls{ORF} depth map. To create this disparity map, different techniques can be used, a taxonomy of those is given in \cite{stereo_methods_comparaison}. Basically, the process always implies the following steps: features detection and matching, aggregation, disparity computation and optimization. The quality of the disparity image is the dependent on the number of matchable features, called supporting points, in the left and right pictures: if the considered environment is highly textured, this will lead to accurate 3D reconstruction while uniform patches won't give reliable results. The interstices between supporting points is filled by aggregation methods around those points which have also a lot of influence on the final disparity map. In figure \ref{manip_1_1}, the results of a block matching stereo function provided in OpenCV libraries illustrate our remarks.
+
+However, if the stereo vision algorithms suffer from this texture dependency, they don't encounter the same defaults as the \gls{ORF} in term of movement and luminosity conditions. This complementarity has been proved qualitatively with the use of a setup involving the \gks{ORF} and the VERTIGO goggles capturing simultaneous pictures of the same object. In figure \ref{manip_1_2}, the movement reliability is highlighted: a checkerboard animated with a speed of the few dozen of centimeters per second is captured by the two sensors. Even if the stereo images could be considered a little more blurred than in the static case, they are still very good and 
+la ou l'orf est mauvais, le stereo est bon. C'est le cas du mouvement. Si l'environement bouge rapidement par rappoirt a la camera, pas de problme.
 
 De meme, moins sensible aux conditions lumineuses et aux materiaux utilises.
-
 
 \section{Multi-sensors Calibration}
 To determine the performances of the calibration algorithm we discussed in section \ref{subsec:system_calib}, we connect the \gls{ORF} and the stereo cameras to the VERTIGO computer and we acquire synchronous images of a checkerboard (figure \ref{fig:manip_2_1}. It is important for each capture to make sure the checkerboard is not moving and the luminous conditions are sufficient by checking the confidence picture (figure \ref{fig:manip_2_2}).
