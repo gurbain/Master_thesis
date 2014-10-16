@@ -115,7 +115,7 @@ v\\
 
 Finally, the model can be refine to take the distortions into account. As proposed by Brown \cite{camera_distortion}, the distortion may be divided into radial and tangential and can be represented by a second degree polynomial which map the undistorted and distorted images together thanks to 6 parameters. This will be detailed in section \ref{sec:calib}.\\
 
-One should also notice that the parameters discussed here define the camera mathematical model but performances can be determined as well. For instance, the \textit{Field-Of-View} (\gls{FOV}) of the camera and the pixel size $\epsilon_p$ of the photosensitive cells (sometimes given by the pixel density, measured in pix/meters) are two characteristics to measure camera performances.
+One should also notice that the parameters discussed here define the camera mathematical model but performances can be determined as well. For instance, the \textit{Field-Of-View} (\gls{FoV}) of the camera and the pixel size $\epsilon_p$ of the photosensitive cells (sometimes given by the pixel density, measured in pix/meters) are two characteristics to measure camera performances.
 
 \subsection{Stereoscopic Cameras Model}
 \label{sec:stereo_camera}
@@ -376,6 +376,7 @@ The constraints are now:
 \end{itemize*}
 
 \subsection{Multi-Sensors Calibration}
+\label{subsec:system_calib}
 In this third and last part of calibration, we focused on the estimation of the extrinsic matrix between the \gls{ORF} and the stereoscopic cameras. As  explained in the literature review, this method proposed in \cite{stereo_tof_fusion_proba} takes advantage of all the information given by the sensors and not only visual images. Figure \ref{fig:calib_arch} shows the architecture of this method and theoretical details are given in the following paragraphs.
 
 % Figure calib_arch
@@ -636,7 +637,7 @@ Finally, a fusion algorithm is characterized in term of representation, certaint
 \item \textit{Representation}: This feature characterizing the abstraction level increase from the algorithm inputs (2D matrices) to the algorithm outputs (3D point clouds)
 \item \textit{Certainty}: The gain in measurement certainty illustrates the growth between $\mathit{P}[D|I_T]$ and $\mathit{P}[D|I_L, I_R]$ on one hand and $\mathit{P}[D|I_T, I_L, I_R]$ on the other hand. It will be discussed in chapter \ref{chapter:results}
 \item \textit{Accuracy}: The gain in measurement accuracy before and after the fusion will be discussed in chapter \ref{chapter:results}
-\item \textit{Completeness}: The completeness will be affected by the limited \gls{FOV} of each cameras and the geometry between them. This feature is environment-dependent and will depend on the target size and distance and the application we want to perform
+\item \textit{Completeness}: The completeness will be affected by the limited \gls{FoV} of each cameras and the geometry between them. This feature is environment-dependent and will depend on the target size and distance and the application we want to perform
 \end{itemize*}
 
 \subsection{Architecture}
@@ -644,7 +645,7 @@ All the concepts above leads to the architecture in figure \ref{fig:fusion_arch}
 
 
 \subsubsection{Determination of the Points Framed by all Cameras}
-In order to perform \textit{registration}, the determination of the domain framed by both devices must be accomplished as the first step of the algorithm. We then only keep point framed by the two cameras before proceeding to fusion. Figure \ref{fig:geometry} shows the three deveices \gls{FOV} in the $XZ$ plane. The hatched zone corresponds to the domain where fusion will take place. As we consider the three cameras have the same $Y$ coordinate, the $Y$ domain is given by the minimal \gls{FOV}. Basic analytical calculations give:
+In order to perform \textit{registration}, the determination of the domain framed by both devices must be accomplished as the first step of the algorithm. We then only keep point framed by the two cameras before proceeding to fusion. Figure \ref{fig:geometry} shows the three deveices \gls{FoV} in the $XZ$ plane. The hatched zone corresponds to the domain where fusion will take place. As we consider the three cameras have the same $Y$ coordinate, the $Y$ domain is given by the minimal \gls{FoV}. Basic analytical calculations give:
 \begin{eqnarray}
 z_i & \in & \Big[min\Big(\frac{t_{TR}\,\mathsf{tan}(\rho)\,\mathsf{tan}(tau)}{\mathsf{tan}(\rho) + \mathsf{tan}(\tau)}, range_{min}\Big);\,range_{max}\Big]\\
 x_i & \in & \Big[\dfrac{-z_i-t_{TR}\mathsf{tan}(\rho)}{\mathsf{tan}(\rho)};\,\dfrac{z_i}{\mathsf{tan}(\rho)}\Big]\\
@@ -706,6 +707,7 @@ d^i \in [d_T^i - 3 \sigma_w;\,d_T^i + 3 \sigma_w]
 
 As presented in figure \ref{fig:orf_normal}, this interval is then discretized around $\hat{D}_T$ with a step equal to the stereoscopic accuracy sub-sampled by a factor $k_int$ ($k_{int} = 4$ in this work). In \cite{stereo_resolution} and \cite{stereo_resolution_2}, this resolution is equal to:
 \begin{equation}
+\label{eq:stereo_acc}
 \epsilon_D = \dfrac{D^2}{b\, f}\,\epsilon_p
 \end{equation}
 Where $D$ is the depth, $b$ is the \textit{baseline} between $L$ and $R$ cameras, $f$ is the focal length (assumed to be the same for $L$ and $R$) and $\epsilon_p$ is the distance between two pixels on the camera ($6 \mu m$ for \gls{VERTIGO}) as shown in figure \ref{fig:cam_stereo_resolution}.

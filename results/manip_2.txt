@@ -1,0 +1,523 @@
+Halo_calib_dataset
+
+===================== Inspect Linux Software =====================
+
+This standalone software aims at data fusion from an ethernet
+SwissRanger SR4000 Optical Range Finder and a stereo Optics Mount
+(VERTIGO). A thermocamshould be added afterwards. The main features
+are acqusition, calibration, 3D reconstruction from both sensors
+and sensor data fusion
+
+PID of the process: 6263
+Compiled  On:   Oct 15 2014 at 22:10:52 UTC
+          With: GCC: 4.8.2
+                Linux Kernel: 3.13.0-29-generic
+                OpenCV: 2.4.3
+Author: Gabriel Urbain
+Space Systems Lab (SSL) - INSPECT project
+July 2014 - Massachussets Institute of Technology (MIT)
+
+===================================================================
+
+[0.23] INFO:  ---- HALO CAMS CALIBRATION:                                      ----
+[0.23] INFO:  ---- Each time a keyboard is detected, the image freezes.        ----
+[0.23] INFO:  ---- Press space to keep the image or any other key to throw it. ----
+[0.23] INFO:  ---- Press esc to quit and p to pause/unpause the calibration    ----
+[0.455] INFO: Checkerboard found : 1
+[0.677] INFO: Checkerboard found : 2
+[0.827] INFO: Checkerboard found : 3
+[1.01] INFO: Checkerboard found : 4
+[1.16] INFO: Checkerboard found : 5
+[1.32] INFO: Checkerboard found : 6
+[1.47] INFO: Checkerboard found : 7
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.0558;0.0926;0.728]  Stereo: [-0.0412;0.0711;0.695]  INTER: ORF: 0.142m      Stereo: 0.109m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.0561;0.112;0.696]   Stereo: [-0.0386;0.0949;0.688]  INTER: ORF: 0.0276m     Stereo: 0.0338m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.0664;0.142;0.731]   Stereo: [-0.0363;0.119;0.682]   INTER: ORF: 0.0436m     Stereo: 0.0343m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.0264;0.0179;0.691]  Stereo: [-0.0699;-0.000632;0.696]       INTER: ORF: 0.18m       Stereo: 0.173m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.0278;0.0431;0.712]  Stereo: [-0.0676;0.0235;0.691]  INTER: ORF: 0.0357m     Stereo: 0.0341m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.0355;0.0897;0.705]  Stereo: [-0.0632;0.0722;0.683]  INTER: ORF: 0.0663m     Stereo: 0.0691m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.0414;0.133;0.682]   Stereo: [-0.0571;0.119;0.663]   INTER: ORF: 0.0614m     Stereo: 0.0665m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.00371;0.0166;0.692] Stereo: [-0.0914;5.55e-05;0.679]        INTER: ORF: 0.169m      Stereo: 0.172m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.00754;0.0358;0.628] Stereo: [-0.0883;0.0244;0.668]  INTER: ORF: 0.0274m     Stereo: 0.0345m
+[1.51] DEBUG in calibration.cpp:391: COORD: ORF: [0.0113;0.0665;0.718]  Stereo: [-0.0864;0.0481;0.666]  INTER: ORF: 0.0435m     Stereo: 0.0336m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0123;0.0828;0.659]  Stereo: [-0.0837;0.0721;0.658]  INTER: ORF: 0.0232m     Stereo: 0.0341m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0212;0.132;0.67]    Stereo: [-0.0792;0.12;0.649]    INTER: ORF: 0.0698m     Stereo: 0.0682m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0101;0.0393;0.62]  Stereo: [-0.111;0.0251;0.656]   INTER: ORF: 0.134m      Stereo: 0.138m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.00957;0.0643;0.67] Stereo: [-0.107;0.0488;0.645]   INTER: ORF: 0.0353m     Stereo: 0.0338m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.00126;0.133;0.64]  Stereo: [-0.0998;0.12;0.629]    INTER: ORF: 0.0969m     Stereo: 0.101m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0295;0.0366;0.624] Stereo: [-0.131;0.0259;0.632]   INTER: ORF: 0.138m      Stereo: 0.137m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0329;0.0671;0.698] Stereo: [-0.129;0.0501;0.631]   INTER: ORF: 0.0433m     Stereo: 0.0343m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0213;0.111;0.643]  Stereo: [-0.124;0.0971;0.617]   INTER: ORF: 0.0628m     Stereo: 0.0666m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0612;0.0196;0.684] Stereo: [-0.154;0.00333;0.622]  INTER: ORF: 0.135m      Stereo: 0.136m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0497;0.0626;0.644] Stereo: [-0.149;0.0504;0.61]    INTER: ORF: 0.0618m     Stereo: 0.0667m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.05;0.0862;0.639]   Stereo: [-0.148;0.075;0.609]    INTER: ORF: 0.0333m     Stereo: 0.0349m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0778;0.0148;0.617] Stereo: [-0.177;0.00439;0.61]   INTER: ORF: 0.105m      Stereo: 0.104m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0717;0.0378;0.605] Stereo: [-0.172;0.0278;0.595]   INTER: ORF: 0.033m      Stereo: 0.0336m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0771;0.0666;0.666] Stereo: [-0.172;0.0517;0.597]   INTER: ORF: 0.0412m     Stereo: 0.0338m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0649;0.111;0.622]  Stereo: [-0.167;0.0997;0.587]   INTER: ORF: 0.0642m     Stereo: 0.068m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0717;0.145;0.669]  Stereo: [-0.164;0.123;0.58]     INTER: ORF: 0.0476m     Stereo: 0.0332m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0931;0.0646;0.615] Stereo: [-0.193;0.0528;0.58]    INTER: ORF: 0.115m      Stereo: 0.104m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0992;0.096;0.688]  Stereo: [-0.189;0.0763;0.572]   INTER: ORF: 0.0447m     Stereo: 0.0335m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0847;0.102;0.572]  Stereo: [-0.188;0.101;0.57]     INTER: ORF: 0.0167m     Stereo: 0.0346m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.12;0.0158;0.61]    Stereo: [-0.221;0.00688;0.579]  INTER: ORF: 0.127m      Stereo: 0.137m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.115;0.0398;0.595]  Stereo: [-0.218;0.0304;0.573]   INTER: ORF: 0.0345m     Stereo: 0.0333m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.114;0.0627;0.599]  Stereo: [-0.214;0.0542;0.565]   INTER: ORF: 0.0324m     Stereo: 0.0339m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.109;0.111;0.593]   Stereo: [-0.212;0.104;0.561]    INTER: ORF: 0.0678m     Stereo: 0.0698m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.107;0.135;0.594]   Stereo: [-0.209;0.127;0.554]    INTER: ORF: 0.0343m     Stereo: 0.0337m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.143;0.0397;0.599]  Stereo: [-0.238;0.032;0.555]    INTER: ORF: 0.139m      Stereo: 0.138m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.129;0.0591;0.555]  Stereo: [-0.239;0.056;0.555]    INTER: ORF: 0.0308m     Stereo: 0.034m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.142;0.0909;0.615]  Stereo: [-0.239;0.0813;0.556]   INTER: ORF: 0.0467m     Stereo: 0.0357m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.129;0.136;0.583]   Stereo: [-0.237;0.131;0.551]    INTER: ORF: 0.0652m     Stereo: 0.071m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.16;0.0135;0.562]   Stereo: [-0.269;0.0097;0.557]   INTER: ORF: 0.176m      Stereo: 0.175m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.152;0.0342;0.534]  Stereo: [-0.271;0.0342;0.558]   INTER: ORF: 0.0305m     Stereo: 0.0348m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.161;0.0895;0.59]   Stereo: [-0.264;0.0834;0.546]   INTER: ORF: 0.0788m     Stereo: 0.0699m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.147;0.107;0.54]    Stereo: [-0.263;0.109;0.542]    INTER: ORF: 0.0283m     Stereo: 0.0358m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.139;0.124;0.521]   Stereo: [-0.266;0.136;0.548]    INTER: ORF: 0.0257m     Stereo: 0.039m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.306;0.0056;0.565]   Stereo: [0.124;-0.0138;0.525]   INTER: ORF: 0.475m      Stereo: 0.443m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.306;0.0502;0.56]    Stereo: [0.121;0.0342;0.513]    INTER: ORF: 0.0631m     Stereo: 0.068m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.31;0.075;0.564]     Stereo: [0.12;0.0584;0.507]     INTER: ORF: 0.0353m     Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.291;0.00746;0.586]  Stereo: [0.103;-0.0129;0.535]   INTER: ORF: 0.0974m     Stereo: 0.102m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.282;0.0308;0.572]   Stereo: [0.101;0.0112;0.528]    INTER: ORF: 0.0342m     Stereo: 0.034m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.282;0.0977;0.564]   Stereo: [0.0971;0.0836;0.509]   INTER: ORF: 0.0946m     Stereo: 0.103m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.27;0.00881;0.604]   Stereo: [0.0819;-0.0117;0.544]  INTER: ORF: 0.126m      Stereo: 0.136m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.261;0.0533;0.583]   Stereo: [0.0791;0.0365;0.532]   INTER: ORF: 0.0637m     Stereo: 0.0683m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.246;0.00834;0.61]   Stereo: [0.0607;-0.0108;0.55]   INTER: ORF: 0.0653m     Stereo: 0.0694m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.235;0.03;0.586]     Stereo: [0.0593;0.0135;0.545]   INTER: ORF: 0.0327m     Stereo: 0.0344m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.243;0.0786;0.6]     Stereo: [0.0564;0.0621;0.533]   INTER: ORF: 0.0692m     Stereo: 0.0688m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.235;0.0997;0.585]   Stereo: [0.055;0.0858;0.525]    INTER: ORF: 0.0307m     Stereo: 0.0336m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.237;0.123;0.587]    Stereo: [0.0537;0.11;0.52]      INTER: ORF: 0.0324m     Stereo: 0.0348m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.223;0.0108;0.618]   Stereo: [0.0397;-0.00935;0.561] INTER: ORF: 0.159m      Stereo: 0.17m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.217;0.102;0.601]    Stereo: [0.034;0.0869;0.533]    INTER: ORF: 0.129m      Stereo: 0.136m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.215;0.124;0.6]      Stereo: [0.0326;0.111;0.525]    INTER: ORF: 0.0319m     Stereo: 0.0337m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.2;0.0122;0.634]     Stereo: [0.0185;-0.0082;0.57]   INTER: ORF: 0.159m      Stereo: 0.169m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.201;0.0355;0.635]   Stereo: [0.0172;0.016;0.563]    INTER: ORF: 0.0329m     Stereo: 0.0343m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.194;0.102;0.611]    Stereo: [0.0132;0.0881;0.54]    INTER: ORF: 0.095m      Stereo: 0.102m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.181;0.0364;0.645]   Stereo: [-0.00402;0.0172;0.57]  INTER: ORF: 0.0943m     Stereo: 0.102m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.175;0.057;0.635]    Stereo: [-0.00532;0.0413;0.565] INTER: ORF: 0.0296m     Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.173;0.0811;0.628]   Stereo: [-0.00671;0.0653;0.556] INTER: ORF: 0.0342m     Stereo: 0.0339m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.174;0.128;0.64]     Stereo: [-0.00904;0.113;0.54]   INTER: ORF: 0.0662m     Stereo: 0.0672m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.156;0.0133;0.658]   Stereo: [-0.0239;-0.00579;0.585]        INTER: ORF: 0.163m      Stereo: 0.168m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.154;0.0367;0.645]   Stereo: [-0.0251;0.0184;0.577]  INTER: ORF: 0.0331m     Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.15;0.0601;0.644]    Stereo: [-0.0264;0.0424;0.57]   INTER: ORF: 0.0334m     Stereo: 0.0339m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.151;0.0843;0.643]   Stereo: [-0.0275;0.0667;0.563]  INTER: ORF: 0.0341m     Stereo: 0.0345m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.153;0.105;0.645]    Stereo: [-0.0288;0.0906;0.555]  INTER: ORF: 0.0295m     Stereo: 0.0337m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.135;0.0383;0.674]   Stereo: [-0.0459;0.0196;0.584]  INTER: ORF: 0.096m      Stereo: 0.102m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.137;0.0609;0.681]   Stereo: [-0.0469;0.0439;0.576]  INTER: ORF: 0.032m      Stereo: 0.0343m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.132;0.0859;0.658]   Stereo: [-0.0483;0.0676;0.568]  INTER: ORF: 0.0356m     Stereo: 0.0335m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.135;0.139;0.698]    Stereo: [-0.0504;0.115;0.552]   INTER: ORF: 0.0746m     Stereo: 0.0672m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.111;0.0379;0.679]   Stereo: [-0.0666;0.0211;0.59]   INTER: ORF: 0.144m      Stereo: 0.134m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.115;0.0621;0.693]   Stereo: [-0.0677;0.0449;0.581]  INTER: ORF: 0.0345m     Stereo: 0.0337m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.105;0.13;0.663]     Stereo: [-0.0714;0.117;0.561]   INTER: ORF: 0.097m      Stereo: 0.102m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0901;0.0166;0.692]  Stereo: [-0.0855;-0.0014;0.601] INTER: ORF: 0.162m      Stereo: 0.168m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0845;0.0856;0.678]  Stereo: [-0.0893;0.0701;0.58]   INTER: ORF: 0.0978m     Stereo: 0.101m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0579;0.038;0.923]  Stereo: [-0.227;0.0147;0.8]     INTER: ORF: 0.157m      Stereo: 0.158m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.038;0.0611;0.936]  Stereo: [-0.203;0.0379;0.813]   INTER: ORF: 0.0382m     Stereo: 0.0403m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0046;0.1;0.938]    Stereo: [-0.173;0.0838;0.807]   INTER: ORF: 0.0648m     Stereo: 0.0714m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.00919;0.08;0.952]  Stereo: [-0.178;0.0606;0.821]   INTER: ORF: 0.0291m     Stereo: 0.0332m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [-0.0116;0.0398;0.959] Stereo: [-0.183;0.0124;0.836]   INTER: ORF: 0.0569m     Stereo: 0.0683m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0151;0.0789;0.964]  Stereo: [-0.154;0.0588;0.831]   INTER: ORF: 0.0614m     Stereo: 0.0719m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.00779;0.0353;0.952] Stereo: [-0.158;0.0108;0.844]   INTER: ORF: 0.062m      Stereo: 0.0681m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0416;0.0814;0.99]   Stereo: [-0.13;0.0576;0.843]    INTER: ORF: 0.0733m     Stereo: 0.0719m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.056;0.0365;0.982]   Stereo: [-0.113;0.0089;0.877]   INTER: ORF: 0.0651m     Stereo: 0.0711m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0854;0.103;0.971]   Stereo: [-0.0817;0.0798;0.865]  INTER: ORF: 0.098m      Stereo: 0.105m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.085;0.034;1.06]     Stereo: [-0.0895;0.00815;0.888] INTER: ORF: 0.097m      Stereo: 0.102m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.109;0.0866;1.02]    Stereo: [-0.0613;0.055;0.889]   INTER: ORF: 0.0781m     Stereo: 0.072m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.141;0.149;0.975]    Stereo: [-0.0307;0.126;0.877]   INTER: ORF: 0.0936m     Stereo: 0.105m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.17;0.151;1.04]      Stereo: [-0.00771;0.125;0.889]  INTER: ORF: 0.0296m     Stereo: 0.023m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.157;0.125;0.991]    Stereo: [-0.0102;0.101;0.9]     INTER: ORF: 0.0389m     Stereo: 0.0334m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.16;0.104;1.02]      Stereo: [-0.0124;0.0774;0.906]  INTER: ORF: 0.0303m     Stereo: 0.0337m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.157;0.0381;1.03]    Stereo: [-0.0195;0.00544;0.934] INTER: ORF: 0.093m      Stereo: 0.102m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.186;0.128;1.02]     Stereo: [0.0132;0.0997;0.908]   INTER: ORF: 0.131m      Stereo: 0.137m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.256;-0.127;0.816]   Stereo: [0.0317;-0.157;0.775]   INTER: ORF: 0.368m      Stereo: 0.364m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.255;-0.103;0.814]   Stereo: [0.0302;-0.134;0.778]   INTER: ORF: 0.035m      Stereo: 0.0331m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.256;-0.0812;0.829]  Stereo: [0.0292;-0.11;0.783]    INTER: ORF: 0.0303m     Stereo: 0.0334m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.25;-0.0327;0.821]   Stereo: [0.0266;-0.06;0.772]    INTER: ORF: 0.0689m     Stereo: 0.0713m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.235;-0.058;0.841]   Stereo: [0.00271;-0.0866;0.775] INTER: ORF: 0.0389m     Stereo: 0.0446m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.227;-0.0337;0.826]  Stereo: [0.00179;-0.0614;0.771] INTER: ORF: 0.0352m     Stereo: 0.0357m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.225;-0.0112;0.829]  Stereo: [7.19e-05;-0.037;0.778] INTER: ORF: 0.0318m     Stereo: 0.0345m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.205;-0.129;0.81]    Stereo: [-0.0177;-0.16;0.765]   INTER: ORF: 0.168m      Stereo: 0.175m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.209;-0.0613;0.844]  Stereo: [-0.0223;-0.087;0.766]  INTER: ORF: 0.0955m     Stereo: 0.104m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.195;-0.0359;0.806]  Stereo: [-0.0235;-0.0625;0.767] INTER: ORF: 0.0385m     Stereo: 0.0346m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.199;-0.0133;0.812]  Stereo: [-0.0247;-0.038;0.768]  INTER: ORF: 0.0322m     Stereo: 0.0347m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.183;-0.109;0.826]   Stereo: [-0.0439;-0.137;0.76]   INTER: ORF: 0.136m      Stereo: 0.141m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.182;-0.0844;0.829]  Stereo: [-0.0457;-0.112;0.761]  INTER: ORF: 0.0346m     Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.174;-0.0605;0.811]  Stereo: [-0.0468;-0.0878;0.76]  INTER: ORF: 0.0346m     Stereo: 0.0349m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.179;-0.0349;0.826]  Stereo: [-0.0478;-0.0632;0.759] INTER: ORF: 0.0365m     Stereo: 0.0348m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.159;-0.0636;0.853]  Stereo: [-0.0712;-0.0878;0.749] INTER: ORF: 0.0451m     Stereo: 0.0419m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.155;-0.0394;0.823]  Stereo: [-0.0732;-0.0639;0.752] INTER: ORF: 0.0344m     Stereo: 0.0339m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.148;-0.0142;0.82]   Stereo: [-0.0741;-0.039;0.752]  INTER: ORF: 0.0363m     Stereo: 0.0351m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.135;-0.136;0.825]   Stereo: [-0.0918;-0.161;0.741]  INTER: ORF: 0.173m      Stereo: 0.174m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.128;-0.109;0.806]   Stereo: [-0.0928;-0.137;0.74]   INTER: ORF: 0.0382m     Stereo: 0.0345m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.132;-0.0878;0.828]  Stereo: [-0.0944;-0.113;0.741]  INTER: ORF: 0.0305m     Stereo: 0.034m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.122;-0.0402;0.826]  Stereo: [-0.0972;-0.0637;0.74]  INTER: ORF: 0.0681m     Stereo: 0.0696m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.124;-0.015;0.82]    Stereo: [-0.0984;-0.0397;0.74]  INTER: ORF: 0.0357m     Stereo: 0.0339m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.101;-0.0638;0.814]  Stereo: [-0.119;-0.088;0.726]   INTER: ORF: 0.0725m     Stereo: 0.0712m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.104;-0.0423;0.832]  Stereo: [-0.122;-0.0643;0.732]  INTER: ORF: 0.0304m     Stereo: 0.0336m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0778;-0.112;0.817]  Stereo: [-0.142;-0.137;0.722]   INTER: ORF: 0.101m      Stereo: 0.105m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0775;-0.0922;0.818] Stereo: [-0.142;-0.113;0.718]   INTER: ORF: 0.0274m     Stereo: 0.0346m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0723;-0.0405;0.822] Stereo: [-0.145;-0.0643;0.721]  INTER: ORF: 0.0734m     Stereo: 0.0688m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0735;-0.0189;0.827] Stereo: [-0.148;-0.0403;0.722]  INTER: ORF: 0.0305m     Stereo: 0.034m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0559;-0.11;0.801]   Stereo: [-0.165;-0.137;0.711]   INTER: ORF: 0.13m       Stereo: 0.138m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0518;-0.0885;0.803] Stereo: [-0.169;-0.114;0.717]   INTER: ORF: 0.0302m     Stereo: 0.0325m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0498;-0.0204;0.821] Stereo: [-0.17;-0.0399;0.707]   INTER: ORF: 0.0964m     Stereo: 0.105m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0278;-0.138;0.806]  Stereo: [-0.187;-0.161;0.701]   INTER: ORF: 0.168m      Stereo: 0.173m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0287;-0.116;0.803]  Stereo: [-0.191;-0.138;0.706]   INTER: ORF: 0.0308m     Stereo: 0.033m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0246;-0.0671;0.8]   Stereo: [-0.194;-0.0894;0.705]  INTER: ORF: 0.0697m     Stereo: 0.0689m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0217;-0.042;0.806]  Stereo: [-0.194;-0.0649;0.703]  INTER: ORF: 0.0357m     Stereo: 0.0347m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0197;-0.0177;0.8]   Stereo: [-0.196;-0.0409;0.705]  INTER: ORF: 0.0344m     Stereo: 0.034m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.00136;-0.119;0.822] Stereo: [-0.214;-0.138;0.696]   INTER: ORF: 0.145m      Stereo: 0.139m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.00131;-0.092;0.813] Stereo: [-0.217;-0.114;0.698]   INTER: ORF: 0.0384m     Stereo: 0.0337m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0246;0.143;0.839]   Stereo: [-0.148;0.128;0.704]    INTER: ORF: 0.333m      Stereo: 0.35m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0236;0.121;0.847]   Stereo: [-0.149;0.104;0.712]    INTER: ORF: 0.0306m     Stereo: 0.0337m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0204;0.0979;0.844]  Stereo: [-0.148;0.0795;0.714]   INTER: ORF: 0.0333m     Stereo: 0.0351m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0198;0.0759;0.855]  Stereo: [-0.15;0.0557;0.723]    INTER: ORF: 0.031m      Stereo: 0.0336m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0729;0.12;0.837]    Stereo: [-0.0989;0.1;0.714]     INTER: ORF: 0.0818m     Stereo: 0.0809m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0699;0.0955;0.83]   Stereo: [-0.101;0.0772;0.728]   INTER: ORF: 0.0346m     Stereo: 0.0327m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0701;0.0756;0.852]  Stereo: [-0.102;0.053;0.736]    INTER: ORF: 0.0281m     Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0716;0.0303;0.853]  Stereo: [-0.103;0.00478;0.75]   INTER: ORF: 0.0641m     Stereo: 0.0683m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0998;0.149;0.873]   Stereo: [-0.0747;0.124;0.715]   INTER: ORF: 0.17m       Stereo: 0.17m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.1;0.0488;0.858]     Stereo: [-0.0777;0.0275;0.747]  INTER: ORF: 0.141m      Stereo: 0.136m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.123;0.118;0.836]    Stereo: [-0.051;0.0984;0.726]   INTER: ORF: 0.101m      Stereo: 0.104m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.123;0.0279;0.861]   Stereo: [-0.0531;0.00191;0.756] INTER: ORF: 0.128m      Stereo: 0.137m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.149;0.14;0.825]     Stereo: [-0.0261;0.121;0.725]   INTER: ORF: 0.16m       Stereo: 0.171m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.147;0.117;0.832]    Stereo: [-0.0267;0.0977;0.733]  INTER: ORF: 0.0326m     Stereo: 0.0336m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.153;0.0955;0.851]   Stereo: [-0.0275;0.0736;0.742]  INTER: ORF: 0.0307m     Stereo: 0.034m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.149;0.0495;0.874]   Stereo: [-0.0288;0.0255;0.759]  INTER: ORF: 0.0652m     Stereo: 0.0681m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.172;0.0931;0.829]   Stereo: [-0.00292;0.0726;0.747] INTER: ORF: 0.0659m     Stereo: 0.0715m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.174;0.0513;0.851]   Stereo: [-0.00363;0.0242;0.761] INTER: ORF: 0.0591m     Stereo: 0.0685m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.207;0.142;0.857]    Stereo: [0.0227;0.119;0.732]    INTER: ORF: 0.133m      Stereo: 0.137m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.201;0.118;0.831]    Stereo: [0.0223;0.0954;0.74]    INTER: ORF: 0.0347m     Stereo: 0.0335m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.23;0.139;0.836]     Stereo: [0.047;0.118;0.735]     INTER: ORF: 0.0415m     Stereo: 0.0405m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.226;0.09;0.829]     Stereo: [0.0465;0.0698;0.748]   INTER: ORF: 0.0698m     Stereo: 0.0683m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.247;0.0218;0.839]   Stereo: [0.0698;-0.00368;0.774] INTER: ORF: 0.0989m     Stereo: 0.106m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.278;0.0691;0.841]   Stereo: [0.0947;0.0436;0.761]   INTER: ORF: 0.0738m     Stereo: 0.0713m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.276;0.0236;0.852]   Stereo: [0.0939;-0.0043;0.772]  INTER: ORF: 0.0644m     Stereo: 0.0677m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0241;0.129;0.975]   Stereo: [-0.143;0.107;0.817]    INTER: ORF: 0.292m      Stereo: 0.284m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0238;0.0803;0.985]  Stereo: [-0.144;0.0579;0.828]   INTER: ORF: 0.0682m     Stereo: 0.069m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0542;0.153;0.946]   Stereo: [-0.117;0.129;0.811]    INTER: ORF: 0.108m      Stereo: 0.104m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0552;0.128;0.969]   Stereo: [-0.119;0.105;0.821]    INTER: ORF: 0.0359m     Stereo: 0.0338m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0746;0.151;0.933]   Stereo: [-0.094;0.129;0.821]    INTER: ORF: 0.0381m     Stereo: 0.0412m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0791;0.128;0.94]    Stereo: [-0.0946;0.104;0.828]   INTER: ORF: 0.0328m     Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0813;0.103;0.965]   Stereo: [-0.0946;0.0795;0.832]  INTER: ORF: 0.0357m     Stereo: 0.0353m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0769;0.0803;0.956]  Stereo: [-0.0947;0.0551;0.837]  INTER: ORF: 0.0323m     Stereo: 0.0346m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0704;0.0306;0.961]  Stereo: [-0.0962;0.00686;0.853] INTER: ORF: 0.0706m     Stereo: 0.0682m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0998;0.127;0.93]    Stereo: [-0.0697;0.103;0.83]    INTER: ORF: 0.139m      Stereo: 0.138m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.104;0.104;0.935]    Stereo: [-0.0702;0.0783;0.835]  INTER: ORF: 0.0325m     Stereo: 0.0345m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0995;0.0782;0.932]  Stereo: [-0.0709;0.0541;0.847]  INTER: ORF: 0.0367m     Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.127;0.145;0.925]    Stereo: [-0.0441;0.125;0.823]   INTER: ORF: 0.0989m     Stereo: 0.104m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.13;0.126;0.951]     Stereo: [-0.0452;0.102;0.835]   INTER: ORF: 0.0273m     Stereo: 0.0337m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.128;0.101;0.944]    Stereo: [-0.0452;0.0767;0.837]  INTER: ORF: 0.0352m     Stereo: 0.0351m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.124;0.079;0.94]     Stereo: [-0.0465;0.0531;0.85]   INTER: ORF: 0.032m      Stereo: 0.0334m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.154;0.0554;0.989]   Stereo: [-0.0219;0.0276;0.859]  INTER: ORF: 0.0446m     Stereo: 0.0436m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.149;0.0342;0.96]    Stereo: [-0.0219;0.00335;0.863] INTER: ORF: 0.0303m     Stereo: 0.0343m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.178;0.145;0.923]    Stereo: [0.00482;0.123;0.83]    INTER: ORF: 0.159m      Stereo: 0.171m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.175;0.0995;0.933]   Stereo: [0.00382;0.0747;0.844]  INTER: ORF: 0.0647m     Stereo: 0.0684m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.201;0.0762;0.938]   Stereo: [0.0279;0.0491;0.857]   INTER: ORF: 0.0422m     Stereo: 0.0435m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.202;0.0336;0.954]   Stereo: [0.0275;0.00115;0.867]  INTER: ORF: 0.0601m     Stereo: 0.0678m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.228;0.0536;0.944]   Stereo: [0.0522;0.0237;0.862]   INTER: ORF: 0.0386m     Stereo: 0.0404m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.252;0.12;0.926]     Stereo: [0.0779;0.0954;0.845]   INTER: ORF: 0.0974m     Stereo: 0.105m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.255;0.0514;0.951]   Stereo: [0.0765;0.0226;0.862]   INTER: ORF: 0.0978m     Stereo: 0.103m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.247;0.0327;0.944]   Stereo: [0.0762;-0.00151;0.867] INTER: ORF: 0.0278m     Stereo: 0.0341m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0302;0.112;1.05]    Stereo: [-0.137;0.0848;0.92]    INTER: ORF: 0.243m      Stereo: 0.246m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0572;0.109;1.06]    Stereo: [-0.113;0.0835;0.927]   INTER: ORF: 0.0274m     Stereo: 0.0244m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0538;0.0862;1.05]   Stereo: [-0.114;0.0593;0.936]   INTER: ORF: 0.032m      Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0522;0.0629;1.06]   Stereo: [-0.114;0.035;0.945]    INTER: ORF: 0.0329m     Stereo: 0.0344m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0536;0.0425;1.06]   Stereo: [-0.116;0.0107;0.955]   INTER: ORF: 0.029m      Stereo: 0.0343m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0765;0.0882;1.05]   Stereo: [-0.0891;0.0583;0.942]  INTER: ORF: 0.0686m     Stereo: 0.0724m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.0815;0.0644;1.06]   Stereo: [-0.0892;0.0338;0.946]  INTER: ORF: 0.0341m     Stereo: 0.0347m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.103;0.15;1.04]      Stereo: [-0.0621;0.13;0.923]    INTER: ORF: 0.123m      Stereo: 0.138m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.105;0.129;1.03]     Stereo: [-0.0626;0.105;0.93]    INTER: ORF: 0.0296m     Stereo: 0.0348m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.106;0.0836;1.04]    Stereo: [-0.0639;0.0563;0.944]  INTER: ORF: 0.0646m     Stereo: 0.0689m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.105;0.0623;1.06]    Stereo: [-0.0647;0.0322;0.954]  INTER: ORF: 0.0301m     Stereo: 0.0341m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.13;0.152;1.03]      Stereo: [-0.037;0.128;0.925]    INTER: ORF: 0.129m      Stereo: 0.138m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.131;0.108;1.05]     Stereo: [-0.0387;0.0798;0.943]  INTER: ORF: 0.0623m     Stereo: 0.0678m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.133;0.0377;1.07]    Stereo: [-0.0405;0.00681;0.963] INTER: ORF: 0.0993m     Stereo: 0.103m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.159;0.154;1.04]     Stereo: [-0.0123;0.126;0.925]   INTER: ORF: 0.167m      Stereo: 0.171m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.157;0.129;1.03]     Stereo: [-0.0131;0.103;0.934]   INTER: ORF: 0.0367m     Stereo: 0.0333m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.183;0.126;1.04]     Stereo: [0.0118;0.101;0.937]    INTER: ORF: 0.0261m     Stereo: 0.025m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.182;0.107;1.05]     Stereo: [0.0109;0.0774;0.949]   INTER: ORF: 0.0274m     Stereo: 0.0332m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.18;0.0801;1.06]     Stereo: [0.0106;0.0528;0.956]   INTER: ORF: 0.0376m     Stereo: 0.0347m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.183;0.0607;1.07]    Stereo: [0.0102;0.0287;0.961]   INTER: ORF: 0.0277m     Stereo: 0.0342m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.205;0.0365;1.06]    Stereo: [0.0341;0.0034;0.97]    INTER: ORF: 0.0408m     Stereo: 0.043m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.235;0.151;1.04]     Stereo: [0.0615;0.123;0.933]    INTER: ORF: 0.165m      Stereo: 0.171m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.236;0.0359;1.08]    Stereo: [0.0587;0.00209;0.973]  INTER: ORF: 0.163m      Stereo: 0.171m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.263;0.149;1.04]     Stereo: [0.0859;0.121;0.935]    INTER: ORF: 0.162m      Stereo: 0.17m
+[1.52] DEBUG in calibration.cpp:391: COORD: ORF: [0.282;0.149;1.03]     Stereo: [0.11;0.12;0.935]       INTER: ORF: 0.0194m     Stereo: 0.0239m
+Creating point cloud...Done. (9.86e-05s)
+Creating point cloud...Done. (1.12e-06s)
+Show cloud: show cloud A
+showing 2 cameras
+showing 2 lines
+[9.24] DEBUG in orientation.cpp:187: Size: 90 ET 0 OR 185
+[9.24] DEBUG in orientation.cpp:187: Size: 44 ET 90 OR 185
+[9.25] DEBUG in orientation.cpp:187: Size: 8 ET 90 OR 185
+[9.25] DEBUG in orientation.cpp:187: Size: 22 ET 90 OR 185
+[9.25] DEBUG in orientation.cpp:187: Size: 1 ET 90 OR 185
+[9.25] DEBUG in orientation.cpp:187: Size: 91 ET 90 OR 185
+[9.25] DEBUG in orientation.cpp:187: Size: 47 ET 91 OR 185
+[9.25] DEBUG in orientation.cpp:187: Size: 16 ET 91 OR 185
+[9.25] DEBUG in orientation.cpp:187: Size: 45 ET 91 OR 185
+[9.25] DEBUG in orientation.cpp:187: Size: 94 ET 91 OR 185
+[9.26] DEBUG in orientation.cpp:187: Size: 88 ET 94 OR 185
+[9.26] DEBUG in orientation.cpp:187: Size: 18 ET 94 OR 185
+[9.26] DEBUG in orientation.cpp:187: Size: 83 ET 94 OR 185
+[9.26] DEBUG in orientation.cpp:187: Size: 72 ET 94 OR 185
+[9.26] DEBUG in orientation.cpp:187: Size: 40 ET 94 OR 185
+[9.26] DEBUG in orientation.cpp:187: Size: 70 ET 94 OR 185
+[9.26] DEBUG in orientation.cpp:187: Size: 81 ET 94 OR 185
+[9.27] DEBUG in orientation.cpp:187: Size: 53 ET 94 OR 185
+[9.27] DEBUG in orientation.cpp:187: Size: 70 ET 94 OR 185
+[9.27] DEBUG in orientation.cpp:187: Size: 5 ET 94 OR 185
+[9.27] DEBUG in calibration.cpp:438: M_TL with RANSAC:
+     0.998     0.0465     0.0294     -0.166
+   -0.0456      0.999    -0.0299    0.00767
+   -0.0308     0.0285      0.999    -0.0589
+         0          0          0          1
+[9.27] DEBUG in calibration.cpp:440: M_TL without RANSAC:
+      0.991       0.128     -0.0435       -0.14
+     -0.128       0.992    -0.00107    -0.00672
+      0.043     0.00663       0.999     -0.0846
+          0           0           0           1
+[9.27] DEBUG in calibration.cpp:489: 
+MTL: [0.9908480179279159, -0.1279419095914432, 0.04302409950731501, 0.1410663516700415;
+  0.1277746473310629, 0.9917810875445596, 0.006626755492201006, 0.02506273178767104;
+  -0.043518327952058, -0.001068718403456568, 0.9990520571888289, 0.07847150837314205;
+  0, 0, 0, 1]
+MLR: [0.999691076689591, 0.02180950737764274, -0.01192776439241364, 0.08783205003979624;
+  -0.02202492673115232, 0.9998013452445305, -0.009109678457268662, -0.001976026381273345;
+  0.01152135921006112, 0.0002513528174367434, 0.9999728361052412, 0.0002742719179455276;
+  0, 0, 0, 1]
+MRL: [0.9996933662425935, -0.02181009982489907, 0.01172574245750886, -0.08785143114277719;
+  0.0219175504388137, 0.9997182329304586, 0.009368793520479512, 4.783661825121554e-05;
+  -0.01152364843762362, 0, 0.9998897095353351, 0.0007379039978461243;
+  0, 0, 0, 1]
+MRT: [0.9938391058074265, 0.1061823264152871, -0.0317670477843373, -0.2282170989573858;
+  -0.1057858144596838, 0.9943642282754926, 0.0073376800183065, -0.01052662724899641;
+  0.03160117014567108, 0.005153594509174041, 0.9994433611851298, -0.08227694902575394;
+  0, 0, 0, 1]
+MTR: [0.9938555291678138, -0.1062957719369286, 0.03236983875625667, 0.2283591812534321;
+  0.1059676182079344, 0.9943724332824402, -0.003932297212507598, 0.03432747294537286;
+  -0.0319709080611682, -0.001766504842656163, 0.99955373108747, 0.07492532815442063;
+  0, 0, 0, 1]
+MLT: [0.9908480179279159, 0.1277746473310629, -0.043518327952058, -0.1395627478276306;
+  -0.1279419095914432, 0.9917810875445593, -0.001068718403456566, -0.006724581032305423;
+  0.04302409950731501, 0.006626755492201007, 0.9990520571888289, -0.08463245921780727;
+  0, 0, 0, 1]
+[9.27] DEBUG in calibration.cpp:502: Point 1:   ORF: [0.0558,0.0926,0.728]      L: [-0.0412,0.0711,0.695]       T: [0.121,0.0949,0.775]
+[9.27] DEBUG in calibration.cpp:502: Point 2:   ORF: [0.0561,0.112,0.696]       L: [-0.0386,0.0949,0.688]       T: [0.12,0.119,0.768]
+[9.27] DEBUG in calibration.cpp:502: Point 3:   ORF: [0.0664,0.142,0.731]       L: [-0.0363,0.119,0.682]        T: [0.119,0.143,0.761]
+[9.27] DEBUG in calibration.cpp:502: Point 4:   ORF: [0.0264,0.0179,0.691]      L: [-0.0699,-0.000632,0.696]            T: [0.102,0.0201,0.776]
+[9.27] DEBUG in calibration.cpp:502: Point 5:   ORF: [0.0278,0.0431,0.712]      L: [-0.0676,0.0235,0.691]       T: [0.101,0.0443,0.772]
+[9.27] DEBUG in calibration.cpp:502: Point 6:   ORF: [0.0355,0.0897,0.705]      L: [-0.0632,0.0722,0.683]       T: [0.0985,0.0931,0.763]
+[9.27] DEBUG in calibration.cpp:502: Point 7:   ORF: [0.0414,0.133,0.682]       L: [-0.0571,0.119,0.663]        T: [0.0978,0.14,0.743]
+[9.27] DEBUG in calibration.cpp:502: Point 8:   ORF: [0.00371,0.0166,0.692]     L: [-0.0914,5.55e-05,0.679]     T: [0.0797,0.0179,0.761]
+[9.27] DEBUG in calibration.cpp:502: Point 9:   ORF: [0.00754,0.0358,0.628]     L: [-0.0883,0.0244,0.668]       T: [0.0793,0.0424,0.75]
+[9.27] DEBUG in calibration.cpp:502: Point 10:  ORF: [0.0113,0.0665,0.718]      L: [-0.0864,0.0481,0.666]       T: [0.078,0.0661,0.748]
+[9.27] DEBUG in calibration.cpp:502: Point 11:  ORF: [0.0123,0.0828,0.659]      L: [-0.0837,0.0721,0.658]       T: [0.0772,0.0902,0.74]
+[9.27] DEBUG in calibration.cpp:502: Point 12:  ORF: [0.0212,0.132,0.67]        L: [-0.0792,0.12,0.649]         T: [0.0752,0.138,0.73]
+[9.27] DEBUG in calibration.cpp:502: Point 13:  ORF: [-0.0101,0.0393,0.62]      L: [-0.111,0.0251,0.656]        T: [0.0564,0.0401,0.739]
+[9.27] DEBUG in calibration.cpp:502: Point 14:  ORF: [-0.00957,0.0643,0.67]     L: [-0.107,0.0488,0.645]        T: [0.0565,0.0641,0.727]
+[9.27] DEBUG in calibration.cpp:502: Point 15:  ORF: [-0.00126,0.133,0.64]      L: [-0.0998,0.12,0.629]         T: [0.0539,0.136,0.711]
+[9.27] DEBUG in calibration.cpp:502: Point 16:  ORF: [-0.0295,0.0366,0.624]     L: [-0.131,0.0259,0.632]        T: [0.0357,0.0382,0.716]
+[9.27] DEBUG in calibration.cpp:502: Point 17:  ORF: [-0.0329,0.0671,0.698]     L: [-0.129,0.0501,0.631]        T: [0.034,0.0625,0.714]
+[9.27] DEBUG in calibration.cpp:502: Point 18:  ORF: [-0.0213,0.111,0.643]      L: [-0.124,0.0971,0.617]        T: [0.0328,0.11,0.7]
+[9.27] DEBUG in calibration.cpp:502: Point 19:  ORF: [-0.0612,0.0196,0.684]     L: [-0.154,0.00333,0.622]       T: [0.0143,0.0127,0.706]
+[9.27] DEBUG in calibration.cpp:502: Point 20:  ORF: [-0.0497,0.0626,0.644]     L: [-0.149,0.0504,0.61]         T: [0.013,0.06,0.694]
+[9.27] DEBUG in calibration.cpp:502: Point 21:  ORF: [-0.05,0.0862,0.639]       L: [-0.148,0.075,0.609]         T: [0.0111,0.0846,0.694]
+[9.27] DEBUG in calibration.cpp:502: Point 22:  ORF: [-0.0778,0.0148,0.617]     L: [-0.177,0.00439,0.61]        T: [-0.00865,0.0108,0.695]
+[9.27] DEBUG in calibration.cpp:502: Point 23:  ORF: [-0.0717,0.0378,0.605]     L: [-0.172,0.0278,0.595]        T: [-0.00701,0.0347,0.681]
+[9.27] DEBUG in calibration.cpp:502: Point 24:  ORF: [-0.0771,0.0666,0.666]     L: [-0.172,0.0517,0.597]        T: [-0.00979,0.0584,0.683]
+[9.27] DEBUG in calibration.cpp:502: Point 25:  ORF: [-0.0649,0.111,0.622]      L: [-0.167,0.0997,0.587]        T: [-0.0117,0.107,0.672]
+[9.27] DEBUG in calibration.cpp:502: Point 26:  ORF: [-0.0717,0.145,0.669]      L: [-0.164,0.123,0.58]          T: [-0.0123,0.13,0.665]
+[9.27] DEBUG in calibration.cpp:502: Point 27:  ORF: [-0.0931,0.0646,0.615]     L: [-0.193,0.0528,0.58]         T: [-0.0317,0.0566,0.666]
+[9.27] DEBUG in calibration.cpp:502: Point 28:  ORF: [-0.0992,0.096,0.688]      L: [-0.189,0.0763,0.572]        T: [-0.0312,0.0804,0.658]
+[9.27] DEBUG in calibration.cpp:502: Point 29:  ORF: [-0.0847,0.102,0.572]      L: [-0.188,0.101,0.57]          T: [-0.0336,0.105,0.656]
+[9.27] DEBUG in calibration.cpp:502: Point 30:  ORF: [-0.12,0.0158,0.61]        L: [-0.221,0.00688,0.579]       T: [-0.0535,0.00753,0.666]
+[9.27] DEBUG in calibration.cpp:502: Point 31:  ORF: [-0.115,0.0398,0.595]      L: [-0.218,0.0304,0.573]        T: [-0.0541,0.0311,0.66]
+[9.27] DEBUG in calibration.cpp:502: Point 32:  ORF: [-0.114,0.0627,0.599]      L: [-0.214,0.0542,0.565]        T: [-0.054,0.0552,0.652]
+[9.27] DEBUG in calibration.cpp:502: Point 33:  ORF: [-0.109,0.111,0.593]       L: [-0.212,0.104,0.561]         T: [-0.0582,0.104,0.648]
+[9.27] DEBUG in calibration.cpp:502: Point 34:  ORF: [-0.107,0.135,0.594]       L: [-0.209,0.127,0.554]         T: [-0.0585,0.128,0.641]
+[9.27] DEBUG in calibration.cpp:502: Point 35:  ORF: [-0.143,0.0397,0.599]      L: [-0.238,0.032,0.555]         T: [-0.0753,0.03,0.643]
+[9.27] DEBUG in calibration.cpp:502: Point 36:  ORF: [-0.129,0.0591,0.555]      L: [-0.239,0.056,0.555]         T: [-0.0787,0.0538,0.643]
+[9.27] DEBUG in calibration.cpp:502: Point 37:  ORF: [-0.142,0.0909,0.615]      L: [-0.239,0.0813,0.556]        T: [-0.0826,0.0788,0.645]
+[9.27] DEBUG in calibration.cpp:502: Point 38:  ORF: [-0.129,0.136,0.583]       L: [-0.237,0.131,0.551]         T: [-0.0866,0.129,0.639]
+[9.27] DEBUG in calibration.cpp:502: Point 39:  ORF: [-0.16,0.0135,0.562]       L: [-0.269,0.0097,0.557]        T: [-0.103,0.00403,0.647]
+[9.27] DEBUG in calibration.cpp:502: Point 40:  ORF: [-0.152,0.0342,0.534]      L: [-0.271,0.0342,0.558]        T: [-0.108,0.0281,0.648]
+[9.27] DEBUG in calibration.cpp:502: Point 41:  ORF: [-0.161,0.0895,0.59]       L: [-0.264,0.0834,0.546]        T: [-0.108,0.0776,0.635]
+[9.27] DEBUG in calibration.cpp:502: Point 42:  ORF: [-0.147,0.107,0.54]        L: [-0.263,0.109,0.542]         T: [-0.11,0.103,0.631]
+[9.27] DEBUG in calibration.cpp:502: Point 43:  ORF: [-0.139,0.124,0.521]       L: [-0.266,0.136,0.548]         T: [-0.116,0.13,0.637]
+[9.27] DEBUG in calibration.cpp:502: Point 44:  ORF: [0.306,0.0056,0.565]       L: [0.124,-0.0138,0.525]        T: [0.288,0.0306,0.597]
+[9.27] DEBUG in calibration.cpp:502: Point 45:  ORF: [0.306,0.0502,0.56]        L: [0.121,0.0342,0.513]         T: [0.279,0.0778,0.586]
+[9.27] DEBUG in calibration.cpp:502: Point 46:  ORF: [0.31,0.075,0.564]         L: [0.12,0.0584,0.507]          T: [0.274,0.102,0.58]
+[9.27] DEBUG in calibration.cpp:502: Point 47:  ORF: [0.291,0.00746,0.586]      L: [0.103,-0.0129,0.535]        T: [0.267,0.029,0.608]
+[9.27] DEBUG in calibration.cpp:502: Point 48:  ORF: [0.282,0.0308,0.572]       L: [0.101,0.0112,0.528]         T: [0.263,0.0526,0.601]
+[9.27] DEBUG in calibration.cpp:502: Point 49:  ORF: [0.282,0.0977,0.564]       L: [0.0971,0.0836,0.509]        T: [0.248,0.124,0.582]
+[9.27] DEBUG in calibration.cpp:502: Point 50:  ORF: [0.27,0.00881,0.604]       L: [0.0819,-0.0117,0.544]       T: [0.247,0.0275,0.618]
+[9.27] DEBUG in calibration.cpp:502: Point 51:  ORF: [0.261,0.0533,0.583]       L: [0.0791,0.0365,0.532]        T: [0.238,0.0749,0.606]
+[9.27] DEBUG in calibration.cpp:502: Point 52:  ORF: [0.246,0.00834,0.61]       L: [0.0607,-0.0108,0.55]        T: [0.226,0.0257,0.626]
+[9.27] DEBUG in calibration.cpp:502: Point 53:  ORF: [0.235,0.03,0.586]         L: [0.0593,0.0135,0.545]        T: [0.222,0.0496,0.62]
+[9.27] DEBUG in calibration.cpp:502: Point 54:  ORF: [0.243,0.0786,0.6]         L: [0.0564,0.0621,0.533]        T: [0.212,0.0974,0.609]
+[9.27] DEBUG in calibration.cpp:502: Point 55:  ORF: [0.235,0.0997,0.585]       L: [0.055,0.0858,0.525]         T: [0.207,0.121,0.601]
+[9.27] DEBUG in calibration.cpp:502: Point 56:  ORF: [0.237,0.123,0.587]        L: [0.0537,0.11,0.52]           T: [0.202,0.145,0.596]
+[9.27] DEBUG in calibration.cpp:502: Point 57:  ORF: [0.223,0.0108,0.618]       L: [0.0397,-0.00935,0.561]      T: [0.206,0.0246,0.638]
+[9.27] DEBUG in calibration.cpp:502: Point 58:  ORF: [0.217,0.102,0.601]        L: [0.034,0.0869,0.533]         T: [0.187,0.119,0.61]
+[9.27] DEBUG in calibration.cpp:502: Point 59:  ORF: [0.215,0.124,0.6]          L: [0.0326,0.111,0.525]         T: [0.182,0.143,0.602]
+[9.27] DEBUG in calibration.cpp:502: Point 60:  ORF: [0.2,0.0122,0.634]         L: [0.0185,-0.0082,0.57]        T: [0.185,0.0231,0.647]
+[9.27] DEBUG in calibration.cpp:502: Point 61:  ORF: [0.201,0.0355,0.635]       L: [0.0172,0.016,0.563]         T: [0.18,0.0469,0.64]
+[9.27] DEBUG in calibration.cpp:502: Point 62:  ORF: [0.194,0.102,0.611]        L: [0.0132,0.0881,0.54]         T: [0.166,0.118,0.618]
+[9.27] DEBUG in calibration.cpp:502: Point 63:  ORF: [0.181,0.0364,0.645]       L: [-0.00402,0.0172,0.57]       T: [0.159,0.0453,0.648]
+[9.27] DEBUG in calibration.cpp:502: Point 64:  ORF: [0.175,0.057,0.635]        L: [-0.00532,0.0413,0.565]      T: [0.155,0.0691,0.643]
+[9.27] DEBUG in calibration.cpp:502: Point 65:  ORF: [0.173,0.0811,0.628]       L: [-0.00671,0.0653,0.556]      T: [0.15,0.0927,0.635]
+[9.27] DEBUG in calibration.cpp:502: Point 66:  ORF: [0.174,0.128,0.64]         L: [-0.00904,0.113,0.54]        T: [0.141,0.139,0.618]
+[9.27] DEBUG in calibration.cpp:502: Point 67:  ORF: [0.156,0.0133,0.658]       L: [-0.0239,-0.00579,0.585]     T: [0.143,0.0201,0.664]
+[9.27] DEBUG in calibration.cpp:502: Point 68:  ORF: [0.154,0.0367,0.645]       L: [-0.0251,0.0184,0.577]       T: [0.139,0.0439,0.656]
+[9.27] DEBUG in calibration.cpp:502: Point 69:  ORF: [0.15,0.0601,0.644]        L: [-0.0264,0.0424,0.57]        T: [0.134,0.0675,0.649]
+[9.27] DEBUG in calibration.cpp:502: Point 70:  ORF: [0.151,0.0843,0.643]       L: [-0.0275,0.0667,0.563]       T: [0.129,0.0915,0.642]
+[9.27] DEBUG in calibration.cpp:502: Point 71:  ORF: [0.153,0.105,0.645]        L: [-0.0288,0.0906,0.555]       T: [0.125,0.115,0.634]
+[9.27] DEBUG in calibration.cpp:502: Point 72:  ORF: [0.135,0.0383,0.674]       L: [-0.0459,0.0196,0.584]       T: [0.118,0.0425,0.664]
+[9.27] DEBUG in calibration.cpp:502: Point 73:  ORF: [0.137,0.0609,0.681]       L: [-0.0469,0.0439,0.576]       T: [0.114,0.0664,0.656]
+[9.27] DEBUG in calibration.cpp:502: Point 74:  ORF: [0.132,0.0859,0.658]       L: [-0.0483,0.0676,0.568]       T: [0.109,0.0897,0.648]
+[9.27] DEBUG in calibration.cpp:502: Point 75:  ORF: [0.135,0.139,0.698]        L: [-0.0504,0.115,0.552]        T: [0.1,0.136,0.632]
+[9.27] DEBUG in calibration.cpp:502: Point 76:  ORF: [0.111,0.0379,0.679]       L: [-0.0666,0.0211,0.59]        T: [0.0978,0.0414,0.67]
+[9.27] DEBUG in calibration.cpp:502: Point 77:  ORF: [0.115,0.0621,0.693]       L: [-0.0677,0.0449,0.581]       T: [0.0933,0.0648,0.662]
+[9.27] DEBUG in calibration.cpp:502: Point 78:  ORF: [0.105,0.13,0.663]         L: [-0.0714,0.117,0.561]        T: [0.0795,0.136,0.642]
+[9.27] DEBUG in calibration.cpp:502: Point 79:  ORF: [0.0901,0.0166,0.692]      L: [-0.0855,-0.0014,0.601]      T: [0.0823,0.0167,0.682]
+[9.27] DEBUG in calibration.cpp:502: Point 80:  ORF: [0.0845,0.0856,0.678]      L: [-0.0893,0.0701,0.58]        T: [0.0686,0.0871,0.662]
+[9.27] DEBUG in calibration.cpp:502: Point 81:  ORF: [-0.0579,0.038,0.923]      L: [-0.227,0.0147,0.8]          T: [-0.0509,0.016,0.887]
+[9.27] DEBUG in calibration.cpp:502: Point 82:  ORF: [-0.038,0.0611,0.936]      L: [-0.203,0.0379,0.813]        T: [-0.03,0.0421,0.9]
+[9.27] DEBUG in calibration.cpp:502: Point 83:  ORF: [-0.0046,0.1,0.938]        L: [-0.173,0.0838,0.807]        T: [-0.00675,0.0914,0.892]
+[9.27] DEBUG in calibration.cpp:502: Point 84:  ORF: [-0.00919,0.08,0.952]      L: [-0.178,0.0606,0.821]        T: [-0.00755,0.0678,0.906]
+[9.27] DEBUG in calibration.cpp:502: Point 85:  ORF: [-0.0116,0.0398,0.959]     L: [-0.183,0.0124,0.836]        T: [-0.00591,0.0195,0.921]
+[9.27] DEBUG in calibration.cpp:502: Point 86:  ORF: [0.0151,0.0789,0.964]      L: [-0.154,0.0588,0.831]        T: [0.0171,0.0693,0.915]
+[9.27] DEBUG in calibration.cpp:502: Point 87:  ORF: [0.00779,0.0353,0.952]     L: [-0.158,0.0108,0.844]        T: [0.0191,0.0211,0.929]
+[9.27] DEBUG in calibration.cpp:502: Point 88:  ORF: [0.0416,0.0814,0.99]       L: [-0.13,0.0576,0.843]         T: [0.0408,0.0711,0.927]
+[9.27] DEBUG in calibration.cpp:502: Point 89:  ORF: [0.056,0.0365,0.982]       L: [-0.113,0.0089,0.877]        T: [0.0661,0.0253,0.959]
+[9.27] DEBUG in calibration.cpp:502: Point 90:  ORF: [0.0854,0.103,0.971]       L: [-0.0817,0.0798,0.865]       T: [0.0871,0.0995,0.947]
+[9.27] DEBUG in calibration.cpp:502: Point 91:  ORF: [0.085,0.034,1.06]         L: [-0.0895,0.00815,0.888]      T: [0.0896,0.0276,0.969]
+[9.27] DEBUG in calibration.cpp:502: Point 92:  ORF: [0.109,0.0866,1.02]        L: [-0.0613,0.055,0.889]        T: [0.112,0.0776,0.97]
+[9.27] DEBUG in calibration.cpp:502: Point 93:  ORF: [0.141,0.149,0.975]        L: [-0.0307,0.126,0.877]        T: [0.132,0.152,0.955]
+[9.27] DEBUG in calibration.cpp:502: Point 94:  ORF: [0.17,0.151,1.04]          L: [-0.00771,0.125,0.889]       T: [0.156,0.154,0.967]
+[9.27] DEBUG in calibration.cpp:502: Point 95:  ORF: [0.157,0.125,0.991]        L: [-0.0102,0.101,0.9]          T: [0.157,0.13,0.978]
+[9.27] DEBUG in calibration.cpp:502: Point 96:  ORF: [0.16,0.104,1.02]          L: [-0.0124,0.0774,0.906]       T: [0.158,0.106,0.985]
+[9.27] DEBUG in calibration.cpp:502: Point 97:  ORF: [0.157,0.0381,1.03]        L: [-0.0195,0.00544,0.934]      T: [0.161,0.0342,1.01]
+[9.27] DEBUG in calibration.cpp:502: Point 98:  ORF: [0.186,0.128,1.02]         L: [0.0132,0.0997,0.908]        T: [0.18,0.132,0.984]
+[9.27] DEBUG in calibration.cpp:502: Point 99:  ORF: [0.256,-0.127,0.816]       L: [0.0317,-0.157,0.775]        T: [0.226,-0.122,0.852]
+[9.27] DEBUG in calibration.cpp:502: Point 100: ORF: [0.255,-0.103,0.814]       L: [0.0302,-0.134,0.778]        T: [0.222,-0.0988,0.855]
+[9.27] DEBUG in calibration.cpp:502: Point 101: ORF: [0.256,-0.0812,0.829]      L: [0.0292,-0.11,0.783]         T: [0.218,-0.0755,0.86]
+[9.27] DEBUG in calibration.cpp:502: Point 102: ORF: [0.25,-0.0327,0.821]       L: [0.0266,-0.06,0.772]         T: [0.208,-0.0259,0.848]
+[9.27] DEBUG in calibration.cpp:502: Point 103: ORF: [0.235,-0.058,0.841]       L: [0.00271,-0.0866,0.775]      T: [0.188,-0.0554,0.853]
+[9.27] DEBUG in calibration.cpp:502: Point 104: ORF: [0.227,-0.0337,0.826]      L: [0.00179,-0.0614,0.771]      T: [0.184,-0.0305,0.849]
+[9.27] DEBUG in calibration.cpp:502: Point 105: ORF: [0.225,-0.0112,0.829]      L: [7.19e-05,-0.037,0.778]      T: [0.179,-0.00651,0.856]
+[9.27] DEBUG in calibration.cpp:502: Point 106: ORF: [0.205,-0.129,0.81]        L: [-0.0177,-0.16,0.765]        T: [0.177,-0.131,0.843]
+[9.27] DEBUG in calibration.cpp:502: Point 107: ORF: [0.209,-0.0613,0.844]      L: [-0.0223,-0.087,0.766]       T: [0.163,-0.059,0.845]
+[9.27] DEBUG in calibration.cpp:502: Point 108: ORF: [0.195,-0.0359,0.806]      L: [-0.0235,-0.0625,0.767]      T: [0.159,-0.0348,0.846]
+[9.27] DEBUG in calibration.cpp:502: Point 109: ORF: [0.199,-0.0133,0.812]      L: [-0.0247,-0.038,0.768]       T: [0.154,-0.0107,0.847]
+[9.27] DEBUG in calibration.cpp:502: Point 110: ORF: [0.183,-0.109,0.826]       L: [-0.0439,-0.137,0.76]        T: [0.148,-0.111,0.84]
+[9.27] DEBUG in calibration.cpp:502: Point 111: ORF: [0.182,-0.0844,0.829]      L: [-0.0457,-0.112,0.761]       T: [0.143,-0.0873,0.841]
+[9.27] DEBUG in calibration.cpp:502: Point 112: ORF: [0.174,-0.0605,0.811]      L: [-0.0468,-0.0878,0.76]       T: [0.139,-0.0629,0.84]
+[9.27] DEBUG in calibration.cpp:502: Point 113: ORF: [0.179,-0.0349,0.826]      L: [-0.0478,-0.0632,0.759]      T: [0.134,-0.0387,0.838]
+[9.27] DEBUG in calibration.cpp:502: Point 114: ORF: [0.159,-0.0636,0.853]      L: [-0.0712,-0.0878,0.749]      T: [0.114,-0.0662,0.83]
+[9.27] DEBUG in calibration.cpp:502: Point 115: ORF: [0.155,-0.0394,0.823]      L: [-0.0732,-0.0639,0.752]      T: [0.109,-0.0427,0.833]
+[9.27] DEBUG in calibration.cpp:502: Point 116: ORF: [0.148,-0.0142,0.82]       L: [-0.0741,-0.039,0.752]       T: [0.105,-0.0182,0.833]
+[9.27] DEBUG in calibration.cpp:502: Point 117: ORF: [0.135,-0.136,0.825]       L: [-0.0918,-0.161,0.741]       T: [0.103,-0.142,0.823]
+[9.27] DEBUG in calibration.cpp:502: Point 118: ORF: [0.128,-0.109,0.806]       L: [-0.0928,-0.137,0.74]        T: [0.0985,-0.118,0.822]
+[9.27] DEBUG in calibration.cpp:502: Point 119: ORF: [0.132,-0.0878,0.828]      L: [-0.0944,-0.113,0.741]       T: [0.0938,-0.094,0.823]
+[9.27] DEBUG in calibration.cpp:502: Point 120: ORF: [0.122,-0.0402,0.826]      L: [-0.0972,-0.0637,0.74]       T: [0.0847,-0.0456,0.822]
+[9.27] DEBUG in calibration.cpp:502: Point 121: ORF: [0.124,-0.015,0.82]        L: [-0.0984,-0.0397,0.74]       T: [0.0805,-0.022,0.822]
+[9.27] DEBUG in calibration.cpp:502: Point 122: ORF: [0.101,-0.0638,0.814]      L: [-0.119,-0.088,0.726]        T: [0.0659,-0.0726,0.809]
+[9.27] DEBUG in calibration.cpp:502: Point 123: ORF: [0.104,-0.0423,0.832]      L: [-0.122,-0.0643,0.732]       T: [0.0602,-0.0494,0.816]
+[9.27] DEBUG in calibration.cpp:502: Point 124: ORF: [0.0778,-0.112,0.817]      L: [-0.142,-0.137,0.722]        T: [0.0492,-0.124,0.806]
+[9.27] DEBUG in calibration.cpp:502: Point 125: ORF: [0.0775,-0.0922,0.818]     L: [-0.142,-0.113,0.718]        T: [0.0457,-0.1,0.802]
+[9.27] DEBUG in calibration.cpp:502: Point 126: ORF: [0.0723,-0.0405,0.822]     L: [-0.145,-0.0643,0.721]       T: [0.0362,-0.0525,0.805]
+[9.28] DEBUG in calibration.cpp:502: Point 127: ORF: [0.0735,-0.0189,0.827]     L: [-0.148,-0.0403,0.722]       T: [0.0311,-0.029,0.807]
+[9.28] DEBUG in calibration.cpp:502: Point 128: ORF: [0.0559,-0.11,0.801]       L: [-0.165,-0.137,0.711]        T: [0.0256,-0.127,0.796]
+[9.28] DEBUG in calibration.cpp:502: Point 129: ORF: [0.0518,-0.0885,0.803]     L: [-0.169,-0.114,0.717]        T: [0.0195,-0.105,0.802]
+[9.28] DEBUG in calibration.cpp:502: Point 130: ORF: [0.0498,-0.0204,0.821]     L: [-0.17,-0.0399,0.707]        T: [0.00839,-0.0315,0.792]
+[9.28] DEBUG in calibration.cpp:502: Point 131: ORF: [0.0278,-0.138,0.806]      L: [-0.187,-0.161,0.701]        T: [0.00625,-0.154,0.787]
+[9.28] DEBUG in calibration.cpp:502: Point 132: ORF: [0.0287,-0.116,0.803]      L: [-0.191,-0.138,0.706]        T: [4.76e-05,-0.132,0.792]
+[9.28] DEBUG in calibration.cpp:502: Point 133: ORF: [0.0246,-0.0671,0.8]       L: [-0.194,-0.0894,0.705]       T: [-0.00903,-0.0837,0.792]
+[9.28] DEBUG in calibration.cpp:502: Point 134: ORF: [0.0217,-0.042,0.806]      L: [-0.194,-0.0649,0.703]       T: [-0.0123,-0.0594,0.789]
+[9.28] DEBUG in calibration.cpp:502: Point 135: ORF: [0.0197,-0.0177,0.8]       L: [-0.196,-0.0409,0.705]       T: [-0.0174,-0.0359,0.791]
+[9.28] DEBUG in calibration.cpp:502: Point 136: ORF: [0.00136,-0.119,0.822]     L: [-0.214,-0.138,0.696]        T: [-0.0237,-0.135,0.783]
+[9.28] DEBUG in calibration.cpp:502: Point 137: ORF: [0.00131,-0.092,0.813]     L: [-0.217,-0.114,0.698]        T: [-0.0294,-0.111,0.786]
+[9.28] DEBUG in calibration.cpp:502: Point 138: ORF: [0.0246,0.143,0.839]       L: [-0.148,0.128,0.704]         T: [0.00798,0.138,0.788]
+[9.28] DEBUG in calibration.cpp:502: Point 139: ORF: [0.0236,0.121,0.847]       L: [-0.149,0.104,0.712]         T: [0.0108,0.114,0.796]
+[9.28] DEBUG in calibration.cpp:502: Point 140: ORF: [0.0204,0.0979,0.844]      L: [-0.148,0.0795,0.714]        T: [0.0147,0.0897,0.798]
+[9.28] DEBUG in calibration.cpp:502: Point 141: ORF: [0.0198,0.0759,0.855]      L: [-0.15,0.0557,0.723]         T: [0.0168,0.066,0.807]
+[9.28] DEBUG in calibration.cpp:502: Point 142: ORF: [0.0729,0.12,0.837]        L: [-0.0989,0.1,0.714]          T: [0.0609,0.117,0.796]
+[9.28] DEBUG in calibration.cpp:502: Point 143: ORF: [0.0699,0.0955,0.83]       L: [-0.101,0.0772,0.728]        T: [0.0625,0.0936,0.81]
+[9.28] DEBUG in calibration.cpp:502: Point 144: ORF: [0.0701,0.0756,0.852]      L: [-0.102,0.053,0.736]         T: [0.0652,0.0696,0.819]
+[9.28] DEBUG in calibration.cpp:502: Point 145: ORF: [0.0716,0.0303,0.853]      L: [-0.103,0.00478,0.75]        T: [0.0708,0.0216,0.832]
+[9.28] DEBUG in calibration.cpp:502: Point 146: ORF: [0.0998,0.149,0.873]       L: [-0.0747,0.124,0.715]        T: [0.082,0.143,0.796]
+[9.28] DEBUG in calibration.cpp:502: Point 147: ORF: [0.1,0.0488,0.858]         L: [-0.0777,0.0275,0.747]       T: [0.0927,0.0474,0.828]
+[9.28] DEBUG in calibration.cpp:502: Point 148: ORF: [0.123,0.118,0.836]        L: [-0.051,0.0984,0.726]        T: [0.109,0.121,0.806]
+[9.28] DEBUG in calibration.cpp:502: Point 149: ORF: [0.123,0.0279,0.861]       L: [-0.0531,0.00191,0.756]      T: [0.121,0.0252,0.836]
+[9.28] DEBUG in calibration.cpp:502: Point 150: ORF: [0.149,0.14,0.825]         L: [-0.0261,0.121,0.725]        T: [0.131,0.147,0.804]
+[9.28] DEBUG in calibration.cpp:502: Point 151: ORF: [0.147,0.117,0.832]        L: [-0.0267,0.0977,0.733]       T: [0.134,0.123,0.812]
+[9.28] DEBUG in calibration.cpp:502: Point 152: ORF: [0.153,0.0955,0.851]       L: [-0.0275,0.0736,0.742]       T: [0.136,0.0995,0.821]
+[9.28] DEBUG in calibration.cpp:502: Point 153: ORF: [0.149,0.0495,0.874]       L: [-0.0288,0.0255,0.759]       T: [0.142,0.0517,0.838]
+[9.28] DEBUG in calibration.cpp:502: Point 154: ORF: [0.172,0.0931,0.829]       L: [-0.00292,0.0726,0.747]      T: [0.161,0.102,0.825]
+[9.28] DEBUG in calibration.cpp:502: Point 155: ORF: [0.174,0.0513,0.851]       L: [-0.00363,0.0242,0.761]      T: [0.167,0.0536,0.839]
+[9.28] DEBUG in calibration.cpp:502: Point 156: ORF: [0.207,0.142,0.857]        L: [0.0227,0.119,0.732]         T: [0.18,0.151,0.808]
+[9.28] DEBUG in calibration.cpp:502: Point 157: ORF: [0.201,0.118,0.831]        L: [0.0223,0.0954,0.74]         T: [0.183,0.127,0.816]
+[9.28] DEBUG in calibration.cpp:502: Point 158: ORF: [0.23,0.139,0.836]         L: [0.047,0.118,0.735]          T: [0.204,0.153,0.81]
+[9.28] DEBUG in calibration.cpp:502: Point 159: ORF: [0.226,0.09,0.829]         L: [0.0465,0.0698,0.748]        T: [0.21,0.105,0.824]
+[9.28] DEBUG in calibration.cpp:502: Point 160: ORF: [0.247,0.0218,0.839]       L: [0.0698,-0.00368,0.774]      T: [0.244,0.0355,0.848]
+[9.28] DEBUG in calibration.cpp:502: Point 161: ORF: [0.278,0.0691,0.841]       L: [0.0947,0.0436,0.761]        T: [0.262,0.0854,0.834]
+[9.28] DEBUG in calibration.cpp:502: Point 162: ORF: [0.276,0.0236,0.852]       L: [0.0939,-0.0043,0.772]       T: [0.268,0.0379,0.846]
+[9.28] DEBUG in calibration.cpp:502: Point 163: ORF: [0.0241,0.129,0.975]       L: [-0.143,0.107,0.817]         T: [0.0206,0.118,0.901]
+[9.28] DEBUG in calibration.cpp:502: Point 164: ORF: [0.0238,0.0803,0.985]      L: [-0.144,0.0579,0.828]        T: [0.0269,0.0696,0.912]
+[9.28] DEBUG in calibration.cpp:502: Point 165: ORF: [0.0542,0.153,0.946]       L: [-0.117,0.129,0.811]         T: [0.0431,0.144,0.894]
+[9.28] DEBUG in calibration.cpp:502: Point 166: ORF: [0.0552,0.128,0.969]       L: [-0.119,0.105,0.821]         T: [0.0454,0.12,0.904]
+[9.28] DEBUG in calibration.cpp:502: Point 167: ORF: [0.0746,0.151,0.933]       L: [-0.094,0.129,0.821]         T: [0.0668,0.146,0.903]
+[9.28] DEBUG in calibration.cpp:502: Point 168: ORF: [0.0791,0.128,0.94]        L: [-0.0946,0.104,0.828]        T: [0.0695,0.122,0.909]
+[9.28] DEBUG in calibration.cpp:502: Point 169: ORF: [0.0813,0.103,0.965]       L: [-0.0946,0.0795,0.832]       T: [0.0729,0.0974,0.914]
+[9.28] DEBUG in calibration.cpp:502: Point 170: ORF: [0.0769,0.0803,0.956]      L: [-0.0947,0.0551,0.837]       T: [0.0762,0.0732,0.919]
+[9.28] DEBUG in calibration.cpp:502: Point 171: ORF: [0.0704,0.0306,0.961]      L: [-0.0962,0.00686,0.853]      T: [0.0816,0.0252,0.935]
+[9.28] DEBUG in calibration.cpp:502: Point 172: ORF: [0.0998,0.127,0.93]        L: [-0.0697,0.103,0.83]         T: [0.0946,0.123,0.911]
+[9.28] DEBUG in calibration.cpp:502: Point 173: ORF: [0.104,0.104,0.935]        L: [-0.0702,0.0783,0.835]       T: [0.0975,0.0993,0.915]
+[9.28] DEBUG in calibration.cpp:502: Point 174: ORF: [0.0995,0.0782,0.932]      L: [-0.0709,0.0541,0.847]       T: [0.1,0.0753,0.927]
+[9.28] DEBUG in calibration.cpp:502: Point 175: ORF: [0.127,0.145,0.925]        L: [-0.0441,0.125,0.823]        T: [0.117,0.149,0.903]
+[9.28] DEBUG in calibration.cpp:502: Point 176: ORF: [0.13,0.126,0.951]         L: [-0.0452,0.102,0.835]        T: [0.119,0.126,0.914]
+[9.28] DEBUG in calibration.cpp:502: Point 177: ORF: [0.128,0.101,0.944]        L: [-0.0452,0.0767,0.837]       T: [0.122,0.101,0.917]
+[9.28] DEBUG in calibration.cpp:502: Point 178: ORF: [0.124,0.079,0.94]         L: [-0.0465,0.0531,0.85]        T: [0.125,0.0774,0.93]
+[9.28] DEBUG in calibration.cpp:502: Point 179: ORF: [0.154,0.0554,0.989]       L: [-0.0219,0.0276,0.859]       T: [0.153,0.0553,0.937]
+[9.28] DEBUG in calibration.cpp:502: Point 180: ORF: [0.149,0.0342,0.96]        L: [-0.0219,0.00335,0.863]      T: [0.156,0.0313,0.942]
+[9.28] DEBUG in calibration.cpp:502: Point 181: ORF: [0.178,0.145,0.923]        L: [0.00482,0.123,0.83]         T: [0.166,0.153,0.907]
+[9.28] DEBUG in calibration.cpp:502: Point 182: ORF: [0.175,0.0995,0.933]       L: [0.00382,0.0747,0.844]       T: [0.172,0.105,0.922]
+[9.28] DEBUG in calibration.cpp:502: Point 183: ORF: [0.201,0.0762,0.938]       L: [0.0279,0.0491,0.857]        T: [0.199,0.083,0.933]
+[9.28] DEBUG in calibration.cpp:502: Point 184: ORF: [0.202,0.0336,0.954]       L: [0.0275,0.00115,0.867]       T: [0.205,0.0355,0.944]
+[9.28] DEBUG in calibration.cpp:502: Point 185: ORF: [0.228,0.0536,0.944]       L: [0.0522,0.0237,0.862]        T: [0.227,0.061,0.938]
+[9.28] DEBUG in calibration.cpp:502: Point 186: ORF: [0.252,0.12,0.926]         L: [0.0779,0.0954,0.845]        T: [0.242,0.135,0.919]
+[9.28] DEBUG in calibration.cpp:502: Point 187: ORF: [0.255,0.0514,0.951]       L: [0.0765,0.0226,0.862]        T: [0.251,0.0629,0.936]
+[9.28] DEBUG in calibration.cpp:502: Point 188: ORF: [0.247,0.0327,0.944]       L: [0.0762,-0.00151,0.867]      T: [0.254,0.039,0.941]
+[9.28] DEBUG in calibration.cpp:502: Point 189: ORF: [0.0302,0.112,1.05]        L: [-0.137,0.0848,0.92]         T: [0.0341,0.0977,1]
+[9.28] DEBUG in calibration.cpp:502: Point 190: ORF: [0.0572,0.109,1.06]        L: [-0.113,0.0835,0.927]        T: [0.0587,0.0997,1.01]
+[9.28] DEBUG in calibration.cpp:502: Point 191: ORF: [0.0538,0.0862,1.05]       L: [-0.114,0.0593,0.936]        T: [0.0612,0.0756,1.02]
+[9.28] DEBUG in calibration.cpp:502: Point 192: ORF: [0.0522,0.0629,1.06]       L: [-0.114,0.035,0.945]         T: [0.0638,0.0514,1.03]
+[9.28] DEBUG in calibration.cpp:502: Point 193: ORF: [0.0536,0.0425,1.06]       L: [-0.116,0.0107,0.955]        T: [0.0661,0.0272,1.04]
+[9.28] DEBUG in calibration.cpp:502: Point 194: ORF: [0.0765,0.0882,1.05]       L: [-0.0891,0.0583,0.942]       T: [0.0859,0.0777,1.02]
+[9.28] DEBUG in calibration.cpp:502: Point 195: ORF: [0.0815,0.0644,1.06]       L: [-0.0892,0.0338,0.946]       T: [0.089,0.0534,1.03]
+[9.28] DEBUG in calibration.cpp:502: Point 196: ORF: [0.103,0.15,1.04]          L: [-0.0621,0.13,0.923]         T: [0.103,0.152,1]
+[9.28] DEBUG in calibration.cpp:502: Point 197: ORF: [0.105,0.129,1.03]         L: [-0.0626,0.105,0.93]         T: [0.106,0.127,1.01]
+[9.28] DEBUG in calibration.cpp:502: Point 198: ORF: [0.106,0.0836,1.04]        L: [-0.0639,0.0563,0.944]       T: [0.111,0.079,1.02]
+[9.28] DEBUG in calibration.cpp:502: Point 199: ORF: [0.105,0.0623,1.06]        L: [-0.0647,0.0322,0.954]       T: [0.114,0.0551,1.03]
+[9.28] DEBUG in calibration.cpp:502: Point 200: ORF: [0.13,0.152,1.03]          L: [-0.037,0.128,0.925]         T: [0.128,0.153,1]
+[9.28] DEBUG in calibration.cpp:502: Point 201: ORF: [0.131,0.108,1.05]         L: [-0.0387,0.0798,0.943]       T: [0.133,0.106,1.02]
+[9.28] DEBUG in calibration.cpp:502: Point 202: ORF: [0.133,0.0377,1.07]        L: [-0.0405,0.00681,0.963]      T: [0.141,0.033,1.04]
+[9.28] DEBUG in calibration.cpp:502: Point 203: ORF: [0.159,0.154,1.04]         L: [-0.0123,0.126,0.925]        T: [0.153,0.155,1]
+[9.28] DEBUG in calibration.cpp:502: Point 204: ORF: [0.157,0.129,1.03]         L: [-0.0131,0.103,0.934]        T: [0.155,0.131,1.01]
+[9.28] DEBUG in calibration.cpp:502: Point 205: ORF: [0.183,0.126,1.04]         L: [0.0118,0.101,0.937]         T: [0.18,0.133,1.01]
+[9.28] DEBUG in calibration.cpp:502: Point 206: ORF: [0.182,0.107,1.05]         L: [0.0109,0.0774,0.949]        T: [0.183,0.109,1.03]
+[9.28] DEBUG in calibration.cpp:502: Point 207: ORF: [0.18,0.0801,1.06]         L: [0.0106,0.0528,0.956]        T: [0.186,0.0852,1.03]
+[9.28] DEBUG in calibration.cpp:502: Point 208: ORF: [0.183,0.0607,1.07]        L: [0.0102,0.0287,0.961]        T: [0.189,0.0612,1.04]
+[9.28] DEBUG in calibration.cpp:502: Point 209: ORF: [0.205,0.0365,1.06]        L: [0.0341,0.0034,0.97]         T: [0.216,0.0392,1.05]
+[9.28] DEBUG in calibration.cpp:502: Point 210: ORF: [0.235,0.151,1.04]         L: [0.0615,0.123,0.933]         T: [0.226,0.161,1.01]
+[9.28] DEBUG in calibration.cpp:502: Point 211: ORF: [0.236,0.0359,1.08]        L: [0.0587,0.00209,0.973]       T: [0.241,0.0411,1.05]
+[9.28] DEBUG in calibration.cpp:502: Point 212: ORF: [0.263,0.149,1.04]         L: [0.0859,0.121,0.935]         T: [0.251,0.162,1.01]
+[9.28] DEBUG in calibration.cpp:502: Point 213: ORF: [0.282,0.149,1.03]         L: [0.11,0.12,0.935]            T: [0.275,0.164,1.01]
+Creating point cloud...Done. (0.000112s)
+Creating point cloud...Done. (1.19e-06s)
+Show cloud: show cloud A
+showing 3 cameras
+showing 3 lines
