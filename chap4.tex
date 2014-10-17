@@ -276,6 +276,7 @@ Which is blaaaaaa compared to the blaaaaa we was supposed to obtain.
 
 
 \subsection{3D Points Cloud Construction}
+\label{subsec:3D_reconstruction}
 In these last experiments, a point cloud is constructed using the \gls{PCL} library tools included in the software developed in this project. In figure \ref{fig:manip_0_4_1}, two view of the same points cloud are given. We can notice that the visual image is included in the process since we can see the pattern on the checkerboard. The importance of the scattering and the thermal noise can be highlighted especially if we look precisely to the edges of the checkerboard and its shape from above (which is supposed to be flat).
 %Figure manip_0_4_1
 \begin{figure}[!htt]
@@ -306,11 +307,93 @@ Figure \ref{fig:manip_0_4_2} illustrates the importance of the noise due to auto
 In this section, we will discuss the efficiency of the VERTIGO sensors and algorithm. As a lot of work has already been done on the subject, for instance in \cite{vertigo_phd}, \cite{muggler_phd} and \cite{makowka_phd}, this project simply focused on the comparison with the \gls{ORF} camera and points out the complementarity of the two systems.
 
 The reconstruction of a 3D points cloud from stereo sensors is performed through the elaboration of a disparity map, whose information is quite similar to the one of the \gls{ORF} depth map. To create this disparity map, different techniques can be used, a taxonomy of those is given in \cite{stereo_methods_comparaison}. Basically, the process always implies the following steps: features detection and matching, aggregation, disparity computation and optimization. The quality of the disparity image is the dependent on the number of matchable features, called supporting points, in the left and right pictures: if the considered environment is highly textured, this will lead to accurate 3D reconstruction while uniform patches won't give reliable results. The interstices between supporting points is filled by aggregation methods around those points which have also a lot of influence on the final disparity map. In figure \ref{manip_1_1}, the results of a block matching stereo function provided in OpenCV libraries illustrate our remarks.
+% Figure manip_1_1
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{5cm}
+  \centering
+  \includegraphics[width=4.8cm]{img/manip_1_1_a.png}
+\end{subfigure}%
+\begin{subfigure}{5cm}
+  \centering
+  \includegraphics[width=4.8cm]{img/manip_1_1_b.png}
+\end{subfigure}
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_1_c.png}
+\end{subfigure}
+\caption{Left: Left image. Center: Right image. Right: disparity map reconstructed with OpenCV stereo block matching function - the checkerboard (high textured) gives a good result when the patch in the bottom right corner (uniform) is badly represented}
+\label{fig:manip_1_1}
+\end{center}
+\end{figure}
+However, if the stereo vision algorithms suffer from this texture dependency, they don't encounter the same defaults as the \gls{ORF} in term of movement and luminosity conditions. This complementarity has been proved qualitatively with the use of a setup involving the \gls{ORF} and the VERTIGO goggles capturing simultaneous pictures of the same object. 
+% Figure manip_1_2
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{4.2cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_2_a.png}
+\end{subfigure}%
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_2_b.png}
+\end{subfigure}
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_2_c.png}
+\end{subfigure}
+\vspace{0.5cm}
+\begin{subfigure}{5cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_2_d.png}
+\end{subfigure}%
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_2_e.png}
+\end{subfigure}
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_2_f.png}
+\end{subfigure}
+\caption{Above: visual, confidence and depth images captured with the ORF - the movement induces a error in the depth measurement. Below: Left and right images of the stereo sensor and the disparity map - even with the movement, the result is acceptable for the checkerboard}
+\label{fig:manip_1_2}
+\end{center}
+\end{figure}
+In figure \ref{fig:manip_1_2}, the movement reliability is highlighted: a checkerboard animated with a speed of the few dozen of centimeters per second is captured by the two sensors. Even if the stereo images could be considered a little more blurred than in the static case, they are still sufficient to detect features and a disparity map can be more reliable for textured pattern than the \gls{ORF} depth map.
+% Figure manip_1_3
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{4.2cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_3_a.png}
+\end{subfigure}%
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_3_b.png}
+\end{subfigure}
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_3_c.png}
+\end{subfigure}
+\vspace{0.5cm}
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_3_d.png}
+\end{subfigure}%
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_3_e.png}
+\end{subfigure}
+\begin{subfigure}{4cm}
+  \centering
+  \includegraphics[width=3.8cm]{img/manip_1_3_f.png}
+\end{subfigure}
+\caption{Above: visual, confidence and depth images captured with the ORF - as the checkerboard is too close, the depth measurement is very bad. Below: Left and right images of the stereo sensor and the disparity map - the checkerboard depth measurement is still correct near the camera}
+\label{fig:manip_1_3}
+\end{center}
+\end{figure}
+An illustration of the range reliability is given in figure \ref{fig:manip_1_3} where the \gls{ORF} shows difficulty to estimate correctly the depth of a checkerboard too close to the camera when the stereo sensors won't notice any difference.
 
-However, if the stereo vision algorithms suffer from this texture dependency, they don't encounter the same defaults as the \gls{ORF} in term of movement and luminosity conditions. This complementarity has been proved qualitatively with the use of a setup involving the \gks{ORF} and the VERTIGO goggles capturing simultaneous pictures of the same object. In figure \ref{manip_1_2}, the movement reliability is highlighted: a checkerboard animated with a speed of the few dozen of centimeters per second is captured by the two sensors. Even if the stereo images could be considered a little more blurred than in the static case, they are still very good and 
-la ou l'orf est mauvais, le stereo est bon. C'est le cas du mouvement. Si l'environement bouge rapidement par rappoirt a la camera, pas de problme.
-
-De meme, moins sensible aux conditions lumineuses et aux materiaux utilises.
 
 \section{Multi-sensors Calibration}
 To determine the performances of the calibration algorithm we discussed in section \ref{subsec:system_calib}, we connect the \gls{ORF} and the stereo cameras to the VERTIGO computer and we acquire synchronous images of a checkerboard (figure \ref{fig:manip_2_1}. It is important for each capture to make sure the checkerboard is not moving and the luminous conditions are sufficient by checking the confidence picture (figure \ref{fig:manip_2_2}).
@@ -416,7 +499,8 @@ Without RANSAC:
 0.043 & 0.00663 & 0.999 & -0.0846\\
 0 & 0 & 0 & 1
 \end{pmatrix}
-\end{equation}
+\end{equation}\\
+
 In those matrices, we can see that the sensors are pretty aligned (rotation coefficient almost equal to 1 on the diagonal and 0 elsewhere) and we can compare the translations with the theoretical one measured on the CAD model of the \gls{INSPECT} project:
 \begin{table}[H]
 \begin{center}
@@ -445,54 +529,147 @@ Given the quality of the sensors and the global mechanical accuracy of the setup
 % Figure manip_2_5
 \begin{figure}[!htt]
 \begin{center}
-\includegraphics[width=14cm]{img/manip_2_5.png}
+\includegraphics[width=12cm]{img/manip_2_5.png}
 \caption{The ORF and stereo reconstructed checkerboard are now superposed thanks to the computed transformation matrix. If we look closely, the ORF checkerboard near the camera is shifted toward the camera when the farthest ORF checkerboard is shifted in the other direction. This highlight the fact that the stereo points cloud is too small, due to stereo calibration parameters inaccuracies}
 \label{fig:manip_2_5}
 \end{center}
 \end{figure}
 
-
 \section{Sensors Fusion}
 \subsection{Ground Results}
+In this section, the results provided by images captured in the ground laboratory are analyzed. We use the setup in figure \ref{fig:manip_2_1} to acquire simultaneous pictures from the \gls{ORF} and \gls{VERTIGO} (figure \ref{fig:manip_3_1}).
+% Figure manip_3_1
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{2.9cm}
+  \centering
+  \includegraphics[width=2.8cm]{img/manip_3_1_a.png}
+\end{subfigure}
+\begin{subfigure}{2.9cm}
+  \centering
+  \includegraphics[width=2.8cm]{img/manip_3_1_b.png}
+\end{subfigure}
+\begin{subfigure}{2.9cm}
+  \centering
+  \includegraphics[width=2.8cm]{img/manip_3_1_c.png}
+\end{subfigure}%
+\begin{subfigure}{2.9cm}
+  \centering
+  \includegraphics[width=2.8cm]{img/manip_3_1_d.png}
+\end{subfigure}
+\begin{subfigure}{2.9cm}
+  \centering
+  \includegraphics[width=2.8cm]{img/manip_3_1_e.png}
+\end{subfigure}
+\caption{A typical sample of input pictures for fusion. From left to right: ORF depth, ORF visual, ORF confidence, left image, right image.}
+\label{fig:manip_3_1}
+\end{center}
+\end{figure}
 
-1) On montre l'image ORF
+With the data provided by the range finder, a 3D points cloud is build as in section \ref{subsec:3D_reconstruction} (figure \ref{fig:manip_3_5}). To gain in clearness, the 3D cloud is sub-sampled but we could have done the same with each object in the \gls{FoV} of the three cameras and without sub-sampling. The next step consist in computing the variance $\sigma_w^i$ of the \gls{ORF} total noise (thermal and scattering) assigned to each 3D point by using its depth map and the confidence map. Once this variance is computed, we can represent the interval $[d_T^i-3\sigma_w^i;\,d_T^i+3\sigma_w^i]$ around each points in the direction of the depth, defined by the axis linking the 3D point and the optical center of the \gls{ORF}. This interval is discretized in step whose width is equal to one quarter of the stereoscopic precision (figure \ref{fig:manip_3_5}).
+% Figure manip_3_3
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{7cm}
+  \centering
+  \includegraphics[width=6.6cm]{img/manip_3_3_a.png}
+\end{subfigure}
+\begin{subfigure}{7.4cm}
+  \centering
+  \includegraphics[width=7.2cm]{img/manip_3_3_b.png}
+\end{subfigure}
+\caption{Left: in blue, the 3D ORF points; in green, a interval has been constructed around those points in function of the noise. Right: in blue and green, idem; in red, the 3D points computed in the end of the fusion}
+\label{fig:manip_3_3}
+\end{center}
+\end{figure}
+Then, the coordinate of those points $p_T^{i,j}$ are moved in the left camera coordinate system $L$ and their projection on the left and right image planes of the stereo sensor is computed (figures \ref{fig:manip_3_3} and \ref{fig:manip_3_4}).
+% Figure manip_3_4
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{7cm}
+  \centering
+  \includegraphics[width=6.8cm]{img/manip_3_4_a.png}
+\end{subfigure}
+\begin{subfigure}{7cm}
+  \centering
+  \includegraphics[width=6.8cm]{img/manip_3_4_b.png}
+\end{subfigure}
+\caption{The interval around each 3D points are reprojected in the stereo images (sub-sampled in the picture)}
+\label{fig:manip_3_4}
+\end{center}
+\end{figure}
+It is therefore possible to calculate the a-priori probability for the \gls{ORF} ($P[p^{i,j}|I_T]$) and the stereoscopic system ($P[p^{i,j}|I_L, I_R]$) and the joint probability ($P[p^{i,j}|I_T, I_L, I_R]$) which is minimized to find the new point $\hat{p}^i$ arising from the fusion (figure \ref{fig:manip_3_5}).
+% Figure manip_3_5
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{7cm}
+  \centering
+  \includegraphics[width=6.6cm]{img/manip_3_5_a.png}
+\end{subfigure}
+\begin{subfigure}{7.2cm}
+  \centering
+  \includegraphics[width=7cm]{img/manip_3_5_b.png}
+\end{subfigure}
+\caption{Left: a flat checkerboard before fusion. Right: the same checkerboard after the fusion. Unlike the first theoretical assumptions, the fusion algorithm produces noise}
+\label{fig:manip_3_5}
+\end{center}
+\end{figure}
+If we compare the results before and after the fusion, we can see that not only the computation time is in the best cases ten times higher than the acquisition (on a laptop computer), but also the accuracy is worst after the fusion. We will discuss the reason further in this document.
 
-2) On montre la division en normales (ici subsampling de 4 pour y voir clair)
+\subsection{RGA Results}
+As for the ground pictures, the fusion algorithm have been tested in a zero gravity environment provided by the NASA \gls{RGA}. To better understand the interest of this experiment, it may be important to remind the context of the project. Indeed, as mentioned in the introduction, this fusion algorithm is part of a \gls{SLAM} algorithm aiming at localizing, mapping and understanding the motion parameters of the objects around. Moreover, this algorithm is intended to be part of a control process simply impossible to reproduce outside a zero-gravity environment. Tests in a  parabolic flights are then important to prove the reliability of the sensor fusion and acquisition as part as a full system as well as its performances in front of 6 \gls{DoF} moving objects. However, given the limited performances of the algorithm on the ground, this goal is difficult to achieve plainly. We will then just focus on the complementarity of the \gls{VERTIGO} and \gls{ORF} by performing fusion on a set of pictures captured synchronously during \gls{RGA} flights.
 
-3) On montre le resultat final
+TODO
 
-
-\subsection{Parabolic Flight Results}
-
-RGA flight: what we can do
 
 \subsection{Discussion}
-On peut voir que ca n'apporte rien. Pour 2 raisons:
+On the whole, we demonstrated that if the complementarity of \gls{VERTIGO} and the \gls{ORF} can be easily highlighted, the fusion algorithm as it is has been developed in this work doesn't take plainly advantage of them. To discuss the explanations, we classified them into four categories.
 
-1) Mouvement
+\subsubsection{ORF default can induce fusion failure}
+If this algorithm is supposed to enhance the accuracy of 3D cloud build with the \gls{ORF}, the proceedings makes impossible the stereo to recover from very bad images produced by the \gls{ORF}. This has been mainly observed during \gls{RGA} tests sessions in which saturation, consequent relative speeds, and non respect of the range have provided useless results whilst \gls{VERTIGO} alone could have done better. Using the notations of section \ref{subsec:fusion:overview}, we can say that \textbf{certainty} is not assured to increase with the fusion.
 
-2) extreme non linearity of the projection/triangulation in stereo due to feature matching..
+\subsubsection{Limited range}
+As the size of the merged points cloud is defined by the subspace where all camera \gls{FoV} are crossing, this one is then smaller than \gls{VERTIGO} or the \gls{ORF} alone (hardware issue). In other words, the \textbf{completeness} decreases during the fusion process.
 
-3) Meme dans les cas rare ou ca foncitonne, bcp de parametres a faire varier ainsi que la precision de la calibration: pas reussi a faire en sorte que la probabilite de matching stereo apporte un poids suffisant pour ameliorer la precision de l'ORF, sauf quand lors des false positive que nous voulons justement eviter.
-
+\subsubsection{Non-linearity of the stereo process}
+The most important phenomenon that seems to explain the bad results of the algorithm is the following: to calculate the stereo probability, we use the projected points in the left and right image by associating a \textit{likeliness coefficient} to each couple of points (assuming a rectangular window around). However, it is notable in figure \ref{fig:manip_3_4} that small calibration errors lead to small shifts between left and right images (in other words, the projection doesn't point exactly the same detail as it should). When we build a 3D map from stereo pairs in a traditional way, we first match features then project them, which will cause small imprecisions we can deal with; the error can be linearized in this way. On the other hand, in the fusion algorithm case, we perform feature matching after the projection. Therefore, the matching will totally diverge in case of small calibration offsets; the error can't be linearized in that way (figure \ref{fig:error}). In conclusion, those calibration errors makes the stereo probability to corrupt the final result: there is a loss in \textbf{accuracy}.
+\begin{figure}[!htt]
+\begin{center}
+\begin{subfigure}{7.2cm}
+  \centering
+  \includegraphics[width=7cm]{img/fusion_error_1.png}
+\end{subfigure}
+\begin{subfigure}{7.2cm}
+  \centering
+  \includegraphics[width=7cm]{img/fusion_error_2.png}
+\end{subfigure}
+\caption{When the calibration error has a proportional impact on the result in the standard stereo 3D construction, this is not true in our algorithm}
+\label{fig:error}
+\end{center}
+\end{figure}
 
 \section{Future Work}
 
 \subsection{Improving Calibration}
--> Improving triangulation
--> Integrate Thermocam:
- - Intrinsic: same method, but checkerboard with the same pattern in IR and visible light ref
- - Extrinsic: Instead of stereo extrinsic calibration, incorporate the thermocam (assuming a ) and calibrate the same way as previously with the couple VERTIGO-thermocam ref
+As we concluded previously, the Halo calibration method that has been designed in this thesis looks promising. Ameliorations that could be done in the future are:
+\begin{itemize*}
+\item Improving the triangulation: if a simple method of triangulation is sufficient to process data in live, calibration needs to be very accurate even at computing time's expense. Lot of problem found their origin in a lack of calibration parameters accuracy during this project.
+\item Integrate the thermocam: to perform thermocam calibration, we can rely on the same methods as developed in the current version of the software. Intrinsic calibration could use the same OpenCV functions but a IR calibration pattern would be needed \cite{thermo_calib}, \cite{thermo_calib_2}. Concerning the extrinsic calibration, with the same pattern, a solution would be to integrate it into the stereo calibration and use a N-camera OpenCV function instead of the classical stereo calibration function.
+\end{itemize*}
 
 \subsection{Improving this Fusion Algorithm}
--> find better correlation with confidence and sigma
--> ameliorate probability calculus in stereo
--> Integrate Thermocam
+Even if we observed its lack of robustness, a way to ameliorate this fusion algorithm could lie into:
+\begin{itemize*}
+\item Find a better function expressing the link between the confidence image and the thermal noise variance.
+\item Minimize the error during the computation of the stereo probability by the use of a more reliable definition of the matches between stereo points despite of the calibration uncertainty.
+\item At the end of the algorithm, build a thermal 3D point cloud by re-projecting the 3D point cloud in the thermocam image plane, read the value and combine it with the point position.
+\end{itemize*}
 
 \subsection{Building a New Fusion Algorithm}
-The real problem of this fusion algorithm: it requires at least good images from the ORF, which seems not to be always true/
-
--> Keep stereo and ORF in one single process: Invert stereo then orf and interpolation? But this time, we have the opposite problem: when an environment is not textured enough, it won't result
--> Spatial division: parallel reconstruction from ORF and Stereo. then selection of the patchlets? ref and photo
-More appropriate 
--> Time division: time => not fusion anymore
+Even if the issue concerning the stereo probability computation is overcame, there is still the problem of the lack of certainty: it requires good images from the ORF as an input which seems not to be always true. Several track can be therefore explored:
+\begin{itemize*}
+\item \textbf{Keep a single stream}: the idea would be then to perform stereo triangulation first and improve it with the help of the ORF which doesn't require any matching function. However, the theoretical accuracy of the \gls{ORF} is supposed to be less good and, once again, in case of bad images from stereo cameras (not enough textures), the entire process would suffer it.
+\item \textbf{Time division}: However, this would result in a fusion from a spatial point of view only and this doesn't correspond to goal we fixed in the \gls{INSPECT} project
+\item \textbf{Spatial division}: The idea is to reconstruct two parallel 3D clouds with VERTIGO and the ORF in two different streams then use confidence and range to split the space into different parts. This time, the fusion is only temporal, which is also not the topic of the project.
+\item \textbf{Other methods}: Quantity of promising methods are classified in \cite{stereo_tof_taxonomy}. When moving forward in the \gls{INSPECT} project, refinements could be done to select the most interesting.
+\end{itemize*}

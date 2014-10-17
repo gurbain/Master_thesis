@@ -634,10 +634,10 @@ One major hypothesis in the fusion is that $\{I_T, D\}$ and $\{I_L, I_R, D\}$ ar
 \end{itemize*}
 Finally, a fusion algorithm is characterized in term of representation, certainty, accuracy, completeness. They will be discussed again when the results are introduced in chapter \ref{chapter:results} but we can already say:
 \begin{itemize*}
-\item \textit{Representation}: This feature characterizing the abstraction level increase from the algorithm inputs (2D matrices) to the algorithm outputs (3D point clouds)
-\item \textit{Certainty}: The gain in measurement certainty illustrates the growth between $\mathit{P}[D|I_T]$ and $\mathit{P}[D|I_L, I_R]$ on one hand and $\mathit{P}[D|I_T, I_L, I_R]$ on the other hand. It will be discussed in chapter \ref{chapter:results}
-\item \textit{Accuracy}: The gain in measurement accuracy before and after the fusion will be discussed in chapter \ref{chapter:results}
-\item \textit{Completeness}: The completeness will be affected by the limited \gls{FoV} of each cameras and the geometry between them. This feature is environment-dependent and will depend on the target size and distance and the application we want to perform
+\item \textbf{Representation}: This feature characterizing the abstraction level increase from the algorithm inputs (2D matrices) to the algorithm outputs (3D point clouds)
+\item \textbf{Certainty}: The gain in measurement certainty illustrates the growth between $\mathit{P}[D|I_T]$ and $\mathit{P}[D|I_L, I_R]$ on one hand and $\mathit{P}[D|I_T, I_L, I_R]$ on the other hand. It will be discussed in chapter \ref{chapter:results}
+\item \textbf{Accuracy}: The gain in measurement accuracy before and after the fusion will be discussed in chapter \ref{chapter:results}
+\item \textbf{Completeness}: The completeness will be affected by the limited \gls{FoV} of each cameras and the geometry between them. This feature is environment-dependent and will depend on the target size and distance and the application we want to perform
 \end{itemize*}
 
 \subsection{Architecture}
@@ -645,7 +645,7 @@ All the concepts above leads to the architecture in figure \ref{fig:fusion_arch}
 
 
 \subsubsection{Determination of the Points Framed by all Cameras}
-In order to perform \textit{registration}, the determination of the domain framed by both devices must be accomplished as the first step of the algorithm. We then only keep point framed by the two cameras before proceeding to fusion. Figure \ref{fig:geometry} shows the three deveices \gls{FoV} in the $XZ$ plane. The hatched zone corresponds to the domain where fusion will take place. As we consider the three cameras have the same $Y$ coordinate, the $Y$ domain is given by the minimal \gls{FoV}. Basic analytical calculations give:
+In order to perform \textit{registration}, the determination of the domain framed by both devices must be accomplished as the first step of the algorithm. We then only keep point framed by the two cameras before proceeding to fusion. Figure \ref{fig:geometry} shows the three devices \gls{FoV} in the $XZ$ plane. The hatched zone corresponds to the domain where fusion will take place. As we consider the three cameras have the same $Y$ coordinate, the $Y$ domain is given by the minimal \gls{FoV}. Basic analytical calculations give:
 \begin{eqnarray}
 z_i & \in & \Big[min\Big(\frac{t_{TR}\,\mathsf{tan}(\rho)\,\mathsf{tan}(tau)}{\mathsf{tan}(\rho) + \mathsf{tan}(\tau)}, range_{min}\Big);\,range_{max}\Big]\\
 x_i & \in & \Big[\dfrac{-z_i-t_{TR}\mathsf{tan}(\rho)}{\mathsf{tan}(\rho)};\,\dfrac{z_i}{\mathsf{tan}(\rho)}\Big]\\

@@ -82,7 +82,7 @@ The NASA Human Exploration and Operations Mission Directorate (HEOMD) is investe
 The goal of this work is to create a fusion algorithm taking advantage of \gls{VERTIGO} stereo cameras and the \gls{ORF} camera to provide a 3D cloud with a better accuracy and completeness than the one provided by each sensors separately and to demonstrate the feasibility of this algorithm on the ground and during a Reduced Gravity Aircraft (\gls{RGA}) parabolic flight campaign.
 
 \subsection{Sensors}
-The characteristics of the sensors are described in table \ref{table:sensors}.
+The sensors used in this project has already been selected in a previous project in order to answer precise space criteria. Their features are described in table \ref{table:sensors}.
 \begin{table}[H]
 \begin{center}
 \footnotesize
@@ -117,9 +117,8 @@ Output Data & 10 bits monochrome & 14 bits depth, 16 bits visual & 8 bits monoch
 \caption{Brief summary of the sensors characteristics}\label{table:sensors}
 \end{table}
 
-\subsection{Architecture}
-Based on the sensors characteristics that have been mentioned and the \gls{VERTIGO} software structure \cite{muggler_phd}, a new architecture is proposed in figure \ref{fig:arch}. This project mainly focuses on the first block of this architecture, i.e. the acquisition of camera images, the fusion and the calibration.
-
+\subsection{Architecture and Context}
+This fusion algorithm and more broadly the machine vision of the \gls{SPHERES} nano-satellites is part of a \gls{SLAM} algorithm aiming at localizing the robots as well as mapping and understanding the geometry and motion parameters of the objects around the satellite (figure \ref{fig:arch}). Besides, in visual navigation, the outputs of this process are also the inputs of a motion control algorithm which can only be fully tested in a zero-gravity environment. Therefore, the subject of this thesis cannot be considered as a common camera fusion topic where the objects are generally static or their dynamics are known precisely but must also take into account the relative motion of the camera and the target. Moreover, the luminous environment the satellite will evolve in is also very specific, especially during \gls{EVA}. That is why, a particular attention on adaptivity to various conditions will be attached during the theoretical and practical analysis.
 
 % Define block styles
 \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=7em, text centered, rounded corners, minimum height=8em]
