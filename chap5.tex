@@ -1,7 +1,7 @@
 % % Fifth Chapter : Conclusions
 %
-% Master Thesis: Calibration and fusion of stereo cameras and optical-range finder sensors
-% for in-space localization and mapping
+% Master Thesis: Calibration and Fusion of Stereoscopic and Time-of-Flight 
+% Cameras for Zero Gravity Targets Inspection
 %
 % Achieved at Space System Lab, M.I.T.
 % Supervisor: Alvar Saenz-Otero, Daniel Alazard
@@ -12,12 +12,9 @@
 %%
 
 \chapter{Conclusions}
-TODO
-%travail, supaero, aeronautique, controle, visualisation, tout ca.
+This thesis is the result of a final project at Institut Sup\'{e}rieur de l'A\'{e}ronautique et de l'Espace achieved within the Massachusetts Institute of Tehcnology Space Systems Laboratory. It aimed at exploring new promising techniques for visual navigation of automated space systems and more especially the fusion of Time-of-Flight and stereoscopic cameras data. During this internship, literature review, theoretical development, software implementation and practical test sessions on the ground and inside parabolic flights have been part a bottom-up approach to improve autonomy efficiency in zero gravity robotics.\\\\
+One of the main contribution of this work is the adaptation of a calibration algorithm to a cheap hardware including Time-of-Flight and stereoscopic cameras without any prior requirements about the geometric configuration and the mechanical accuracy. Even if could be still improved in different ways, involving the incorporation of a thermographic camera and the refinement of the triangulation methods, this process has proven to give good results with different setups and is a major step towards the success of multi-sensors fusion algorithms in space systems and robotics in general.\\\\
+Even if it performed better results in other fields of application, the fusion implemented in this thesis has turned out to be unsuited for the low precision of the setup, the modest resolution of the sensors and the limited computation performances. However, it guided the research towards new types of algorithms that seem very promising for \gls{SLAM} processes in the domain of visual navigation in robotics. Instead of trying to improve the accuracy of a full three dimensional map in a single stream, the idea would be to match interesting feature points and compute their 3D coordinates in two different streams before merging them from a probabilistic point of view. Once again, IR informations could be integrated in this process to enrich the variety.
 
-%calibration: application avec bon potentiel meme si peut etre ameliore
 
-%fusion conduit a des resultat un peu decevant n'ameliorant pas la precision dans la version actuelle du programme et avec un temps de calcul eleve mais a mis en evidence les limitations des capteurs.
-
-%Au lieu d'essayer de composer un nuage 3D dans un single stream qui n'ameliore pas la precision, une methode prometteuse est de caluler separement les nuage de points, les diviser en region selon leur qualite et reconstituer un nuage final.
 

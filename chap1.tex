@@ -1,7 +1,7 @@
 % % First Chapter : Introduction
 %
-% Master Thesis: Calibration and fusion of stereo cameras and optical-range finder sensors
-% for in-space localization and mapping
+% Master Thesis: Calibration and Fusion of Stereoscopic and Time-of-Flight 
+% Cameras for Zero Gravity Targets Inspection
 %
 % Achieved at Space System Lab, M.I.T.
 % Supervisor: Alvar Saenz-Otero, Daniel Alazard
@@ -12,6 +12,7 @@
 %%
 
 \chapter{Introduction}
+\label{chapter:intro}
 
 This document is the result of five-month internship at the Massachusetts Institute of Technology Space System Laboratory (\gls{MIT} SSL) as part of the final project of a double Master degree in Aerospace Engineering, Space Systems and Telecommunications major, at Institut Sup\'erieur de l'A\'eronautique et de l'Espace (\gls{ISAE}), formation SUPAERO and Electrical Engineering, Telecommunications and Multimedia major at Facult\'e Polytechnique of the University of Mons (UMONS). The first chapter introduces the goal and the context of the project to give the reader a global overview of the state-of-art, the \gls{SSL} experience and facilities as well as the new equipment this project focuses on. The second chapter is dedicated to the theoretical aspect and aims at summarizing the required mathematical background and development describing fully and unambiguously every processes. A third chapter analyzes concretely the implementation of the same mechanism from a programmer's point of view. Finally, the results of two different experiment sets will be detailed in the fourth chapter before giving conclusion and future perspectives.
 
@@ -120,36 +121,12 @@ Output Data & 10 bits monochrome & 14 bits depth, 16 bits visual & 8 bits monoch
 \subsection{Architecture and Context}
 This fusion algorithm and more broadly the machine vision of the \gls{SPHERES} nano-satellites is part of a \gls{SLAM} algorithm aiming at localizing the robots as well as mapping and understanding the geometry and motion parameters of the objects around the satellite (figure \ref{fig:arch}). Besides, in visual navigation, the outputs of this process are also the inputs of a motion control algorithm which can only be fully tested in a zero-gravity environment. Therefore, the subject of this thesis cannot be considered as a common camera fusion topic where the objects are generally static or their dynamics are known precisely but must also take into account the relative motion of the camera and the target. Moreover, the luminous environment the satellite will evolve in is also very specific, especially during \gls{EVA}. That is why, a particular attention on adaptivity to various conditions will be attached during the theoretical and practical analysis.
 
-% Define block styles
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=7em, text centered, rounded corners, minimum height=8em]
-\tikzstyle{cloud} = [ellipse, draw,fill=red!20, text width=3.5em, text centered]
-\tikzstyle{storage} = [draw, cylinder, fill=orange!20, shape border rotate=90, text width=3em, text centered, minimum height=3em, shape aspect=0.2]
-\tikzstyle{line} = [draw, ->]
-
-\begin{figure}[H]
-\scriptsize
-\begin{tikzpicture}[node distance = 4cm, auto]
-	% Place nodes
-	\node [block] (fusion) {Real-Time Fusion Algorithm};
-	\node [cloud, yshift=1.5cm, left of=fusion] (tof) {\gls{ToF} Camera};
-	\node [cloud, yshift=-1.5cm, left of=fusion] (stereo) {Stereo Cameras};
-	\node [block, below of=fusion, minimum height=2em, node distance=3cm] (calib) {Calibration Algorithm};
-	\node [storage, above of=fusion, node distance=3cm] (store1) {Storage};
-	\node [block, right of=fusion] (slam) {Simulataneous Localization and Mapping};
-	\node [storage, above of=slam, node distance=3cm] (store2) {Storage};
-	\node [block, right of=slam] (state) {State Estimator};
-	\node [coordinate, right of=state, node distance=3cm] (out) {};
-	% Draw edges
-	\path [line] (tof) -- node[above, align=right] {$\{D_T, A_T,$\\ $C_T\}$} (fusion);
-	\path [line] (stereo) -- node[above, align=center] {$\{I_R, I_L\}$} (fusion);
-	\path [line] (calib) -- node[right, align=center] {Calibration parameters} (fusion);
-	\path [line] (fusion) -- node[above, align=center] {3D frames} (slam);
-	\path [line] (fusion) -- node[right, align=center]{3D frames} (store1);
-	\path [line] (slam) -- node[right, align=center] {Environment map} (store2);
-	\path [line] (slam) -- node[above, align=center] {Localization} (state);
-	\draw [->] (state) -- node [above] {To Control Loop} (out);
-\end{tikzpicture}
-\caption{One architecture proposed for the algorithm and based on the \gls{VERTIGO} project}\label{fig:arch}
+\begin{figure}[!htt]
+\begin{center}
+\includegraphics[width=16cm]{img/arch2.png}
+\caption{The algorithms developed in this thesis, situated in the control process of the \gls{INSPECT} project. Sensor fusion 3D frames output are directly used in a \gls{SLAM} process which to provide localization estimation but also a map for the trajectory manager}
+\label{fig:arch}
+\end{center}
 \end{figure}
 
 

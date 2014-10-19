@@ -1,7 +1,7 @@
 % % Second Chapter : Theoritical Approach
 %
-% Master Thesis: Calibration and fusion of stereo cameras and optical-range finder sensors
-% for in-space localization and mapping
+% Master Thesis: Calibration and Fusion of Stereoscopic and Time-of-Flight 
+% Cameras for Zero Gravity Targets Inspection
 %
 % Achieved at Space System Lab, M.I.T.
 % Supervisor: Alvar Saenz-Otero, Daniel Alazard
@@ -12,6 +12,7 @@
 %%
 
 \chapter{Theoretical Approach}
+\label{chapter:theory}
 
 In this chapter, we will try to give all the theoretical tools to understand the algorithm development carried out in this project. The first section aims at reminding the reader of background models and theories but we will assume he masters his basics of mechanics of the rigid body, optics, image processing, numerical analysis and computer sciences.
 Section two focuses on calibration algorithm. It reviews solutions found in the literature to calibrate separately stereoscopic cameras and a \gls{ToF} camera but also describes the implementation and adaptation of a new algorithm proposed in \cite{stereo_tof_fusion_proba} to calibrate the whole \gls{ToF} and stereo cameras system while taking advantage of each sensors characteristics.
@@ -744,7 +745,7 @@ After this re-projection, the probability is computed as an exponential distribu
 \begin{equation}
 \mathit{P}[d^i = d^{i,j}|I_L, I_R] = e^{\dfrac{-c_{i,j}}{\sigma_w^i}}
 \end{equation}
-In this way, when we project all the $j$ points discretized from the \gls{ORF} Normal probability of a pixel $i$, we can associate them as presented in the theoretical example in figure \ref{fig:stereo_proba2}. As a pixel is very tiny, a small offset could incur a big mismatch between $L$ and $R$ projection, that is why we consider a rectangular window of size $(k,l)$ around this point and we compute $c_{i,j}$ as a truncated sum of the absolute difference (\textit{L1-norm}) between each point of the window \cite{stereo_windowing}:
+In this way, when we project all the $j$ points discretized from the \gls{ORF} Normal probability of a pixel $i$, we can compute a degree likeness for each pair in $L$ and $R$. As a pixel is very tiny, a small offset could incur a big mismatch between $L$ and $R$ projection, that is why we consider a rectangular window of size $(k,l)$ around this point and we compute $c_{i,j}$ as a truncated sum of the absolute difference (\textit{L1-norm}) between each point of the window \cite{stereo_windowing}:
 \begin{equation}
 c_{i,j} = \mathsf{min}\Big\{\sum_k \sum_l\, \big|I_L(u_{i,j} + k, v_{i,j} + l) - I_R(u_{i,j} + k, v_{i,j} + l)\big|\,,\,thresh\Big\}
 \end{equation}
