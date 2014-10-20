@@ -488,7 +488,7 @@ on \@thesisdate, in partial fulfillment of the \\
 requirements for the \@degreeword\ of \\
 \@degree
 \end{center}
-\par
+\vspace{-0.8cm}
 \begin{abstract}}
 
 %% Changed from \unvbox to \unvcopy for use with multiple copies of abstract
