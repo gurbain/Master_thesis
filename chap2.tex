@@ -89,7 +89,7 @@ To facilitate the representation, we can consider a \textit{virtual image plane}
 \noindent
 In this optimal model, the \textit{intrinsic} geometry of the camera is completely represented by the parameters $f$, $c_U$ and $c_V$ measured in pixels. However, to make it more realistic, we can introduce extra parameters such as:
 \begin{itemize*}
-\item The lens enlargement $k$, whose value is different along $U$ and $V$ axis and generally represented in the model through $f_U = k_U * f$ and $f_V = k_V * f$
+\item The lens enlargement $k$, whose value is different along $U$ and $V$ axis and generally represented in the model through $f_U = k_U * f$ and $f_V = k_V * f$.
 \item The skew $s_{UV}$, assessing the non-orthogonality between rows and columns of the sensor photosensitive cells.
 \end{itemize*}
 Those five parameters $f_U$, $f_V$, $c_U$, $c_V$, $s_{UV}$ constitute what we call the \textit{intrinsic matrix} of the camera:
@@ -227,8 +227,8 @@ d = \dfrac{c}{2}.\dfrac{\Delta\phi}{2 \pi f}
 Where:
 \begin{itemize*}
 \item $\Delta \phi$ is the phase shift between the emitted and received light
-\item $c$ is the light speed: $299 792 458 m/s$
-\item $f$ is the IR modulation frequency which has been set to $15MHz$ in our experiments
+\item $c$ is the light speed: $299 792 458 m/s$.
+\item $f$ is the IR modulation frequency which has been set to $15MHz$ in our experiments.
 \end{itemize*}
 Which also means that the camera maximal range $D$ is approximately equal to $10m$.
 % Figure cam_orf
@@ -337,8 +337,8 @@ Practically, all those $P_T^i$ correspond to the points on a plane pattern (the 
 \end{equation}
 Where the problem's constraints are:
 \begin{itemize*}
-\item \textit{All points are in the same plane}
-\item \textit{The distance between two consecutive points is known}
+\item \textit{All points are in the same plane}.
+\item \textit{The distance between two consecutive points is known}.
 \end{itemize*}
 As the iterative algorithm used to solve the problem (\ref{eq:calib_min}) has been detailed in \cite{intrinsic_calib} and already implemented in \textit{OpenCV}, no further detail will be given but understanding how the problem is defined will be useful in the following sections.
 
@@ -372,9 +372,9 @@ p_R
 \end{equation}
 The constraints are now:
 \begin{itemize*}
-\item \textit{All points are in the same plane}
-\item \textit{The distance between two consecutive points is known}
-\item \textit{Two epipolar lines cross in one single point (or the error is minimized in the case of a complex model)}
+\item \textit{All points are in the same plane}.
+\item \textit{The distance between two consecutive points is known}.
+\item \textit{Two epipolar lines cross in one single point (or the error is minimized in the case of a complex model)}.
 \end{itemize*}
 
 \subsection{Multi-Sensors Calibration}
@@ -512,9 +512,9 @@ Now that the \textit{triangulation} from the stereo cameras and the \textit{reco
 \end{equation}
 This problem will be solve using Horn's absolute orientation algorithm \cite{absolute_orientation} into a Random Sample Consensus process (RANSAC) \cite{ransac}. Without going into further details, the idea behind Horn's algorithm is the following:
 \begin{itemize*}
-\item Compute the centroids for $L$ and $T$ points, find the translation between those centroids
-\item Find the scale between the two points clouds
-\item Rewrite the problem using quaternion so that the minimization can be reduced to finding eigenvalues of a matrix
+\item Compute the centroids for $L$ and $T$ points, find the translation between those centroids.
+\item Find the scale between the two points clouds.
+\item Rewrite the problem using quaternion so that the minimization can be reduced to finding eigenvalues of a matrix.
 \end{itemize*}
 The RANSAC process aims at rejecting false positive measurements from the estimation scheme. For instance, if the checkerboard corner detection fails in one image and detects wrong points, we do not want those false positives to influence the total estimation. Intuitively, we know they can be spotted very quickly because they produce results far from those computed with all other points. We present the algorithm as summarized in \cite{muggler_phd}:
 
@@ -675,10 +675,10 @@ Where $range_{min}$ and $range_{max}$ represent the limited $Z$ range of the \gl
 \subsubsection{Optical Range Finder Noise Model}
 According to \cite{orf_calib} and \cite{stereo_tof_fusion_proba}, the error in the depth measurement $\hat{D}_T$ for each pixel captured by the \gls{ORF} camera can be mainly described as the sum of the following components:
 \begin{itemize*}
-\item A \textit{thermal noise} with a Gaussian distribution
-\item A \textit{quantization error}
-\item A \textit{photon shot noise} with a Poisson distribution
-\item A \textit{scattering generated noise} especially in presence of discontinuities
+\item A \textit{thermal noise} with a Gaussian distribution.
+\item A \textit{quantization error}.
+\item A \textit{photon shot noise} with a Poisson distribution.
+\item A \textit{scattering generated noise} especially in presence of discontinuities.
 \end{itemize*}
 According to the same sources, they consider the \textit{quantization error} and the \textit{photon shot noise} can be neglected in front of the \textit{scattering} and \textit{thermal noises}. The latter can be represented by a Normal distribution around the measured depth:
 \begin{equation}
