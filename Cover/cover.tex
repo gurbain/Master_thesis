@@ -6,6 +6,14 @@
 \pagestyle{plain}
 \usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
 
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
 \begin{document}
 \begin{titlepage}
 \includegraphics[width=2.5cm]{img/isae.png}
@@ -41,6 +49,6 @@ and\\
 \hspace{320pt}
 \includegraphics[width=2cm]{img/ssl.png}
 \end{titlepage}
-
+\afterpage{\blankpage}
 
 \end{document}

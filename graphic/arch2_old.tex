@@ -1,0 +1,31 @@
+% Define block styles
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=7em, text centered, rounded corners, minimum height=8em]
+\tikzstyle{cloud} = [ellipse, draw,fill=red!20, text width=3.5em, text centered]
+\tikzstyle{storage} = [draw, cylinder, fill=orange!20, shape border rotate=90, text width=3em, text centered, minimum height=3em, shape aspect=0.2]
+\tikzstyle{line} = [draw, ->]
+
+\begin{figure}[H]
+\scriptsize
+\begin{tikzpicture}[node distance = 4cm, auto]
+	% Place nodes
+	\node [block] (fusion) {Real-Time Fusion Algorithm};
+	\node [cloud, yshift=1.5cm, left of=fusion] (tof) {\gls{ToF} Camera};
+	\node [cloud, yshift=-1.5cm, left of=fusion] (stereo) {Stereo Cameras};
+	\node [block, below of=fusion, minimum height=2em, node distance=3cm] (calib) {Calibration Algorithm};
+	\node [storage, above of=fusion, node distance=3cm] (store1) {Storage};
+	\node [block, right of=fusion] (slam) {Simulataneous Localization and Mapping};
+	\node [storage, above of=slam, node distance=3cm] (store2) {Storage};
+	\node [block, right of=slam] (state) {State Estimator};
+	\node [coordinate, right of=state, node distance=3cm] (out) {};
+	% Draw edges
+	\path [line] (tof) -- node[above, align=right] {$\{D_T, A_T,$\\ $C_T\}$} (fusion);
+	\path [line] (stereo) -- node[above, align=center] {$\{I_R, I_L\}$} (fusion);
+	\path [line] (calib) -- node[right, align=center] {Calibration parameters} (fusion);
+	\path [line] (fusion) -- node[above, align=center] {3D frames} (slam);
+	\path [line] (fusion) -- node[right, align=center]{3D frames} (store1);
+	\path [line] (slam) -- node[right, align=center] {Environment map} (store2);
+	\path [line] (slam) -- node[above, align=center] {Localization} (state);
+	\draw [->] (state) -- node [above] {To Control Loop} (out);
+\end{tikzpicture}
+\caption{One architecture proposed for the algorithm and based on the \gls{VERTIGO} project}\label{fig:arch}
+\end{figure}
